@@ -1,0 +1,13 @@
+﻿# .editorconfig
+root = true
+
+[*]
+# Default settings for all files, if needed.
+# For instance, ensuring a newline at the end of the file.
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+[*.remotemap]
+indent_style = tab
+tab_width = 32

@@ -30,7 +30,7 @@ else
 fi
 
 # Validate the CONFIG value
-VALID_CONFIGS=("custom" "original")
+VALID_CONFIGS=("custom" "original", "from-scratch")
 
 if ! printf '%s\n' "${VALID_CONFIGS[@]}" | grep -q -P "^${CONFIG}$"; then
   echo_red "Error: Invalid configuration '${CONFIG}'. Valid configurations are: ${VALID_CONFIGS[*]}"

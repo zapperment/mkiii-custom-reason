@@ -1,0 +1,11 @@
+Propellerhead Remote Mapping File
+File Format Version	1.0.0
+Control Surface Manufacturer	Novation
+Control Surface Model	SL MkIII
+Map Version	3.0.1
+
+Scope	Propellerheads	Combinator
+
+//	Control Surface Item	Key	Remotable Item	Scale	Mode	Scale	Mode
+
+Map	Knob 1		Rotary 1

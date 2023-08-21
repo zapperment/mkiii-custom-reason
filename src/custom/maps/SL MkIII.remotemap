@@ -11,6 +11,7 @@ Scope	Propellerheads	Master Keyboard
 Map	Keyboard		Keyboard
 Map	Pitch Bend		Pitch Bend
 Map	Modulation		Mod Wheel
+Map	Expression		Expression
 Map	Sustain		Damper Pedal
 Map	Channel Pressure		Channel Pressure
 
@@ -19,61 +20,64 @@ Scope	Propellerheads	Reason Document
 //	Control Surface Item	Key	Remotable Item	Scale	Mode
 
 Map	Track Right		Target Next Track
-
 Map	Track Left		Target Previous Track
-
 Map	LOOP		Loop On/Off
-
 Map	REWIND		Rewind
-
 Map	FORWARD		Fast Forward
-
 Map	STOP		Stop
-
 Map	PLAY		Play
-
 Map	RECORD		Record
-
 Map	Options		Click On/Off
+
+Scope	Propellerheads	Combinator
+
+//	Control Surface Item	Key	Remotable Item	Scale	Mode
+
+Map	Clip Up		Select Previous Patch
+
+Map	Clip Down		Select Next Patch
+
+Map	Knob 1		Rotary 1
+Map	Knob 2		Rotary 2
+Map	Knob 3		Rotary 3
+Map	Knob 4		Rotary 4
+Map	Knob 5		Rotary 5
+Map	Knob 6		Rotary 6
+Map	Knob 7		Rotary 7
+Map	Knob 8		Rotary 8
+
+Map	Button 1		Button 1
+Map	Button 2		Button 2
+Map	Button 3		Button 3
+Map	Button 4		Button 4
+Map	Button 5		Button 5
+Map	Button 6		Button 6
+Map	Button 7		Button 7
+Map	Button 8		Button 8
+
+//Map	Footswitch		Run Pattern Devices
 
 Scope	Propellerheads	SubTractor Analog Synthesizer
 
 //	Control Surface Item	Key	Remotable Item	Scale	Mode
 
 Map	Fader 1		LFO1 Ext Mod
-
 Map	Fader 2		Amp Ext Mod
-
 Map	Fader 3		FM Ext Mod
-
 Map	Fader 4		Amp Env Attack
-
 Map	Fader 5		Amp Env Decay
-
 Map	Fader 6		Amp Env Sustain
-
 Map	Fader 7		Amp Env Release
-
 Map	Fader 8		Master Level
-
 Map	Clip Up		Select Previous Patch
-
 Map	Clip Down		Select Next Patch
-
 Map	Knob 1		Filter Freq
-
 Map	Knob 2		Filter Res
-
 Map	Knob 3		Filter Env Amount
-
 Map	Knob 4		LFO1 Rate
-
 Map	Knob 5		LFO1 Amount
-
 Map	Knob 6		LFO2 Rate
-
 Map	Knob 7		LFO2 Amount
-
 Map	Knob 8		Mod Env Gain
 
 
@@ -82,76 +86,43 @@ Scope	Propellerheads	Thor Polysonic Synthesizer
 //	Control Surface Item	Key	Remotable Item	Scale	Mode
 
 Map	Clip Up		Select Previous Patch
-
 Map	Clip Down		Select Next Patch
 
 Map	Fader 1		Osc 1 And 2 Balance
-
 Map	Fader 2		Osc 1 And 2 Level
-
 Map	Fader 3		Osc 3 Level
-
 Map	Fader 4		Amp Env Attack
-
 Map	Fader 5		Amp Env Decay
-
 Map	Fader 6		Amp Env Sustain
-
 Map	Fader 7		Amp Env Release
-
 Map	Fader 8		Master Level
 
 Map	Button 1		Filter 3 Type
-
 Map	Button 9		Pattern Step Gate 1
-
 Map	Button 10		Pattern Step Gate 2
-
 Map	Button 11		Pattern Step Gate 3
-
 Map	Button 12		Pattern Step Gate 4
-
 Map	Button 13		Pattern Step Gate 5
-
 Map	Button 14		Pattern Step Gate 6
-
 Map	Button 15		Pattern Step Gate 7
-
 Map	Button 16		Pattern Step Gate 8
-
 Map	Button 17		Pattern Step Gate 9
-
 Map	Button 18		Pattern Step Gate 10
-
 Map	Button 19		Pattern Step Gate 11
-
 Map	Button 20		Pattern Step Gate 12
-
 Map	Button 21		Pattern Step Gate 13
-
 Map	Button 22		Pattern Step Gate 14
-
 Map	Button 23		Pattern Step Gate 15
-
 Map	Button 24		Pattern Step Gate 16
 
-
 Map	Knob 1		Filter 3 Freq
-
 Map	Knob 2		Filter 3 Res
-
 Map	Knob 3		LFO 1 Rate
-
 Map	Knob 4		LFO 2 Rate
-
 Map	Knob 5		Delay Time
-
 Map	Knob 6		Delay Dry Wet
-
 Map	Knob 7		Rotary 1
-
 Map	Knob 8		Rotary 2
-
 
 Scope	Propellerheads	Kong Drum Designer
 
@@ -160,329 +131,168 @@ Define Group	Drum_vars	Drum 1	Drum 2	Drum 3	Drum 4	Drum 5	Drum 6	Drum 7	Drum 8	D
 //	Control Surface Item	Key	Remotable Item	Scale	Mode
 
 Map	Clip Up		Select Previous Patch
-
 Map	Clip Down		Select Next Patch
 
-
 Map	Pad 1		Drum_vars=Drum 1
-
 Map	Pad 2		Drum_vars=Drum 2
-
 Map	Pad 3		Drum_vars=Drum 3
-
 Map	Pad 4		Drum_vars=Drum 4
-
 Map	Pad 5		Drum_vars=Drum 5
-
 Map	Pad 6		Drum_vars=Drum 6
-
 Map	Pad 7		Drum_vars=Drum 7
-
 Map	Pad 8		Drum_vars=Drum 8
-
 Map	Pad 9		Drum_vars=Drum 9
-
 Map	Pad 10		Drum_vars=Drum 10
-
 Map	Pad 11		Drum_vars=Drum 11
-
 Map	Pad 12		Drum_vars=Drum 12
-
 Map	Pad 13		Drum_vars=Drum 13
-
 Map	Pad 14		Drum_vars=Drum 14
-
 Map	Pad 15		Drum_vars=Drum 15
-
 Map	Pad 16		Drum_vars=Drum 16
 
-
 Map	Knob 1		Drum 1 Pitch Offset			Drum 1
-
 Map	Knob 2		Drum 1 Decay Offset			Drum 1
-
 Map	Knob 3		Drum 1 Bus FX Send			Drum 1
-
 Map	Knob 4		Drum 1 Aux 1 Send			Drum 1
-
 Map	Knob 5		Drum 1 Aux 2 Send			Drum 1
-
 Map	Knob 6		Drum 1 Tone			Drum 1
-
 Map	Knob 7		Drum 1 Pan			Drum 1
-
 Map	Knob 8		Drum 1 Level			Drum 1
 
-
-
 Map	Knob 1		Drum 2 Pitch Offset			Drum 2
-
 Map	Knob 2		Drum 2 Decay Offset			Drum 2
-
 Map	Knob 3		Drum 2 Bus FX Send			Drum 2
-
 Map	Knob 4		Drum 2 Aux 1 Send			Drum 2
-
 Map	Knob 5		Drum 2 Aux 2 Send			Drum 2
-
 Map	Knob 6		Drum 2 Tone			Drum 2
-
 Map	Knob 7		Drum 2 Pan			Drum 2
-
 Map	Knob 8		Drum 2 Level			Drum 2
 
-
-
 Map	Knob 1		Drum 3 Pitch Offset			Drum 3
-
 Map	Knob 2		Drum 3 Decay Offset			Drum 3
-
 Map	Knob 3		Drum 3 Bus FX Send			Drum 3
-
 Map	Knob 4		Drum 3 Aux 1 Send			Drum 3
-
 Map	Knob 5		Drum 3 Aux 2 Send			Drum 3
-
 Map	Knob 6		Drum 3 Tone			Drum 3
-
 Map	Knob 7		Drum 3 Pan			Drum 3
-
 Map	Knob 8		Drum 3 Level			Drum 3
 
-
-
 Map	Knob 1		Drum 4 Pitch Offset			Drum 4
-
 Map	Knob 2		Drum 4 Decay Offset			Drum 4
-
 Map	Knob 3		Drum 4 Bus FX Send			Drum 4
-
 Map	Knob 4		Drum 4 Aux 1 Send			Drum 4
-
 Map	Knob 5		Drum 4 Aux 2 Send			Drum 4
-
 Map	Knob 6		Drum 4 Tone			Drum 4
-
 Map	Knob 7		Drum 4 Pan			Drum 4
-
 Map	Knob 8		Drum 4 Level			Drum 4
 
-
-
 Map	Knob 1		Drum 5 Pitch Offset			Drum 5
-
 Map	Knob 2		Drum 5 Decay Offset			Drum 5
-
 Map	Knob 3		Drum 5 Bus FX Send			Drum 5
-
 Map	Knob 4		Drum 5 Aux 1 Send			Drum 5
-
 Map	Knob 5		Drum 5 Aux 2 Send			Drum 5
-
 Map	Knob 6		Drum 5 Tone			Drum 5
-
 Map	Knob 7		Drum 5 Pan			Drum 5
-
 Map	Knob 8		Drum 5 Level			Drum 5
 
-
-
 Map	Knob 1		Drum 6 Pitch Offset			Drum 6
-
 Map	Knob 2		Drum 6 Decay Offset			Drum 6
-
 Map	Knob 3		Drum 6 Bus FX Send			Drum 6
-
 Map	Knob 4		Drum 6 Aux 1 Send			Drum 6
-
 Map	Knob 5		Drum 6 Aux 2 Send			Drum 6
-
 Map	Knob 6		Drum 6 Tone			Drum 6
-
 Map	Knob 7		Drum 6 Pan			Drum 6
-
 Map	Knob 8		Drum 6 Level			Drum 6
 
-
-
 Map	Knob 1		Drum 7 Pitch Offset			Drum 7
-
 Map	Knob 2		Drum 7 Decay Offset			Drum 7
-
 Map	Knob 3		Drum 7 Bus FX Send			Drum 7
-
 Map	Knob 4		Drum 7 Aux 1 Send			Drum 7
-
 Map	Knob 5		Drum 7 Aux 2 Send			Drum 7
-
 Map	Knob 6		Drum 7 Tone			Drum 7
-
 Map	Knob 7		Drum 7 Pan			Drum 7
-
 Map	Knob 8		Drum 7 Level			Drum 7
 
-
-
 Map	Knob 1		Drum 8 Pitch Offset			Drum 8
-
 Map	Knob 2		Drum 8 Decay Offset			Drum 8
-
 Map	Knob 3		Drum 8 Bus FX Send			Drum 8
-
 Map	Knob 4		Drum 8 Aux 1 Send			Drum 8
-
 Map	Knob 5		Drum 8 Aux 2 Send			Drum 8
-
 Map	Knob 6		Drum 8 Tone			Drum 8
-
 Map	Knob 7		Drum 8 Pan			Drum 8
-
 Map	Knob 8		Drum 8 Level			Drum 8
 
-
-
 Map	Knob 1		Drum 9 Pitch Offset			Drum 9
-
 Map	Knob 2		Drum 9 Decay Offset			Drum 9
-
 Map	Knob 3		Drum 9 Bus FX Send			Drum 9
-
 Map	Knob 4		Drum 9 Aux 1 Send			Drum 9
-
 Map	Knob 5		Drum 9 Aux 2 Send			Drum 9
-
 Map	Knob 6		Drum 9 Tone			Drum 9
-
 Map	Knob 7		Drum 9 Pan			Drum 9
-
 Map	Knob 8		Drum 9 Level			Drum 9
 
-
-
 Map	Knob 1		Drum 10 Pitch Offset			Drum 10
-
 Map	Knob 2		Drum 10 Decay Offset			Drum 10
-
 Map	Knob 3		Drum 10 Bus FX Send			Drum 10
-
 Map	Knob 4		Drum 10 Aux 1 Send			Drum 10
-
 Map	Knob 5		Drum 10 Aux 2 Send			Drum 10
-
 Map	Knob 6		Drum 10 Tone			Drum 10
-
 Map	Knob 7		Drum 10 Pan			Drum 10
-
 Map	Knob 8		Drum 10 Level			Drum 10
 
-
-
 Map	Knob 1		Drum 11 Pitch Offset			Drum 11
-
 Map	Knob 2		Drum 11 Decay Offset			Drum 11
-
 Map	Knob 3		Drum 11 Bus FX Send			Drum 11
-
 Map	Knob 4		Drum 11 Aux 1 Send			Drum 11
-
 Map	Knob 5		Drum 11 Aux 2 Send			Drum 11
-
 Map	Knob 6		Drum 11 Tone			Drum 11
-
 Map	Knob 7		Drum 11 Pan			Drum 11
-
 Map	Knob 8		Drum 11 Level			Drum 11
 
-
-
 Map	Knob 1		Drum 12 Pitch Offset			Drum 12
-
 Map	Knob 2		Drum 12 Decay Offset			Drum 12
-
 Map	Knob 3		Drum 12 Bus FX Send			Drum 12
-
 Map	Knob 4		Drum 12 Aux 1 Send			Drum 12
-
 Map	Knob 5		Drum 12 Aux 2 Send			Drum 12
-
 Map	Knob 6		Drum 12 Tone			Drum 12
-
 Map	Knob 7		Drum 12 Pan			Drum 12
-
 Map	Knob 8		Drum 12 Level			Drum 12
 
-
-
 Map	Knob 1		Drum 13 Pitch Offset			Drum 13
-
 Map	Knob 2		Drum 13 Decay Offset			Drum 13
-
 Map	Knob 3		Drum 13 Bus FX Send			Drum 13
-
 Map	Knob 4		Drum 13 Aux 1 Send			Drum 13
-
 Map	Knob 5		Drum 13 Aux 2 Send			Drum 13
-
 Map	Knob 6		Drum 13 Tone			Drum 13
-
 Map	Knob 7		Drum 13 Pan			Drum 13
-
 Map	Knob 8		Drum 13 Level			Drum 13
 
-
-
 Map	Knob 1		Drum 14 Pitch Offset			Drum 14
-
 Map	Knob 2		Drum 14 Decay Offset			Drum 14
-
 Map	Knob 3		Drum 14 Bus FX Send			Drum 14
-
 Map	Knob 4		Drum 14 Aux 1 Send			Drum 14
-
 Map	Knob 5		Drum 14 Aux 2 Send			Drum 14
-
 Map	Knob 6		Drum 14 Tone			Drum 14
-
 Map	Knob 7		Drum 14 Pan			Drum 14
-
 Map	Knob 8		Drum 14 Level			Drum 14
 
-
-
 Map	Knob 1		Drum 15 Pitch Offset			Drum 15
-
 Map	Knob 2		Drum 15 Decay Offset			Drum 15
-
 Map	Knob 3		Drum 15 Bus FX Send			Drum 15
-
 Map	Knob 4		Drum 15 Aux 1 Send			Drum 15
-
 Map	Knob 5		Drum 15 Aux 2 Send			Drum 15
-
 Map	Knob 6		Drum 15 Tone			Drum 15
-
 Map	Knob 7		Drum 15 Pan			Drum 15
-
 Map	Knob 8		Drum 15 Level			Drum 15
 
-
-
 Map	Knob 1		Drum 16 Pitch Offset			Drum 16
-
 Map	Knob 2		Drum 16 Decay Offset			Drum 16
-
 Map	Knob 3		Drum 16 Bus FX Send			Drum 16
-
 Map	Knob 4		Drum 16 Aux 1 Send			Drum 16
-
 Map	Knob 5		Drum 16 Aux 2 Send			Drum 16
-
 Map	Knob 6		Drum 16 Tone			Drum 16
-
 Map	Knob 7		Drum 16 Pan			Drum 16
-
 Map	Knob 8		Drum 16 Level			Drum 16
-
 
 Scope	Propellerheads	Mixer 14:2
 
@@ -490,67 +300,38 @@ Scope	Propellerheads	Mixer 14:2
 
 Define Group	Channels	Chan 1	Chan 2	Chan 3	Chan 4	Chan 5	Chan 6	Chan 7	Chan 8	Chan 9	Chan 10	Chan 11	Chan 12	Chan 13	Chan 14
 
-
 Map	Button 9		Channels=Chan 1
-
 Map	Button 10		Channels=Chan 2
-
 Map	Button 11		Channels=Chan 3
-
 Map	Button 12		Channels=Chan 4
-
 Map	Button 13		Channels=Chan 5
-
 Map	Button 14		Channels=Chan 6
-
 Map	Button 15		Channels=Chan 7
-
 Map	Button 16		Channels=Chan 8
-
 Map	Button 17		Channels=Chan 9
-
 Map	Button 18		Channels=Chan 10
-
 Map	Button 19		Channels=Chan 11
-
 Map	Button 20		Channels=Chan 12
-
 Map	Button 21		Channels=Chan 13
-
 Map	Button 22		Channels=Chan 14
 
-
 Map	Knob 1		Channel 1 Level			Chan 1
-
 Map	Knob 2		Channel 1 Pan			Chan 1
-
 Map	Knob 3		Channel 1 Bass Amount			Chan 1
-
 Map	Knob 4		Channel 1 Treble Amount			Chan 1
-
 Map	Knob 5		Channel 1 Aux 1 Send			Chan 1
-
 Map	Knob 6		Channel 1 Aux 2 Send			Chan 1
-
 Map	Knob 7		Channel 1 Aux 3 Send			Chan 1
-
 Map	Knob 8		Channel 1 Aux 4 Send			Chan 1
 
 Map	Button 1		Channel 1 Mute			Chan 1
-
 Map	Button 2		Channel 1 Solo			Chan 1
-
 Map	Button 3		Channel 1 EQ On/Off			Chan 1
-
 Map	Button 4		Channel 1 Aux 4 Pre Fader On/Off			Chan 1
 
-
 Map	Knob 1		Channel 2 Level			Chan 2
-
 Map	Knob 2		Channel 2 Pan			Chan 2
-
 Map	Knob 3		Channel 2 Bass Amount			Chan 2
-
 Map	Knob 4		Channel 2 Treble Amount			Chan 2
 
 Map	Knob 5		Channel 2 Aux 1 Send			Chan 2
@@ -899,33 +680,6 @@ Map	Fader 4		Channel 4 Level
 Map	Fader 5		Channel 5 Level
 
 Map	Fader 6		Channel 6 Level
-
-
-Scope	Propellerheads	Combinator
-
-//	Control Surface Item	Key	Remotable Item	Scale	Mode
-
-Map	Clip Up		Select Previous Patch
-
-Map	Clip Down		Select Next Patch
-
-Map	Knob 1		Rotary 1
-Map	Knob 2		Rotary 2
-Map	Knob 3		Rotary 3
-Map	Knob 4		Rotary 4
-Map	Knob 5		Rotary 5
-Map	Knob 6		Rotary 6
-Map	Knob 7		Rotary 7
-Map	Knob 8		Rotary 8
-
-Map	Button 1		Button 1
-Map	Button 2		Button 2
-Map	Button 3		Button 3
-Map	Button 4		Button 4
-Map	Button 5		Button 5
-Map	Button 6		Button 6
-Map	Button 7		Button 7
-Map	Button 8		Button 8
 
 
 Scope	Propellerheads	Malstrom Graintable Synthesizer
