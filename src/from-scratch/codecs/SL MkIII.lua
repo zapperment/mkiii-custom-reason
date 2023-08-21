@@ -2,7 +2,7 @@
 g_sysex_header = "f0 00 20 29 02 0A 01"
 
 -- System exclusive message to reset the displays below the encoders
-g_sysex_encoder_layout = "f0 00 20 29 02 0A 01 01 01 f7"
+g_sysex_encoder_layout = g_sysex_header .. "01 01 f7"
 
 g_encoder1_item_index = 1
 
@@ -18,8 +18,40 @@ g_encoder1_value_prev = " "
 g_encoder1_enabled = false
 g_encoder1_enabled_prev = false
 
-g_debug_msg = " "
-g_debug_msg_prev = " "
+-- These can be used to display any text on the SL's LCD panels, which
+-- can be useful for debugging
+g_debug_msg1 = " "
+g_debug_msg1_prev = " "
+g_debug_msg2 = " "
+g_debug_msg2_prev = " "
+
+function concatenate_keys(tbl, exclude_keys)
+    local keys = {}
+    local exclude = {}
+
+    -- Populate the exclude table for O(1) lookups
+    for _, key in ipairs(exclude_keys or {}) do
+        exclude[key] = true
+    end
+
+    for key, _ in pairs(tbl) do
+        if not exclude[key] then
+            table.insert(keys, tostring(key))
+        end
+    end
+
+    return table.concat(keys, ",")
+end
+
+function make_debug_msg_event(debug_msg, row_number)
+    local row_hex = row_number == 1 and "02" or "03"
+    local chunks = split_string(debug_msg, 8, 8)
+    local event = g_sysex_header .. "02 "
+    for i, chunk in ipairs(chunks) do
+        event = event .. dec_to_hex(i - 1) .. " 01 " .. row_hex .. " " .. text_to_hex(chunk) .. " 00 "
+    end
+    return remote.make_midi(event .. "F7")
+end
 
 function text_to_hex(text)
     local sysex = ""
@@ -142,6 +174,7 @@ function remote_init()
     remote.define_items(items)
 end
 
+-- KEYBOARD => CODEC
 -- This function is called for each incoming MIDI event. This is where the codec interprets
 -- the message and translates it into a Remote message. The translated message is then
 -- passed back to Remote with a call to remote.handle_input(). If the event was translated
@@ -159,24 +192,33 @@ function remote_process_midi(event)
     -- and z).
     local ret = remote.match_midi("bf 15 xx", event)
     if ret ~= nil and g_encoder1_enabled then
+        local delta = nil
         if ret.x <= 63 then
             -- encoder turned clockwise
-            g_encoder1_value = g_encoder1_value + ret.x
+            delta = ret.x
+            g_encoder1_value = g_encoder1_value + delta
             if g_encoder1_value > 127 then
                 g_encoder1_value = 127
             end
         else
             -- encoder turned counter-clockwise
-            g_encoder1_value = g_encoder1_value + ret.x - 128
+            delta = ret.x - 128
+            g_encoder1_value = g_encoder1_value + delta
             if g_encoder1_value < 0 then
                 g_encoder1_value = 0
             end
         end
+        remote.handle_input({
+            item = g_encoder1_item_index,
+            value = delta,
+            time_stamp = event.time_stamp
+        })
         return true
     end
     return false
 end
 
+-- REASON => CODEC
 -- remote_set_state() is called regularly to update the state of control surface items.
 -- changed_items is a table containing indexes to the items that have changed since the last
 -- call.
@@ -189,10 +231,10 @@ function remote_set_state(changed_items)
             -- is_enabled – true if the control surface item is mapped/enabled
             -- value – the value of the item (e.g. 64)
             -- mode – mode the current mode for the item
-            -- remote_item_name – the name of the remotable item mapped (e.g. "Knob 1")
+            -- remote_item_name – the name of the remotable item mapped (e.g. "Rotary 1")
             -- text_value – the text value of the remotable item (e.g. "64")
-            -- short_name – the short version of the name (8 characters maximum, e.g. "Knob 1")
-            -- shortest_name – the shortest version of the name (4 chars, e.g. "Knob")
+            -- short_name – the short version of the name (8 characters maximum, e.g. "Rot 1")
+            -- shortest_name – the shortest version of the name (4 chars, e.g. "R1")
             -- name_and_value – the name and value combined
             -- short_name_and_value – the short version of name-and-value (16 chars)
             -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
@@ -211,12 +253,13 @@ function remote_set_state(changed_items)
     end
 end
 
+-- CODEC => KEYBOARD
 -- This function is called at regular intervals when the host is due to update the control
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
     local ret_events = {}
     if g_encoder1_enabled ~= g_encoder1_enabled_prev then
-        local event = "f0 00 20 29 02 0A 01 02 "
+        local event = g_sysex_header .. "02 "
         if g_encoder1_enabled then
             -- 00: Knob 1
             -- 02 01: Sets color
@@ -235,7 +278,7 @@ function remote_deliver_midi()
         local column = "00" -- column 1
         local row = "00" -- row 1
         local text = text_to_hex(g_encoder1_label)
-        local event = "F0 00 20 29 02 0A 01 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
+        local event = g_sysex_header .. "02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 00 00 02 01 00 00 03 01 00 00 04 01 00 00 05 01 00 00 06 01 00 00 07 01 00 00 F7"
         table.insert(ret_events, remote.make_midi(event))
         g_encoder1_label_prev = g_encoder1_label
@@ -245,22 +288,27 @@ function remote_deliver_midi()
         local column = "00" -- column 1
         local row = "01" -- row 2
         local text = text_to_hex(g_encoder1_value)
-        local event = "F0 00 20 29 02 0A 01 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
+        local event = g_sysex_header .. "02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 01 00 02 01 01 00 03 01 01 00 04 01 01 00 05 01 01 00 06 01 01 00 07 01 01 00 F7"
         table.insert(ret_events, remote.make_midi(event))
         g_encoder1_value_prev = g_encoder1_value
     end
 
-    if g_debug_msg ~= g_debug_msg_prev then
-        local row = "03"
-        local chunks = split_string(g_debug_msg, 8, 8)
-        local event = "F0 00 20 29 02 0A 01 02 "
-        for i, chunk in ipairs(chunks) do
-            event = event .. dec_to_hex(i - 1) .. " 01 " .. row .. " " .. text_to_hex(chunk) .. " 00 "
-        end
-        event = event .. "F7"
-        table.insert(ret_events, remote.make_midi(event))
-        g_debug_msg_prev = g_debug_msg
+    if g_debug_msg1 ~= g_debug_msg1_prev then
+        table.insert(ret_events, make_debug_msg_event(g_debug_msg1, 1))
+        g_debug_msg1_prev = g_debug_msg1
+    end
+    if g_debug_msg2 ~= g_debug_msg2_prev then
+        table.insert(ret_events, make_debug_msg_event(g_debug_msg2, 2))
+        g_debug_msg2_prev = g_debug_msg2
     end
     return ret_events
+end
+
+function remote_prepare_for_use()
+    return {remote.make_midi(g_sysex_encoder_layout)}
+end
+
+function remote_release_from_use()
+    return {remote.make_midi(g_sysex_encoder_layout)}
 end
