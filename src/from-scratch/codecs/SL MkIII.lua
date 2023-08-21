@@ -4,6 +4,8 @@ g_sysex_header = "f0 00 20 29 02 0A 01"
 -- System exclusive message to reset the displays below the encoders
 g_sysex_encoder_layout = "f0 00 20 29 02 0A 01 01 01 f7"
 
+g_encoder1_item_index = 1
+
 -- The label of the first encoder, shown in the display below the encoder
 g_encoder1_label = " "
 g_encoder1_label_prev = " "
@@ -158,7 +160,7 @@ end
 function remote_set_state(changed_items)
     for i, item_index in ipairs(changed_items) do
         local changed_item_data = remote.get_item_state(item_index)
-        if changed_item_data.remote_item_name == "Knob 1" then
+        if item_index == g_encoder1_item_index then
             -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
             -- fields:
             -- is_enabled – true if the control surface item is mapped/enabled
@@ -172,8 +174,7 @@ function remote_set_state(changed_items)
             -- short_name_and_value – the short version of name-and-value (16 chars)
             -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
-            -- remote.is_item_enabled returns true if the given control surface item should be enabled.
-            if remote.is_item_enabled(item_index) then
+            if changed_item_data.is_enabled then
                 g_encoder1_label = changed_item_data.short_name
                 g_encoder1_value = changed_item_data.value
                 g_encoder1_enabled = true
