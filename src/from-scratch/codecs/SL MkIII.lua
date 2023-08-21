@@ -18,22 +18,45 @@ g_encoder1_value_prev = " "
 g_encoder1_enabled = false
 g_encoder1_enabled_prev = false
 
-function text_to_sysex(text)
+g_debug_msg = " "
+g_debug_msg_prev = " "
+
+function text_to_hex(text)
     local sysex = ""
     for i = 1, string.len(text) do
-        sysex = sysex .. dec_to_hex(string.byte(text, i)) .. " "
+        sysex = sysex .. dec_to_hex(string.byte(text, i))
+        if i ~= text_len then
+            sysex = sysex .. " "
+        end
     end
     return sysex
 end
 
-function dec_to_hex(IN)
-    local B, K, OUT, I, D = 16, "0123456789ABCDEF", "", 0, 0
-    while IN > 0 do
-        I = I + 1
-        IN, D = math.floor(IN / B), math.fmod(IN, B) + 1
-        OUT = string.sub(K, D, D) .. OUT
+function dec_to_hex(decimal_value)
+    return string.format("%02X", decimal_value)
+end
+
+function split_string(str, chunk_length, num_chunks)
+    -- Check if the provided parameters are valid
+    if not str or not chunk_length or not num_chunks then
+        return nil, "Invalid parameters"
     end
-    return OUT
+
+    local result = {}
+    local index = 1
+    for i = 1, num_chunks do
+        local chunk = str:sub(index, index + chunk_length - 1)
+
+        -- Pad the chunk with spaces if it's too short
+        while #chunk < chunk_length do
+            chunk = chunk .. " "
+        end
+
+        table.insert(result, chunk)
+        index = index + chunk_length
+    end
+
+    return result
 end
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
@@ -211,7 +234,7 @@ function remote_deliver_midi()
     if g_encoder1_label ~= g_encoder1_label_prev then
         local column = "00" -- column 1
         local row = "00" -- row 1
-        local text = text_to_sysex(g_encoder1_label)
+        local text = text_to_hex(g_encoder1_label)
         local event = "F0 00 20 29 02 0A 01 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 00 00 02 01 00 00 03 01 00 00 04 01 00 00 05 01 00 00 06 01 00 00 07 01 00 00 F7"
         table.insert(ret_events, remote.make_midi(event))
@@ -221,11 +244,23 @@ function remote_deliver_midi()
     if g_encoder1_value ~= g_encoder1_value_prev then
         local column = "00" -- column 1
         local row = "01" -- row 2
-        local text = text_to_sysex(g_encoder1_value)
+        local text = text_to_hex(g_encoder1_value)
         local event = "F0 00 20 29 02 0A 01 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 01 00 02 01 01 00 03 01 01 00 04 01 01 00 05 01 01 00 06 01 01 00 07 01 01 00 F7"
         table.insert(ret_events, remote.make_midi(event))
         g_encoder1_value_prev = g_encoder1_value
+    end
+
+    if g_debug_msg ~= g_debug_msg_prev then
+        local row = "03"
+        local chunks = split_string(g_debug_msg, 8, 8)
+        local event = "F0 00 20 29 02 0A 01 02 "
+        for i, chunk in ipairs(chunks) do
+            event = event .. dec_to_hex(i - 1) .. " 01 " .. row .. " " .. text_to_hex(chunk) .. " 00 "
+        end
+        event = event .. "F7"
+        table.insert(ret_events, remote.make_midi(event))
+        g_debug_msg_prev = g_debug_msg
     end
     return ret_events
 end
