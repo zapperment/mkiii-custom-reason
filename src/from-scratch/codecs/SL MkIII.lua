@@ -2,7 +2,7 @@
 g_sysex_header = "f0 00 20 29 02 0A 01"
 
 -- System exclusive message to reset the displays below the encoders
-g_sysex_encoder_layout = g_sysex_header .. "01 01 f7"
+g_sysex_encoder_layout = g_sysex_header .. " 01 01 f7"
 
 g_knob1_item_index = 1
 
@@ -54,7 +54,7 @@ end
 function make_debug_msg_event(debug_msg, row_number)
     local row_hex = row_number == 1 and "02" or "03"
     local chunks = split_string(debug_msg, 8, 8)
-    local event = g_sysex_header .. "02 "
+    local event = g_sysex_header .. " 02 "
     for i, chunk in ipairs(chunks) do
         event = event .. dec_to_hex(i - 1) .. " 01 " .. row_hex .. " " .. text_to_hex(chunk) .. " 00 "
     end
@@ -97,6 +97,24 @@ function split_string(str, chunk_length, num_chunks)
     end
 
     return result
+end
+
+function make_notification(line_1, line_2)
+    l_1 = " "
+    l_2 = " "
+    begin = g_sysex_header .. " 04 "
+
+    for i = 1, math.min(string.len(line_1), 18) do
+        l_1 = l_1 .. string.format("%X", tostring(string.byte(line_1, i))) .. " "
+    end
+
+    for i = 1, string.len(line_2) do
+        l_2 = l_2 .. string.format("%X", tostring(string.byte(line_2, i))) .. " "
+    end
+
+    msg = begin .. l_1 .. " 00 " .. l_2 .. " 00 " .. " F7"
+
+    return remote.make_midi(msg)
 end
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
@@ -280,18 +298,17 @@ end
 function remote_deliver_midi()
     local ret_events = {}
     if g_knob1_enabled ~= g_knob1_enabled_prev then
-        local event = g_sysex_header .. "02 "
+        local event = g_sysex_header .. " 02 "
         if g_knob1_enabled then
             -- 00: Knob 1
             -- 02 01: Sets color
             -- 09: orange
-            event = event .. "00 02 01 09"
+            event = event .. "00 02 01 09 "
         else
-            event = event .. "00 02 01 00"
+            event = event .. "00 02 01 00 "
         end
         event = event .. "f7"
         table.insert(ret_events, remote.make_midi(event))
-
         g_knob1_enabled_prev = g_knob1_enabled
     end
 
@@ -299,7 +316,7 @@ function remote_deliver_midi()
         local column = "00" -- column 1
         local row = "00" -- row 1
         local text = text_to_hex(g_knob1_label)
-        local event = g_sysex_header .. "02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
+        local event = g_sysex_header .. " 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 00 00 02 01 00 00 03 01 00 00 04 01 00 00 05 01 00 00 06 01 00 00 07 01 00 00 F7"
         table.insert(ret_events, remote.make_midi(event))
         g_knob1_label_prev = g_knob1_label
@@ -309,7 +326,7 @@ function remote_deliver_midi()
         local column = "00" -- column 1
         local row = "01" -- row 2
         local text = text_to_hex(g_knob1_value)
-        local event = g_sysex_header .. "02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
+        local event = g_sysex_header .. " 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 01 00 02 01 01 00 03 01 01 00 04 01 01 00 05 01 01 00 06 01 01 00 07 01 01 00 F7"
         table.insert(ret_events, remote.make_midi(event))
         g_knob1_value_prev = g_knob1_value
@@ -323,6 +340,14 @@ function remote_deliver_midi()
         table.insert(ret_events, make_debug_msg_event(g_debug_msg2, 2))
         g_debug_msg2_prev = g_debug_msg2
     end
+
+    if g_device_name ~= g_device_name_prev or g_patch_name ~= g_patch_name_prev then
+        local line2 = g_device_name == g_patch_name and " " or g_patch_name
+        table.insert(ret_events, make_notification(g_device_name, line2))
+        g_device_name_prev = g_device_name
+        g_patch_name_prev = g_patch_name
+    end
+
     return ret_events
 end
 

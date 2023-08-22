@@ -1604,7 +1604,7 @@ end
 
 ---------------------------------------------------------------------------
 function remote_deliver_midi()
-    -- it traslates variables into MIDI events
+    -- it tra  slates variables into MIDI events
     local ret_events = {}
     local counter = 0 -- increase if KNOBS change their status
     local counter_2 = 0 -- increase if LABELS change their status
