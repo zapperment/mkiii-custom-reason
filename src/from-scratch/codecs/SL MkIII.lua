@@ -25,6 +25,14 @@ g_debug_msg1_prev = " "
 g_debug_msg2 = " "
 g_debug_msg2_prev = " "
 
+-- Names of current device and currently loaded patch
+g_device_name = " "
+g_device_name_prev = " "
+g_device_name_index = 2
+g_patch_name = " "
+g_patch_name_prev = " "
+g_patch_name_index = 3
+
 function concatenate_keys(tbl, exclude_keys)
     local keys = {}
     local exclude = {}
@@ -166,6 +174,12 @@ function remote_init()
         output = "value",
         min = 0,
         max = 127
+    }, {
+        name = "deviceName",
+        output = "text"
+    }, {
+        name = "patchName",
+        output = "text"
     }}
 
     -- remote.define_items registers all control surface items. items is a array with one entry for each item. The
@@ -250,6 +264,13 @@ function remote_set_state(changed_items)
             end
         end
 
+        if item_index == g_device_name_index then
+            g_device_name = remote.get_item_text_value(item_index)
+        end
+
+        if item_index == g_patch_name_index then
+            g_patch_name = remote.get_item_text_value(item_index)
+        end
     end
 end
 
