@@ -4,19 +4,19 @@ g_sysex_header = "f0 00 20 29 02 0A 01"
 -- System exclusive message to reset the displays below the encoders
 g_sysex_encoder_layout = g_sysex_header .. "01 01 f7"
 
-g_encoder1_item_index = 1
+g_knob1_item_index = 1
 
 -- The label of the first encoder, shown in the display below the encoder
-g_encoder1_label = " "
-g_encoder1_label_prev = " "
+g_knob1_label = " "
+g_knob1_label_prev = " "
 
 -- The current value associated with the first encoder, shown as knob image below the encoder
-g_encoder1_value = " "
-g_encoder1_value_prev = " "
+g_knob1_value = " "
+g_knob1_value_prev = " "
 
 -- Whether the first encoder currently has a control in Reason associated to it
-g_encoder1_enabled = false
-g_encoder1_enabled_prev = false
+g_knob1_enabled = false
+g_knob1_enabled_prev = false
 
 -- These can be used to display any text on the SL's LCD panels, which
 -- can be useful for debugging
@@ -161,7 +161,7 @@ end
 -- remote.define_auto_outputs(). The define_* functions can only be called from remote_init().
 function remote_init()
     local items = {{
-        name = "Knob 1",
+        name = "knob1",
         input = "delta",
         output = "value",
         min = 0,
@@ -191,25 +191,25 @@ function remote_process_midi(event)
     -- mask should be a string containing the MIDI mask. It may contain variable references (x,y
     -- and z).
     local ret = remote.match_midi("bf 15 xx", event)
-    if ret ~= nil and g_encoder1_enabled then
+    if ret ~= nil and g_knob1_enabled then
         local delta = nil
         if ret.x <= 63 then
             -- encoder turned clockwise
             delta = ret.x
-            g_encoder1_value = g_encoder1_value + delta
-            if g_encoder1_value > 127 then
-                g_encoder1_value = 127
+            g_knob1_value = g_knob1_value + delta
+            if g_knob1_value > 127 then
+                g_knob1_value = 127
             end
         else
             -- encoder turned counter-clockwise
             delta = ret.x - 128
-            g_encoder1_value = g_encoder1_value + delta
-            if g_encoder1_value < 0 then
-                g_encoder1_value = 0
+            g_knob1_value = g_knob1_value + delta
+            if g_knob1_value < 0 then
+                g_knob1_value = 0
             end
         end
         remote.handle_input({
-            item = g_encoder1_item_index,
+            item = g_knob1_item_index,
             value = delta,
             time_stamp = event.time_stamp
         })
@@ -225,7 +225,7 @@ end
 function remote_set_state(changed_items)
     for i, item_index in ipairs(changed_items) do
         local changed_item_data = remote.get_item_state(item_index)
-        if item_index == g_encoder1_item_index then
+        if item_index == g_knob1_item_index then
             -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
             -- fields:
             -- is_enabled – true if the control surface item is mapped/enabled
@@ -240,13 +240,13 @@ function remote_set_state(changed_items)
             -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
             if changed_item_data.is_enabled then
-                g_encoder1_label = changed_item_data.short_name
-                g_encoder1_value = changed_item_data.value
-                g_encoder1_enabled = true
+                g_knob1_label = changed_item_data.short_name
+                g_knob1_value = changed_item_data.value
+                g_knob1_enabled = true
             else
-                g_encoder1_label = " "
-                g_encoder1_value = " "
-                g_encoder1_enabled = false
+                g_knob1_label = " "
+                g_knob1_value = " "
+                g_knob1_enabled = false
             end
         end
 
@@ -258,9 +258,9 @@ end
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
     local ret_events = {}
-    if g_encoder1_enabled ~= g_encoder1_enabled_prev then
+    if g_knob1_enabled ~= g_knob1_enabled_prev then
         local event = g_sysex_header .. "02 "
-        if g_encoder1_enabled then
+        if g_knob1_enabled then
             -- 00: Knob 1
             -- 02 01: Sets color
             -- 09: orange
@@ -271,27 +271,27 @@ function remote_deliver_midi()
         event = event .. "f7"
         table.insert(ret_events, remote.make_midi(event))
 
-        g_encoder1_enabled_prev = g_encoder1_enabled
+        g_knob1_enabled_prev = g_knob1_enabled
     end
 
-    if g_encoder1_label ~= g_encoder1_label_prev then
+    if g_knob1_label ~= g_knob1_label_prev then
         local column = "00" -- column 1
         local row = "00" -- row 1
-        local text = text_to_hex(g_encoder1_label)
+        local text = text_to_hex(g_knob1_label)
         local event = g_sysex_header .. "02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 00 00 02 01 00 00 03 01 00 00 04 01 00 00 05 01 00 00 06 01 00 00 07 01 00 00 F7"
         table.insert(ret_events, remote.make_midi(event))
-        g_encoder1_label_prev = g_encoder1_label
+        g_knob1_label_prev = g_knob1_label
     end
 
-    if g_encoder1_value ~= g_encoder1_value_prev then
+    if g_knob1_value ~= g_knob1_value_prev then
         local column = "00" -- column 1
         local row = "01" -- row 2
-        local text = text_to_hex(g_encoder1_value)
+        local text = text_to_hex(g_knob1_value)
         local event = g_sysex_header .. "02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
         event = event .. "01 01 01 00 02 01 01 00 03 01 01 00 04 01 01 00 05 01 01 00 06 01 01 00 07 01 01 00 F7"
         table.insert(ret_events, remote.make_midi(event))
-        g_encoder1_value_prev = g_encoder1_value
+        g_knob1_value_prev = g_knob1_value
     end
 
     if g_debug_msg1 ~= g_debug_msg1_prev then
