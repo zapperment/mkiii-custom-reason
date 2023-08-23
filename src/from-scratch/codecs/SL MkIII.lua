@@ -1,33 +1,9 @@
 local midiUtils = require("midiUtils")
 local colours = require("colours")
+local states = require("states")
 
 g_knob1_item_index = 1
-
--- The label of the first encoder, shown in the display below the encoder
-g_knob1_label = " "
-g_knob1_label_prev = " "
-
--- The current value associated with the first encoder, shown as knob image below the encoder
-g_knob1_value = " "
-g_knob1_value_prev = " "
-
--- Whether the first encoder currently has a control in Reason associated to it
-g_knob1_enabled = false
-g_knob1_enabled_prev = false
-
--- These can be used to display any text on the SL's LCD panels, which
--- can be useful for debugging
-g_debug_msg1 = " "
-g_debug_msg1_prev = " "
-g_debug_msg2 = " "
-g_debug_msg2_prev = " "
-
--- Names of current device and currently loaded patch
-g_device_name = " "
-g_device_name_prev = " "
 g_device_name_index = 2
-g_patch_name = " "
-g_patch_name_prev = " "
 g_patch_name_index = 3
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
@@ -135,23 +111,24 @@ function remote_process_midi(event)
     -- mask should be a string containing the MIDI mask. It may contain variable references (x,y
     -- and z).
     local ret = remote.match_midi("bf 15 xx", event)
-    if ret ~= nil and g_knob1_enabled then
+    if ret ~= nil and states.knob1.current.enabled then
         local delta
         if ret.x <= 63 then
             -- encoder turned clockwise
             delta = ret.x
-            g_knob1_value = g_knob1_value + delta
-            if g_knob1_value > 127 then
-                g_knob1_value = 127
+            states.knob1.next.value = states.knob1.current.value + delta
+            if states.knob1.next.value > 127 then
+                states.knob1.next.value = 127
             end
         else
             -- encoder turned counter-clockwise
             delta = ret.x - 128
-            g_knob1_value = g_knob1_value + delta
-            if g_knob1_value < 0 then
-                g_knob1_value = 0
+            states.knob1.next.value = states.knob1.current.value + delta
+            if states.knob1.next.value < 0 then
+                states.knob1.next.value = 0
             end
         end
+        -- CODEC => REASON
         remote.handle_input({
             item = g_knob1_item_index,
             value = delta,
@@ -184,22 +161,22 @@ function remote_set_state(changed_items)
             -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
             if changed_item_data.is_enabled then
-                g_knob1_label = changed_item_data.short_name
-                g_knob1_value = changed_item_data.value
-                g_knob1_enabled = true
+                states.knob1.next.label = changed_item_data.short_name
+                states.knob1.next.value = changed_item_data.value
+                states.knob1.next.enabled = true
             else
-                g_knob1_label = " "
-                g_knob1_value = " "
-                g_knob1_enabled = false
+                states.knob1.next.label = " "
+                states.knob1.next.value = 0
+                states.knob1.next.enabled = false
             end
         end
 
         if item_index == g_device_name_index then
-            g_device_name = remote.get_item_text_value(item_index)
+            states.deviceName.next.value = remote.get_item_text_value(item_index)
         end
 
         if item_index == g_patch_name_index then
-            g_patch_name = remote.get_item_text_value(item_index)
+            states.patchName.next.value = remote.get_item_text_value(item_index)
         end
     end
 end
@@ -209,48 +186,48 @@ end
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
     local events = {}
-    if g_knob1_enabled ~= g_knob1_enabled_prev then
+    if states.knob1.next.enabled ~= states.knob1.current.enabled then
+        states.knob1.current.enabled = states.knob1.next.enabled
         table.insert(events, midiUtils.makeKnobsStatusEvent(
-                { g_knob1_enabled, false, false, false, false, false, false, false },
+                { states.knob1.current.enabled, false, false, false, false, false, false, false },
                 colours.orange
         ))
-        g_knob1_enabled_prev = g_knob1_enabled
     end
 
-    if g_knob1_label ~= g_knob1_label_prev then
+    if states.knob1.next.label ~= states.knob1.current.label then
+        states.knob1.current.label = states.knob1.next.label
         table.insert(events, midiUtils.makeKnobsTextEvent(
-                { g_knob1_enabled, false, false, false, false, false, false, false },
-                { g_knob1_label, " ", " ", " ", " ", " ", " ", " " },
+                { states.knob1.current.enabled, false, false, false, false, false, false, false },
+                { states.knob1.current.label, " ", " ", " ", " ", " ", " ", " " },
                 1
         ))
-        g_knob1_label_prev = g_knob1_label
     end
 
-    if g_knob1_value ~= g_knob1_value_prev then
+    if states.knob1.next.value ~= states.knob1.current.value then
+        states.knob1.current.value = states.knob1.next.value
         table.insert(events, midiUtils.makeKnobsTextEvent(
-                { g_knob1_enabled, false, false, false, false, false, false, false },
-                { tostring(g_knob1_value), " ", " ", " ", " ", " ", " ", " " },
+                { states.knob1.current.enabled, false, false, false, false, false, false, false },
+                { tostring(states.knob1.current.value), " ", " ", " ", " ", " ", " ", " " },
                 2
         ))
-        table.insert(events, midiUtils.makeControlChangeEvent(21, g_knob1_value))
-        g_knob1_value_prev = g_knob1_value
+        table.insert(events, midiUtils.makeControlChangeEvent(21, states.knob1.current.value))
     end
 
-    if g_debug_msg1 ~= g_debug_msg1_prev then
-        table.insert(events, midiUtils.makeDebugMsgEvent(g_debug_msg1, 1))
-        g_debug_msg1_prev = g_debug_msg1
+    if states.debugMessage1.next.value ~= states.debugMessage1.current.value then
+        states.debugMessage1.current.value = states.debugMessage1.next.value
+        table.insert(events, midiUtils.makeDebugMsgEvent(states.debugMessage1.current.value, 1))
     end
 
-    if g_debug_msg2 ~= g_debug_msg2_prev then
-        table.insert(events, midiUtils.makeDebugMsgEvent(g_debug_msg2, 2))
-        g_debug_msg2_prev = g_debug_msg2
+    if states.debugMessage2.next.value ~= states.debugMessage2.current.value then
+        states.debugMessage2.current.value = states.debugMessage2.next.value
+        table.insert(events, midiUtils.makeDebugMsgEvent(states.debugMessage2.current.value, 2))
     end
 
-    if g_device_name ~= g_device_name_prev or g_patch_name ~= g_patch_name_prev then
-        local line2 = g_device_name == g_patch_name and " " or g_patch_name
-        table.insert(events, midiUtils.makeNotificationEvent(g_device_name, line2))
-        g_device_name_prev = g_device_name
-        g_patch_name_prev = g_patch_name
+    if states.deviceName.next.value ~= states.deviceName.current.value or states.patchName.next.value ~= states.patchName.current.value then
+        states.deviceName.current.value = states.deviceName.next.value
+        states.patchName.current.value = states.patchName.next.value
+        local line2 = states.deviceName.current.value == states.patchName.current.value and " " or states.patchName.current.value
+        table.insert(events, midiUtils.makeNotificationEvent(states.deviceName.current.value, line2))
     end
 
     return events
