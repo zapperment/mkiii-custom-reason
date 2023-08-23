@@ -1,5 +1,9 @@
+local constants = require("constants")
+local hexUtils = require("hexUtils")
+local numUtils = require("numUtils")
+local midiUtils = require("midiUtils")
+
 -- table.insertPID = 0x0A																													-- product ID
-sysexHeader = "f0 00 20 29 02 0A 01" -- InControl header
 sysexKnobLayout = "f0 00 20 29 02 0A 01 01 01 f7" -- set SLmk3 to knob layout
 dim = "08"
 dim_decimal = 8
@@ -29,48 +33,9 @@ divided_by_127 = 0.007874015748031
 -------------------------------FUNCTIONS-----------------------------------
 ---------------------------------------------------------------------------
 
-function dec_to_hex(IN)
-    local B, K, OUT, I, D = 16, "0123456789ABCDEF", "", 0, 0
-    while IN > 0 do
-        I = I + 1
-        IN, D = math.floor(IN / B), math.fmod(IN, B) + 1
-        OUT = string.sub(K, D, D) .. OUT
-    end
-    return OUT
-end
-
----------------------------------------------------------------------------
-function truncate(x)
-    return x < 0 and math.ceil(x) or math.floor(x)
-end
-
----------------------------------------------------------------------------
-local function reset_unit_when_exit()
-    msg = {}
-
-    -- transport buttons
-    table.insert(msg, "BF 70 00")
-    table.insert(msg, "BF 71 00")
-    table.insert(msg, "BF 72 00")
-    table.insert(msg, "BF 73 00")
-    table.insert(msg, "BF 74 00")
-    table.insert(msg, "BF 75 00")
-    -- track left/right
-    table.insert(msg, "BF 66 00")
-    table.insert(msg, "BF 67 00")
-    -- arrow down/up
-    table.insert(msg, "BF 55 00")
-    table.insert(msg, "BF 56 00")
-    --  OPTIONS button
-    list.append(msg, "BF 5A 00")
-
-    return remote.make_midi(msg)
-end
-
 ---------------------------------------------------------------------------
 local function create_knobs(x, color)
-    -- sysexHeader = "f0 00 20 29 02 0A 01"
-    return remote.make_midi(sysexHeader .. " 02 0" .. x .. " 02 01 " .. color .. " F7")
+    return remote.make_midi(constants.sysexHeader .. " 02 0" .. x .. " 02 01 " .. color .. " F7")
 end
 
 ---------------------------------------------------------------------------
@@ -84,8 +49,8 @@ end
 local function set_fader_brightness(x, brightness)
     begin = "f0 00 20 29 02 0a 01 03 "
     -- RGB for ORANGE
-    r = tostring(dec_to_hex(truncate(83 * brightness * divided_by_127)))
-    g = tostring(dec_to_hex(truncate(17 * brightness * divided_by_127)))
+    r = tostring(hexUtils.decToHex(numUtils.truncate(83 * brightness * divided_by_127)))
+    g = tostring(hexUtils.decToHex(numUtils.truncate(17 * brightness * divided_by_127)))
     b = "00"
     msg = begin .. fader_sysex_index[x] .. " 01 " .. r .. " " .. g .. " " .. b .. " F7"
 
@@ -93,28 +58,8 @@ local function set_fader_brightness(x, brightness)
 end
 
 ---------------------------------------------------------------------------
-local function set_notification(line_1, line_2)
-    l_1 = " "
-    l_2 = " "
-    begin = sysexHeader .. " 04 "
-
-    for i = 1, math.min(string.len(line_1), 18) do
-        l_1 = l_1 .. string.format("%X", tostring(string.byte(line_1, i))) .. " "
-    end
-
-    for i = 1, string.len(line_2) do
-        l_2 = l_2 .. string.format("%X", tostring(string.byte(line_2, i))) .. " "
-    end
-
-    msg = begin .. l_1 .. " 00 " .. l_2 .. " 00 " .. " F7"
-
-    return remote.make_midi(msg)
-end
-
----------------------------------------------------------------------------
 local function clear_screens()
-    -- sysexHeader = "f0 00 20 29 02 0A 01"
-    return remote.make_midi(sysexHeader .. "01 00 f7")
+    return remote.make_midi(constants.sysexHeader .. "01 00 f7")
 end
 
 ---------------------------------------------------------------------------
@@ -140,15 +85,6 @@ local function set_multiple_knobs(status_table, color) -- args: 1. knobs status 
 end
 
 ---------------------------------------------------------------------------
-local function text_to_sysex(text)
-    local sysex = ""
-    for i = 1, string.len(text) do
-        sysex = sysex .. dec_to_hex(string.byte(text, i)) .. " "
-    end
-    return sysex
-end
-
----------------------------------------------------------------------------
 local function display_labels(status_table, label_row, text_table) -- args: 1. knobs status table (boolean), 2. label row, 3. text to be displayed
     local column = {"00", "01", "02", "03", "04", "05", "06", "07"}
     local event = "F0 00 20 29 02 0A 01 02 " -- header + screen properties
@@ -156,7 +92,7 @@ local function display_labels(status_table, label_row, text_table) -- args: 1. k
         local raw_text
         for i, var in ipairs(status_table) do
             if var == true then
-                raw_text = text_to_sysex(text_table[i])
+                raw_text = hexUtils.textToHex(text_table[i])
                 event = event .. column[i] .. " 01 " .. label_row .. " " .. raw_text .. " 00 " -- prints the text (text_table[i])
             else
                 event = event .. column[i] .. " 01 " .. label_row .. " " .. " " .. " 00 " -- prints nothing
@@ -1664,7 +1600,7 @@ function remote_deliver_midi()
     for i, param_value in ipairs(g_gui_buttons_param_value) do
         if param_value ~= g_gui_buttons_prev_param_value[i] then
             -- if param_value ~= "-1" then
-            table.insert(ret_events, set_notification(g_gui_buttons_param_name[i], param_value))
+            table.insert(ret_events, midiUtils.makeNotification(g_gui_buttons_param_name[i], param_value))
             -- end
             g_gui_buttons_prev_param_value[i] = param_value
         end
@@ -1674,7 +1610,7 @@ function remote_deliver_midi()
     for i, param_value in ipairs(g_gui_faders_param_value) do
         if param_value ~= g_gui_faders_prev_param_value[i] then
             -- if param_value ~= "-1" then
-            table.insert(ret_events, set_notification(g_gui_faders_param_name[i], param_value))
+            table.insert(ret_events, midiUtils.makeNotification(g_gui_faders_param_name[i], param_value))
             -- end
             g_gui_faders_prev_param_value[i] = param_value
         end
@@ -1713,7 +1649,7 @@ function remote_release_from_use()
             create_knobs(5, color.no_color), create_knobs(6, color.no_color), create_knobs(7, color.no_color),
             set_fader_color(1, color.no_color), set_fader_color(2, color.no_color), set_fader_color(3, color.no_color),
             set_fader_color(4, color.no_color), set_fader_color(5, color.no_color), set_fader_color(6, color.no_color),
-            set_fader_color(7, color.no_color), set_fader_color(8, color.no_color) -- reset_unit_when_exit(),
+            set_fader_color(7, color.no_color), set_fader_color(8, color.no_color)
     }
 end
 

@@ -1,6 +1,6 @@
 # mkiii-custom-reason
 
-Custom Reason control surface for the Novation 61SL MkIII master keyboard.
+Custom Reason control surface for the Novation SL MkIII master keyboards.
 
 ## Prerequisites
 
