@@ -1,130 +1,130 @@
 return {
     knob1 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob2 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob3 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob4 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob5 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob6 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob7 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     knob8 = {
-        current = {
-            label = " ",
-            value = 0,
-            enabled = false
+        label = {
+            current = " ",
+            next = " "
         },
-        next = {
-            label = " ",
-            value = 0,
-            enabled = false
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
         }
     },
     deviceName = {
-        current = {
-            value = " "
-        },
-        next = {
-            value = " "
-        }
+        current =  " ",
+        next = " "
     },
     patchName = {
-        current = {
-            value = " "
-        },
-        next = {
-            value = " "
-        }
+        current =  " ",
+        next = " "
     },
     debugMessage1 = {
-        current = {
-            value = " "
-        },
-        next = {
-            value = " "
-        }
+        current =  " ",
+        next = " "
     },
     debugMessage2 = {
-        current = {
-            value = " "
-        },
-        next = {
-            value = " "
-        }
+        current =  " ",
+        next = " "
     }
 }

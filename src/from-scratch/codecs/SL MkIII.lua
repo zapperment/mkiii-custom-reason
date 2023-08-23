@@ -1,10 +1,8 @@
 local midiUtils = require("midiUtils")
 local colours = require("colours")
-local states = require("states")
-
-g_knob1_item_index = 1
-g_device_name_index = 2
-g_patch_name_index = 3
+local stateUtils = require("stateUtils")
+local items = require("items")
+local indices = require("indices")
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
@@ -74,20 +72,6 @@ end
 -- automatic handling of input and output, with remote.define_auto_inputs() and
 -- remote.define_auto_outputs(). The define_* functions can only be called from remote_init().
 function remote_init()
-    local items = { {
-                        name = "knob1",
-                        input = "delta",
-                        output = "value",
-                        min = 0,
-                        max = 127
-                    }, {
-                        name = "deviceName",
-                        output = "text"
-                    }, {
-                        name = "patchName",
-                        output = "text"
-                    } }
-
     -- remote.define_items registers all control surface items. items is a array with one entry for each item. The
     -- item’s index in the array is important. This index is later used in all other functions that
     -- refer to control surface items.
@@ -111,26 +95,20 @@ function remote_process_midi(event)
     -- mask should be a string containing the MIDI mask. It may contain variable references (x,y
     -- and z).
     local ret = remote.match_midi("bf 15 xx", event)
-    if ret ~= nil and states.knob1.current.enabled then
+    if ret ~= nil and stateUtils.get("knob1.enabled") then
         local delta
         if ret.x <= 63 then
             -- encoder turned clockwise
             delta = ret.x
-            states.knob1.next.value = states.knob1.current.value + delta
-            if states.knob1.next.value > 127 then
-                states.knob1.next.value = 127
-            end
         else
             -- encoder turned counter-clockwise
             delta = ret.x - 128
-            states.knob1.next.value = states.knob1.current.value + delta
-            if states.knob1.next.value < 0 then
-                states.knob1.next.value = 0
-            end
         end
+        stateUtils.add("knob1.value", delta, 0, 127)
+
         -- CODEC => REASON
         remote.handle_input({
-            item = g_knob1_item_index,
+            item = indices.knob1,
             value = delta,
             time_stamp = event.time_stamp
         })
@@ -146,7 +124,7 @@ end
 function remote_set_state(changed_items)
     for _, item_index in ipairs(changed_items) do
         local changed_item_data = remote.get_item_state(item_index)
-        if item_index == g_knob1_item_index then
+        if item_index == indices.knob1 then
             -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
             -- fields:
             -- is_enabled – true if the control surface item is mapped/enabled
@@ -161,22 +139,22 @@ function remote_set_state(changed_items)
             -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
             if changed_item_data.is_enabled then
-                states.knob1.next.label = changed_item_data.short_name
-                states.knob1.next.value = changed_item_data.value
-                states.knob1.next.enabled = true
+                stateUtils.set("knob1.label", changed_item_data.short_name)
+                stateUtils.set("knob1.value", changed_item_data.value)
+                stateUtils.set("knob1.enabled", true)
             else
-                states.knob1.next.label = " "
-                states.knob1.next.value = 0
-                states.knob1.next.enabled = false
+                stateUtils.set("knob1.label", " ")
+                stateUtils.set("knob1.value", 0)
+                stateUtils.set("knob1.enabled", false)
             end
         end
 
-        if item_index == g_device_name_index then
-            states.deviceName.next.value = remote.get_item_text_value(item_index)
+        if item_index == indices.deviceName then
+            stateUtils.set("deviceName", remote.get_item_text_value(item_index))
         end
 
-        if item_index == g_patch_name_index then
-            states.patchName.next.value = remote.get_item_text_value(item_index)
+        if item_index == indices.patchName then
+            stateUtils.set("patchName", remote.get_item_text_value(item_index))
         end
     end
 end
@@ -186,48 +164,50 @@ end
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
     local events = {}
-    if states.knob1.next.enabled ~= states.knob1.current.enabled then
-        states.knob1.current.enabled = states.knob1.next.enabled
+    if stateUtils.hasChanged("knob1.enabled") then
+        local enabled = stateUtils.update("knob1.enabled")
         table.insert(events, midiUtils.makeKnobsStatusEvent(
-                { states.knob1.current.enabled, false, false, false, false, false, false, false },
+                { enabled, false, false, false, false, false, false, false },
                 colours.orange
         ))
     end
 
-    if states.knob1.next.label ~= states.knob1.current.label then
-        states.knob1.current.label = states.knob1.next.label
+    if stateUtils.hasChanged("knob1.label") then
+        local enabled = stateUtils.get("knob1.enabled")
+        local label = stateUtils.update("knob1.label")
         table.insert(events, midiUtils.makeKnobsTextEvent(
-                { states.knob1.current.enabled, false, false, false, false, false, false, false },
-                { states.knob1.current.label, " ", " ", " ", " ", " ", " ", " " },
+                { enabled, false, false, false, false, false, false, false },
+                { label, " ", " ", " ", " ", " ", " ", " " },
                 1
         ))
     end
 
-    if states.knob1.next.value ~= states.knob1.current.value then
-        states.knob1.current.value = states.knob1.next.value
+    if stateUtils.hasChanged("knob1.value") then
+        local enabled = stateUtils.get("knob1.enabled")
+        local value = stateUtils.update("knob1.value")
         table.insert(events, midiUtils.makeKnobsTextEvent(
-                { states.knob1.current.enabled, false, false, false, false, false, false, false },
-                { tostring(states.knob1.current.value), " ", " ", " ", " ", " ", " ", " " },
+                { enabled, false, false, false, false, false, false, false },
+                { tostring(value), " ", " ", " ", " ", " ", " ", " " },
                 2
         ))
-        table.insert(events, midiUtils.makeControlChangeEvent(21, states.knob1.current.value))
+        table.insert(events, midiUtils.makeControlChangeEvent(21, value))
     end
 
-    if states.debugMessage1.next.value ~= states.debugMessage1.current.value then
-        states.debugMessage1.current.value = states.debugMessage1.next.value
-        table.insert(events, midiUtils.makeDebugMsgEvent(states.debugMessage1.current.value, 1))
+    if stateUtils.hasChanged("debugMessage1") then
+        local message = stateUtils.update("debugMessage1")
+        table.insert(events, midiUtils.makeDebugMsgEvent(message, 1))
     end
 
-    if states.debugMessage2.next.value ~= states.debugMessage2.current.value then
-        states.debugMessage2.current.value = states.debugMessage2.next.value
-        table.insert(events, midiUtils.makeDebugMsgEvent(states.debugMessage2.current.value, 2))
+    if stateUtils.hasChanged("debugMessage2") then
+        local message = stateUtils.update("debugMessage2")
+        table.insert(events, midiUtils.makeDebugMsgEvent(message, 2))
     end
 
-    if states.deviceName.next.value ~= states.deviceName.current.value or states.patchName.next.value ~= states.patchName.current.value then
-        states.deviceName.current.value = states.deviceName.next.value
-        states.patchName.current.value = states.patchName.next.value
-        local line2 = states.deviceName.current.value == states.patchName.current.value and " " or states.patchName.current.value
-        table.insert(events, midiUtils.makeNotificationEvent(states.deviceName.current.value, line2))
+    if stateUtils.hasChanged("deviceName") or stateUtils.hasChanged("patchName") then
+        local deviceName = stateUtils.update("deviceName")
+        local patchName = stateUtils.update("patchName")
+        local line2 = deviceName == patchName and " " or patchName
+        table.insert(events, midiUtils.makeNotificationEvent(deviceName, line2))
     end
 
     return events
