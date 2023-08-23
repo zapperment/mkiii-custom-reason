@@ -39,7 +39,7 @@ else
   echo_bold "Using configuration '${CONFIG}'"
 fi
 
-# Set VENDOR variable 
+# Set VENDOR variable
 VENDOR="Novation"
 
 echo ""
@@ -84,11 +84,28 @@ echo ""
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
-CODECS_SOURCE_DIR="${SCRIPT_DIR}/src/${CONFIG}/codecs"
-MAPS_SOURCE_DIR="${SCRIPT_DIR}/src/${CONFIG}/maps"
+DIST_DIR="${SCRIPT_DIR}/dist"
+SRC_DIR="${SCRIPT_DIR}/src"
+CODECS_SOURCE_DIR="${SRC_DIR}/${CONFIG}/codecs"
+MAPS_SOURCE_DIR="${SRC_DIR}/${CONFIG}/maps"
+CODECS_DIST_DIR="${DIST_DIR}/codecs"
+MAPS_DIST_DIR="${DIST_DIR}/maps"
 
-echo_bold "Copying files:"
+echo_bold "Setting up dist dir ${DIST_DIR}"
+rm -rf "${DIST_DIR}"
+mkdir "${DIST_DIR}"
 
-cp -v "${CODECS_SOURCE_DIR}/"* "${CODECS_TARGET_DIR}/"
-cp -v "${MAPS_SOURCE_DIR}/"* "${MAPS_TARGET_DIR}/"
+echo_bold "Copying files to dist dir"
+
+cp -vR "${CODECS_SOURCE_DIR}" "${DIST_DIR}/"
+cp -vR "${MAPS_SOURCE_DIR}" "${DIST_DIR}/"
+
+echo_bold "Bundling Lua code"
+
+luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/lib/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"
+
+echo_bold "Copying files to Reason remote dirs:"
+
+cp -v "${CODECS_DIST_DIR}/"* "${CODECS_TARGET_DIR}/"
+cp -v "${MAPS_DIST_DIR}/"* "${MAPS_TARGET_DIR}/"
 
