@@ -1,9 +1,7 @@
 local constants = require("constants")
 local midiUtils = require("midiUtils")
 local hexUtils = require("hexUtils")
-
--- System exclusive message to reset the displays below the encoders
-g_sysex_encoder_layout = constants.sysexHeader .. " 01 01 f7"
+local colours = require("colours")
 
 g_knob1_item_index = 1
 
@@ -214,17 +212,7 @@ end
 function remote_deliver_midi()
     local ret_events = {}
     if g_knob1_enabled ~= g_knob1_enabled_prev then
-        local event = constants.sysexHeader .. " 02 "
-        if g_knob1_enabled then
-            -- 00: Knob 1
-            -- 02 01: Sets color
-            -- 09: orange
-            event = event .. "00 02 01 09 "
-        else
-            event = event .. "00 02 01 00 "
-        end
-        event = event .. "f7"
-        table.insert(ret_events, remote.make_midi(event))
+        table.insert(ret_events, midiUtils.makeKnobsStatusEvent({ g_knob1_enabled, false, false, false, false, false, false, false }, colours.orange))
         g_knob1_enabled_prev = g_knob1_enabled
     end
 
@@ -260,7 +248,7 @@ function remote_deliver_midi()
 
     if g_device_name ~= g_device_name_prev or g_patch_name ~= g_patch_name_prev then
         local line2 = g_device_name == g_patch_name and " " or g_patch_name
-        table.insert(ret_events, midiUtils.makeNotification(g_device_name, line2))
+        table.insert(ret_events, midiUtils.makeNotificationEvent(g_device_name, line2))
         g_device_name_prev = g_device_name
         g_patch_name_prev = g_patch_name
     end
@@ -269,9 +257,27 @@ function remote_deliver_midi()
 end
 
 function remote_prepare_for_use()
-    return { remote.make_midi(g_sysex_encoder_layout) }
+    return { midiUtils.makeKnobsStatusEvent(),
+             midiUtils.makeCreateKnobEvent(1, colours.noColour),
+             midiUtils.makeCreateKnobEvent(2, colours.noColour),
+             midiUtils.makeCreateKnobEvent(3, colours.noColour),
+             midiUtils.makeCreateKnobEvent(4, colours.noColour),
+             midiUtils.makeCreateKnobEvent(5, colours.noColour),
+             midiUtils.makeCreateKnobEvent(6, colours.noColour),
+             midiUtils.makeCreateKnobEvent(7, colours.noColour),
+             midiUtils.makeCreateKnobEvent(8, colours.noColour)
+    }
 end
 
 function remote_release_from_use()
-    return { remote.make_midi(g_sysex_encoder_layout) }
+    return { midiUtils.makeKnobsStatusEvent(),
+             midiUtils.makeCreateKnobEvent(1, colours.noColour),
+             midiUtils.makeCreateKnobEvent(2, colours.noColour),
+             midiUtils.makeCreateKnobEvent(3, colours.noColour),
+             midiUtils.makeCreateKnobEvent(4, colours.noColour),
+             midiUtils.makeCreateKnobEvent(5, colours.noColour),
+             midiUtils.makeCreateKnobEvent(6, colours.noColour),
+             midiUtils.makeCreateKnobEvent(7, colours.noColour),
+             midiUtils.makeCreateKnobEvent(8, colours.noColour)
+    }
 end
