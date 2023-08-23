@@ -1,6 +1,4 @@
-local constants = require("constants")
 local midiUtils = require("midiUtils")
-local hexUtils = require("hexUtils")
 local colours = require("colours")
 
 g_knob1_item_index = 1
@@ -234,6 +232,7 @@ function remote_deliver_midi()
                 { tostring(g_knob1_value), " ", " ", " ", " ", " ", " ", " " },
                 2
         ))
+        table.insert(events, midiUtils.makeControlChangeEvent(21, g_knob1_value))
         g_knob1_value_prev = g_knob1_value
     end
 

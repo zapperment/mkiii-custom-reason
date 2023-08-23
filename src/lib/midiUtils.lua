@@ -9,7 +9,7 @@ local function makeDebugMsgEvent(msg, row)
     local chunks = stringUtils.splitToChunks(msg, 8, 8)
     local event = constants.sysexHeader .. " 02 "
     for i, chunk in ipairs(chunks) do
-        event = event .. hexUtils.decToTex(i - 1) .. " 01 " .. rowHex .. " " .. hexUtils.textToHex(chunk) .. " 00 "
+        event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " " .. hexUtils.textToHex(chunk) .. " 00 "
     end
     return remote.make_midi(event .. "F7")
 end
@@ -46,7 +46,7 @@ local function makeKnobsStatusEvent(statuses, colour)
             if knobIsActive then
                 event = event .. hexUtils.decToHex(i - 1) .. " 02 01 " .. colour .. " " -- make knob visible
             else
-                event = event .. hexUtils.decToHex(i - 1) .. " 02 01 " -- make knob invisible
+                event = event .. hexUtils.decToHex(i - 1) .. " 02 01 00 " -- make knob invisible
             end
         end
         event = event .. "F7"
@@ -83,10 +83,15 @@ local function makeCreateKnobEvent(knobNumber, colour)
     return remote.make_midi(constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
 end
 
+local function makeControlChangeEvent(controllerNumber, value)
+    return remote.make_midi("BF " .. hexUtils.decToHex(controllerNumber) .. " " .. hexUtils.decToHex(value))
+end
+
 return {
     makeDebugMsgEvent = makeDebugMsgEvent,
     makeNotificationEvent = makeNotificationEvent,
     makeKnobsStatusEvent = makeKnobsStatusEvent,
     makeCreateKnobEvent = makeCreateKnobEvent,
-    makeKnobsTextEvent = makeKnobsTextEvent
+    makeKnobsTextEvent = makeKnobsTextEvent,
+    makeControlChangeEvent = makeControlChangeEvent
 }

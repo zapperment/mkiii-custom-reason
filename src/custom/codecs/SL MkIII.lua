@@ -1182,7 +1182,7 @@ function remote_init()
             name = "Pad 16",
             x = "value*button_on",
             port = 1
-        }, -- KNBOS
+        },
         {
             pattern = "bF 15 xx",
             name = "Knob 1",
