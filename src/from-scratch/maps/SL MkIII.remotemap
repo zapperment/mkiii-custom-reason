@@ -7,5 +7,12 @@ Map Version	3.0.1
 Scope	Propellerheads	Combinator
 //	Control Surface Item	Key	Remotable Item	Scale	Mode	Scale	Mode
 Map	knob1		Rotary 1
+Map	knob2		Rotary 2
+Map	knob3		Rotary 3
+Map	knob4		Rotary 4
+Map	knob5		Rotary 5
+Map	knob6		Rotary 6
+Map	knob7		Rotary 7
+Map	knob8		Rotary 8
 Map	deviceName		Device Name
 Map	patchName		Patch Name

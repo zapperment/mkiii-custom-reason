@@ -3,6 +3,8 @@ local colours = require("colours")
 local stateUtils = require("stateUtils")
 local items = require("items")
 local indices = require("indices")
+local midiMatchers = require("midiMatchers")
+local controllers = require("controllers")
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
@@ -86,35 +88,31 @@ end
 -- function returns false, Remote will try to find a match using the automatic input registry
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
-    -- Knob 1 on the SL sends control change events on channel 16 with CC# 21 (0x15)
-    -- value is:
-    -- * 1-16 for clockwise turns, depending on speed (1 slowest)
-    -- * 127-112 for counter-clockwise turns, depending on speed (127 slowest)
+    local processed = false
+    for i = 1, 8 do
+        -- Knob 1 on the SL sends control change events on channel 16 with CC# 21 (0x15)
+        -- value is:
+        -- * 1-16 for clockwise turns, depending on speed (1 slowest)
+        -- * 127-112 for counter-clockwise turns, depending on speed (127 slowest)
 
-    -- remote.match_midi is a utility function that creates a MIDI event from a string mask and variables.
-    -- mask should be a string containing the MIDI mask. It may contain variable references (x,y
-    -- and z).
-    local ret = remote.match_midi("bf 15 xx", event)
-    if ret ~= nil and stateUtils.get("knob1.enabled") then
-        local delta
-        if ret.x <= 63 then
-            -- encoder turned clockwise
-            delta = ret.x
-        else
-            -- encoder turned counter-clockwise
-            delta = ret.x - 128
+        -- remote.match_midi is a utility function that creates a MIDI event from a string mask and variables.
+        -- mask should be a string containing the MIDI mask. It may contain variable references (x,y
+        -- and z).
+        local ret = remote.match_midi(midiMatchers["knob" .. i], event)
+        if ret and stateUtils.get("knob" .. i .. ".enabled") then
+            local delta = ret.x <= 63 and ret.x or ret.x - 128
+            stateUtils.add("knob" .. i .. ".value", delta, 0, 127)
+
+            -- CODEC => REASON
+            remote.handle_input({
+                item = indices["knob" .. i],
+                value = delta,
+                time_stamp = event.time_stamp
+            })
+            processed = true
         end
-        stateUtils.add("knob1.value", delta, 0, 127)
-
-        -- CODEC => REASON
-        remote.handle_input({
-            item = indices.knob1,
-            value = delta,
-            time_stamp = event.time_stamp
-        })
-        return true
     end
-    return false
+    return processed
 end
 
 -- REASON => CODEC
@@ -124,28 +122,30 @@ end
 function remote_set_state(changed_items)
     for _, item_index in ipairs(changed_items) do
         local changed_item_data = remote.get_item_state(item_index)
-        if item_index == indices.knob1 then
-            -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
-            -- fields:
-            -- is_enabled – true if the control surface item is mapped/enabled
-            -- value – the value of the item (e.g. 64)
-            -- mode – mode the current mode for the item
-            -- remote_item_name – the name of the remotable item mapped (e.g. "Rotary 1")
-            -- text_value – the text value of the remotable item (e.g. "64")
-            -- short_name – the short version of the name (8 characters maximum, e.g. "Rot 1")
-            -- shortest_name – the shortest version of the name (4 chars, e.g. "R1")
-            -- name_and_value – the name and value combined
-            -- short_name_and_value – the short version of name-and-value (16 chars)
-            -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
+        for i = 1, 8 do
+            if item_index == indices["knob" .. i] then
+                -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
+                -- fields:
+                -- is_enabled – true if the control surface item is mapped/enabled
+                -- value – the value of the item (e.g. 64)
+                -- mode – mode the current mode for the item
+                -- remote_item_name – the name of the remotable item mapped (e.g. "Rotary 1")
+                -- text_value – the text value of the remotable item (e.g. "64")
+                -- short_name – the short version of the name (8 characters maximum, e.g. "Rot 1")
+                -- shortest_name – the shortest version of the name (4 chars, e.g. "R1")
+                -- name_and_value – the name and value combined
+                -- short_name_and_value – the short version of name-and-value (16 chars)
+                -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
-            if changed_item_data.is_enabled then
-                stateUtils.set("knob1.label", changed_item_data.short_name)
-                stateUtils.set("knob1.value", changed_item_data.value)
-                stateUtils.set("knob1.enabled", true)
-            else
-                stateUtils.set("knob1.label", " ")
-                stateUtils.set("knob1.value", 0)
-                stateUtils.set("knob1.enabled", false)
+                if changed_item_data.is_enabled then
+                    stateUtils.set("knob" .. i .. ".label", changed_item_data.short_name)
+                    stateUtils.set("knob" .. i .. ".value", changed_item_data.value)
+                    stateUtils.set("knob" .. i .. ".enabled", true)
+                else
+                    stateUtils.set("knob" .. i .. ".label", " ")
+                    stateUtils.set("knob" .. i .. ".value", 0)
+                    stateUtils.set("knob" .. i .. ".enabled", false)
+                end
             end
         end
 
@@ -164,33 +164,64 @@ end
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
     local events = {}
-    if stateUtils.hasChanged("knob1.enabled") then
-        local enabled = stateUtils.update("knob1.enabled")
-        table.insert(events, midiUtils.makeKnobsStatusEvent(
-                { enabled, false, false, false, false, false, false, false },
-                colours.orange
-        ))
+    local knobStateChanged = false
+    local knobStates = {}
+    local knobLabelChanged = false
+    local knobLabels = {}
+    local knobValueChanged = false
+    local knobValues = {}
+
+    for i = 1, 8 do
+        local enabled
+        local path = "knob" .. i .. ".enabled"
+        if stateUtils.hasChanged(path) then
+            knobStateChanged = true
+            enabled = stateUtils.update(path)
+        else
+            enabled = stateUtils.get(path)
+        end
+        knobStates[i] = enabled
+
+        local label
+        path = "knob" .. i .. ".label"
+        if stateUtils.hasChanged(path) then
+            knobLabelChanged = true
+            label = stateUtils.update(path)
+        else
+            label = stateUtils.get(path)
+        end
+        knobLabels[i] = label
+
+        local value
+        path = "knob" .. i .. ".value"
+        if stateUtils.hasChanged(path) then
+            knobValueChanged = true
+            value = stateUtils.update(path)
+            table.insert(events, midiUtils.makeControlChangeEvent(controllers["knob" .. i], value))
+        else
+            value = stateUtils.get(path)
+        end
+        knobValues[i] = tostring(value)
     end
 
-    if stateUtils.hasChanged("knob1.label") then
-        local enabled = stateUtils.get("knob1.enabled")
-        local label = stateUtils.update("knob1.label")
+    if knobStateChanged then
+        table.insert(events, midiUtils.makeKnobsStatusEvent(knobStates, colours.orange))
+    end
+
+    if knobLabelChanged then
         table.insert(events, midiUtils.makeKnobsTextEvent(
-                { enabled, false, false, false, false, false, false, false },
-                { label, " ", " ", " ", " ", " ", " ", " " },
+                knobStates,
+                knobLabels,
                 1
         ))
     end
 
-    if stateUtils.hasChanged("knob1.value") then
-        local enabled = stateUtils.get("knob1.enabled")
-        local value = stateUtils.update("knob1.value")
+    if knobValueChanged then
         table.insert(events, midiUtils.makeKnobsTextEvent(
-                { enabled, false, false, false, false, false, false, false },
-                { tostring(value), " ", " ", " ", " ", " ", " ", " " },
+                knobStates,
+                knobValues,
                 2
         ))
-        table.insert(events, midiUtils.makeControlChangeEvent(21, value))
     end
 
     if stateUtils.hasChanged("debugMessage1") then
