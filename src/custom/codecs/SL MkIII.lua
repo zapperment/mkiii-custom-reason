@@ -48,27 +48,6 @@ local function clear_screens()
 end
 
 ---------------------------------------------------------------------------
-local function display_labels(status_table, label_row, text_table)
-    -- args: 1. knobs status table (boolean), 2. label row, 3. text to be displayed
-    local column = { "00", "01", "02", "03", "04", "05", "06", "07" }
-    local event = "F0 00 20 29 02 0A 01 02 " -- header + screen properties
-    if status_table ~= nil then
-        local raw_text
-        for i, var in ipairs(status_table) do
-            if var == true then
-                raw_text = hexUtils.textToHex(text_table[i])
-                event = event .. column[i] .. " 01 " .. label_row .. " " .. raw_text .. " 00 " -- prints the text (text_table[i])
-            else
-                event = event .. column[i] .. " 01 " .. label_row .. " " .. " " .. " 00 " -- prints nothing
-            end
-        end
-        event = event .. "f7"
-        local sysex = remote.make_midi(event)
-        return sysex
-    end
-end
-
---------------------------------------------------------------------------------
 function greater_than_zero(x)
     if x ~= 0 then
         return 1
@@ -1525,11 +1504,11 @@ function remote_deliver_midi()
     end
 
     if counter_2 > 0 then
-        table.insert(ret_events, display_labels(g_label_1_row_enabled, "00 ", g_label_1_row_text)) -- 2nd arg: screen row where to show the label
+        table.insert(ret_events, midiUtils.makeKnobsTextEvent(g_label_1_row_enabled, g_label_1_row_text, 1))
     end
 
     if counter_3 > 0 then
-        table.insert(ret_events, display_labels(g_label_1_row_enabled, "01 ", g_label_1_row_value)) -- 2nd arg: screen row where to show the label
+        table.insert(ret_events, midiUtils.makeKnobsTextEvent(g_label_1_row_enabled, g_label_1_row_value, 2))
     end
 
     -- check if enabled BUTTONS have changed their status

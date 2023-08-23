@@ -210,50 +210,51 @@ end
 -- This function is called at regular intervals when the host is due to update the control
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
-    local ret_events = {}
+    local events = {}
     if g_knob1_enabled ~= g_knob1_enabled_prev then
-        table.insert(ret_events, midiUtils.makeKnobsStatusEvent({ g_knob1_enabled, false, false, false, false, false, false, false }, colours.orange))
+        table.insert(events, midiUtils.makeKnobsStatusEvent(
+                { g_knob1_enabled, false, false, false, false, false, false, false },
+                colours.orange
+        ))
         g_knob1_enabled_prev = g_knob1_enabled
     end
 
     if g_knob1_label ~= g_knob1_label_prev then
-        local column = "00" -- column 1
-        local row = "00" -- row 1
-        local text = hexUtils.textToHex(g_knob1_label)
-        local event = constants.sysexHeader .. " 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
-        event = event .. "01 01 00 00 02 01 00 00 03 01 00 00 04 01 00 00 05 01 00 00 06 01 00 00 07 01 00 00 F7"
-        table.insert(ret_events, remote.make_midi(event))
+        table.insert(events, midiUtils.makeKnobsTextEvent(
+                { g_knob1_enabled, false, false, false, false, false, false, false },
+                { g_knob1_label, " ", " ", " ", " ", " ", " ", " " },
+                1
+        ))
         g_knob1_label_prev = g_knob1_label
     end
 
     if g_knob1_value ~= g_knob1_value_prev then
-        local column = "00" -- column 1
-        local row = "01" -- row 2
-        local text = hexUtils.textToHex(g_knob1_value)
-        local event = constants.sysexHeader .. " 02 " .. column .. " 01 " .. row .. " " .. text .. " 00 "
-        event = event .. "01 01 01 00 02 01 01 00 03 01 01 00 04 01 01 00 05 01 01 00 06 01 01 00 07 01 01 00 F7"
-        table.insert(ret_events, remote.make_midi(event))
+        table.insert(events, midiUtils.makeKnobsTextEvent(
+                { g_knob1_enabled, false, false, false, false, false, false, false },
+                { tostring(g_knob1_value), " ", " ", " ", " ", " ", " ", " " },
+                2
+        ))
         g_knob1_value_prev = g_knob1_value
     end
 
     if g_debug_msg1 ~= g_debug_msg1_prev then
-        table.insert(ret_events, midiUtils.makeDebugMsgEvent(g_debug_msg1, 1))
+        table.insert(events, midiUtils.makeDebugMsgEvent(g_debug_msg1, 1))
         g_debug_msg1_prev = g_debug_msg1
     end
 
     if g_debug_msg2 ~= g_debug_msg2_prev then
-        table.insert(ret_events, midiUtils.makeDebugMsgEvent(g_debug_msg2, 2))
+        table.insert(events, midiUtils.makeDebugMsgEvent(g_debug_msg2, 2))
         g_debug_msg2_prev = g_debug_msg2
     end
 
     if g_device_name ~= g_device_name_prev or g_patch_name ~= g_patch_name_prev then
         local line2 = g_device_name == g_patch_name and " " or g_patch_name
-        table.insert(ret_events, midiUtils.makeNotificationEvent(g_device_name, line2))
+        table.insert(events, midiUtils.makeNotificationEvent(g_device_name, line2))
         g_device_name_prev = g_device_name
         g_patch_name_prev = g_patch_name
     end
 
-    return ret_events
+    return events
 end
 
 function remote_prepare_for_use()
