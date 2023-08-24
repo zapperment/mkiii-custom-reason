@@ -117,8 +117,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -131,8 +131,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -145,8 +145,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -159,8 +159,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -173,8 +173,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -187,8 +187,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -201,8 +201,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,
@@ -215,8 +215,8 @@ return {
             next = " "
         },
         value = {
-            current = 0,
-            next = 0
+            current = false,
+            next = false
         },
         enabled = {
             current = false,

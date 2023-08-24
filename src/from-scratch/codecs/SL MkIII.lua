@@ -122,13 +122,13 @@ function remote_process_midi(event)
         end
 
         ret = remote.match_midi(items["button" .. i].midiMatcher, event)
-        if ret and stateUtils.get("button" .. i .. ".enabled") then
-            stateUtils.set("button" .. i .. ".value", ret.x)
+        if ret and stateUtils.get("button" .. i .. ".enabled") and ret.x > 0 then
+            stateUtils.flip("button" .. i .. ".value")
 
             -- CODEC => REASON
             remote.handle_input({
                 item = items["button" .. i].index,
-                value = ret.x,
+                value = stateUtils.getNext("button" .. i .. ".value") and 127 or 0,
                 time_stamp = event.time_stamp
             })
             processed = true
@@ -141,11 +141,12 @@ end
 -- remote_set_state() is called regularly to update the state of control surface items.
 -- changed_items is a table containing indexes to the items that have changed since the last
 -- call.
-function remote_set_state(changed_items)
-    for _, item_index in ipairs(changed_items) do
-        local changed_item_data = remote.get_item_state(item_index)
+function remote_set_state(changedItems)
+    for _, changedItemIndex in ipairs(changedItems) do
+        local changedItem = remote.get_item_state(changedItemIndex)
         for i = 1, 8 do
-            if item_index == items["knob" .. i].index then
+            local knob = "knob" .. i
+            if changedItemIndex == items[knob].index then
                 -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
                 -- fields:
                 -- is_enabled – true if the control surface item is mapped/enabled
@@ -159,35 +160,37 @@ function remote_set_state(changed_items)
                 -- short_name_and_value – the short version of name-and-value (16 chars)
                 -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
-                if changed_item_data.is_enabled then
-                    stateUtils.set("knob" .. i .. ".label", changed_item_data.short_name)
-                    stateUtils.set("knob" .. i .. ".value", changed_item_data.value)
-                    stateUtils.set("knob" .. i .. ".enabled", true)
+                if changedItem.is_enabled then
+                    stateUtils.set(knob .. ".label", changedItem.short_name)
+                    stateUtils.set(knob .. ".value", changedItem.value)
+                    stateUtils.set(knob .. ".enabled", true)
                 else
-                    stateUtils.set("knob" .. i .. ".label", " ")
-                    stateUtils.set("knob" .. i .. ".value", 0)
-                    stateUtils.set("knob" .. i .. ".enabled", false)
+                    stateUtils.set(knob .. ".label", " ")
+                    stateUtils.set(knob .. ".value", 0)
+                    stateUtils.set(knob .. ".enabled", false)
                 end
             end
-            if item_index == items["button" .. i].index then
-                if changed_item_data.is_enabled then
-                    stateUtils.set("button" .. i .. ".label", changed_item_data.short_name)
-                    stateUtils.set("button" .. i .. ".value", changed_item_data.value)
-                    stateUtils.set("button" .. i .. ".enabled", true)
+
+            local button = "button" .. i
+            if changedItemIndex == items[button].index then
+                if changedItem.is_enabled then
+                    stateUtils.set(button .. ".label", changedItem.short_name)
+                    stateUtils.set(button .. ".value", changedItem.value > 0)
+                    stateUtils.set(button .. ".enabled", true)
                 else
-                    stateUtils.set("button" .. i .. ".label", " ")
-                    stateUtils.set("button" .. i .. ".value", 0)
-                    stateUtils.set("button" .. i .. ".enabled", false)
+                    stateUtils.set(button .. ".label", " ")
+                    stateUtils.set(button .. ".value", false)
+                    stateUtils.set(button .. ".enabled", false)
                 end
             end
         end
 
-        if item_index == items.deviceName.index then
-            stateUtils.set("deviceName", remote.get_item_text_value(item_index))
+        if changedItemIndex == items.deviceName.index then
+            stateUtils.set("deviceName", remote.get_item_text_value(changedItemIndex))
         end
 
-        if item_index == items.patchName.index then
-            stateUtils.set("patchName", remote.get_item_text_value(item_index))
+        if changedItemIndex == items.patchName.index then
+            stateUtils.set("patchName", remote.get_item_text_value(changedItemIndex))
         end
     end
 end
@@ -207,6 +210,8 @@ function remote_deliver_midi()
     local buttonStates = {}
     local buttonLabelChanged = false
     local buttonLabels = {}
+    local buttonValueChanged = false
+    local buttonValues = {}
 
     for i = 1, 8 do
         local enabled, path, label, value
@@ -259,8 +264,16 @@ function remote_deliver_midi()
 
         path = "button" .. i .. ".value"
         if stateUtils.hasChanged(path) then
-            stateUtils.update(path)
+            buttonValueChanged = true
+            value = stateUtils.update(path)
+            table.insert(
+                    events,
+                    midiUtils.makeControlChangeEvent(
+                            items["button" .. i].controller, value and 127 or 0))
+        else
+            value = stateUtils.get(path)
         end
+        table.insert(buttonValues, value and "ON" or "off")
     end
 
     if knobStateChanged then
@@ -287,6 +300,14 @@ function remote_deliver_midi()
         table.insert(events, midiUtils.makeDisplayEvent(
                 buttonStates,
                 buttonLabels,
+                3
+        ))
+    end
+
+    if buttonValueChanged then
+        table.insert(events, midiUtils.makeDisplayEvent(
+                buttonStates,
+                buttonValues,
                 4
         ))
     end

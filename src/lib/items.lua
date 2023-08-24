@@ -68,7 +68,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 33 xx",
+        midiMatcher = "BF 33 ?<???x>",
         controller = 51
     },
     button2 = {
@@ -76,7 +76,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 34 xx",
+        midiMatcher = "BF 34 ?<???x>",
         controller = 52
     },
     button3 = {
@@ -84,7 +84,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 35 xx",
+        midiMatcher = "BF 35 ?<???x>",
         controller = 53
     },
     button4 = {
@@ -92,7 +92,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 36 xx",
+        midiMatcher = "BF 36 ?<???x>",
         controller = 54
     },
     button5 = {
@@ -100,7 +100,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 37 xx",
+        midiMatcher = "BF 37 ?<???x>",
         controller = 55
     },
     button6 = {
@@ -108,7 +108,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 38 xx",
+        midiMatcher = "BF 38 ?<???x>",
         controller = 56
     },
     button7 = {
@@ -116,7 +116,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 39 xx",
+        midiMatcher = "BF 39 ?<???x>",
         controller = 57
     },
     button8 = {
@@ -124,7 +124,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 3A xx",
+        midiMatcher = "BF 3A ?<???x>",
         controller = 58
     },
     deviceName = {

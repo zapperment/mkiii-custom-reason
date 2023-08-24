@@ -16,6 +16,9 @@ local function get(path)
     return tableUtils.getValueFromPath(states, path).current
 end
 
+local function getNext(path)
+    return tableUtils.getValueFromPath(states, path).next
+end
 
 local function set(path, next)
     local item = tableUtils.getValueFromPath(states, path)
@@ -34,10 +37,17 @@ local function add(path, delta, min, max)
     item.next = next
 end
 
+local function flip(path)
+    local item = tableUtils.getValueFromPath(states, path)
+    item.next = item.current and false or true
+end
+
 return {
     hasChanged = hasChanged,
     update = update,
     get = get,
+    getNext = getNext,
     set = set,
-    add = add
+    add = add,
+    flip = flip
 }
