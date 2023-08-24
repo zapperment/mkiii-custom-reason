@@ -10,6 +10,15 @@ local function getValueFromPath(tbl, path)
     return current
 end
 
+function map(tbl, func)
+    local newTbl = {}
+    for i, v in ipairs(tbl) do
+        newTbl[i] = func(v)
+    end
+    return newTbl
+end
+
+
 return {
     getValueFromPath = getValueFromPath
 }

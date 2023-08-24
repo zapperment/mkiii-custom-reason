@@ -2,9 +2,6 @@ local midiUtils = require("midiUtils")
 local colours = require("colours")
 local stateUtils = require("stateUtils")
 local items = require("items")
-local indices = require("indices")
-local midiMatchers = require("midiMatchers")
-local controllers = require("controllers")
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
@@ -74,10 +71,21 @@ end
 -- automatic handling of input and output, with remote.define_auto_inputs() and
 -- remote.define_auto_outputs(). The define_* functions can only be called from remote_init().
 function remote_init()
+    local itemsToDefine = {}
+    for name, item in pairs(items) do
+        table.insert(itemsToDefine, {
+            name = name,
+            input = item.input,
+            output = item.output,
+            min = item.min,
+            max = item.max
+        })
+        item.index = #itemsToDefine
+    end
     -- remote.define_items registers all control surface items. items is a array with one entry for each item. The
     -- item’s index in the array is important. This index is later used in all other functions that
     -- refer to control surface items.
-    remote.define_items(items)
+    remote.define_items(itemsToDefine)
 end
 
 -- KEYBOARD => CODEC
@@ -98,14 +106,14 @@ function remote_process_midi(event)
         -- remote.match_midi is a utility function that creates a MIDI event from a string mask and variables.
         -- mask should be a string containing the MIDI mask. It may contain variable references (x,y
         -- and z).
-        local ret = remote.match_midi(midiMatchers["knob" .. i], event)
+        local ret = remote.match_midi(items["knob" .. i].midiMatcher, event)
         if ret and stateUtils.get("knob" .. i .. ".enabled") then
             local delta = ret.x <= 63 and ret.x or ret.x - 128
             stateUtils.add("knob" .. i .. ".value", delta, 0, 127)
 
             -- CODEC => REASON
             remote.handle_input({
-                item = indices["knob" .. i],
+                item = items["knob" .. i].index,
                 value = delta,
                 time_stamp = event.time_stamp
             })
@@ -123,7 +131,7 @@ function remote_set_state(changed_items)
     for _, item_index in ipairs(changed_items) do
         local changed_item_data = remote.get_item_state(item_index)
         for i = 1, 8 do
-            if item_index == indices["knob" .. i] then
+            if item_index == items["knob" .. i].index then
                 -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
                 -- fields:
                 -- is_enabled – true if the control surface item is mapped/enabled
@@ -149,11 +157,11 @@ function remote_set_state(changed_items)
             end
         end
 
-        if item_index == indices.deviceName then
+        if item_index == items.deviceName.index then
             stateUtils.set("deviceName", remote.get_item_text_value(item_index))
         end
 
-        if item_index == indices.patchName then
+        if item_index == items.patchName.index then
             stateUtils.set("patchName", remote.get_item_text_value(item_index))
         end
     end
@@ -180,7 +188,7 @@ function remote_deliver_midi()
         else
             enabled = stateUtils.get(path)
         end
-        knobStates[i] = enabled
+        table.insert(knobStates, enabled)
 
         local label
         path = "knob" .. i .. ".label"
@@ -190,18 +198,18 @@ function remote_deliver_midi()
         else
             label = stateUtils.get(path)
         end
-        knobLabels[i] = label
+        table.insert(knobLabels, label)
 
         local value
         path = "knob" .. i .. ".value"
         if stateUtils.hasChanged(path) then
             knobValueChanged = true
             value = stateUtils.update(path)
-            table.insert(events, midiUtils.makeControlChangeEvent(controllers["knob" .. i], value))
+            table.insert(events, midiUtils.makeControlChangeEvent(items["knob" .. i].controller, value))
         else
             value = stateUtils.get(path)
         end
-        knobValues[i] = tostring(value)
+        table.insert(knobValues, tostring(value))
     end
 
     if knobStateChanged then

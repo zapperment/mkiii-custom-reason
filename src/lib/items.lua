@@ -1,6 +1,5 @@
 return {
-    {
-        name = "knob1",
+    knob1 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -8,8 +7,7 @@ return {
         midiMatcher = "BF 15 xx",
         controller = 21
     },
-    {
-        name = "knob2",
+    knob2 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -17,8 +15,7 @@ return {
         midiMatcher = "BF 16 xx",
         controller = 22
     },
-    {
-        name = "knob3",
+    knob3 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -26,8 +23,7 @@ return {
         midiMatcher = "BF 17 xx",
         controller = 23
     },
-    {
-        name = "knob4",
+    knob4 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -35,8 +31,7 @@ return {
         midiMatcher = "BF 18 xx",
         controller = 24
     },
-    {
-        name = "knob5",
+    knob5 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -44,8 +39,7 @@ return {
         midiMatcher = "BF 19 xx",
         controller = 25
     },
-    {
-        name = "knob6",
+    knob6 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -53,8 +47,7 @@ return {
         midiMatcher = "BF 1A xx",
         controller = 26
     },
-    {
-        name = "knob7",
+    knob7 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -62,8 +55,7 @@ return {
         midiMatcher = "BF 1B xx",
         controller = 27
     },
-    {
-        name = "knob8",
+    knob8 = {
         input = "delta",
         output = "value",
         min = 0,
@@ -71,12 +63,10 @@ return {
         midiMatcher = "BF 1C xx",
         controller = 28
     },
-    {
-        name = "deviceName",
+    deviceName = {
         output = "text"
     },
-    {
-        name = "patchName",
+    patchName = {
         output = "text"
     }
 }
