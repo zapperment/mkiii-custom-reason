@@ -111,6 +111,118 @@ return {
             next = false
         }
     },
+    button1 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button2 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button3 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button4 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button5 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button6 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button7 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
+    button8 = {
+        label = {
+            current = " ",
+            next = " "
+        },
+        value = {
+            current = 0,
+            next = 0
+        },
+        enabled = {
+            current = false,
+            next = false
+        }
+    },
     deviceName = {
         current =  " ",
         next = " "

@@ -60,9 +60,9 @@ end
 --
 -- statuses: list of 8 boolean values, each determining if the corresponding knob is active
 -- texts: list of 8 strings, each representing the text to be displayed below the know corresponding knob
--- row: row number 1 or 2; by convention, row 1 shows the text label and row 2 shows the value as a number; defaults to 1
+-- row: row number 1-4; by convention, row 1 shows the text label and row 2 shows the value as a number; defaults to 1
 local function makeKnobsTextEvent(statuses, texts, row)
-    local rowHex = row == 2 and "01" or "00"
+    local rowHex = row ~= nil and hexUtils.decToHex(row - 1) or "00"
     local event = constants.sysexHeader .. " 02 "
     for i, knobIsActive in ipairs(statuses) do
         if knobIsActive then

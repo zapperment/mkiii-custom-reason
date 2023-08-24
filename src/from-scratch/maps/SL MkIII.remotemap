@@ -14,5 +14,13 @@ Map	knob5		Rotary 5
 Map	knob6		Rotary 6
 Map	knob7		Rotary 7
 Map	knob8		Rotary 8
+Map	button1		Button 1
+Map	button2		Button 2
+Map	button3		Button 3
+Map	button4		Button 4
+Map	button5		Button 5
+Map	button6		Button 6
+Map	button7		Button 7
+Map	button8		Button 8
 Map	deviceName		Device Name
 Map	patchName		Patch Name
