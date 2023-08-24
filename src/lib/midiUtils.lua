@@ -56,12 +56,18 @@ local function makeKnobsStatusEvent(statuses, colour)
     end
 end
 
--- Makes a MIDI event that sets the labels for the knobs in the LC displays below.
+-- Makes a MIDI event that sets the text displayed in the 4 LC displays between the rotary knob and the buttons above
+-- the drum pads.
 --
--- statuses: list of 8 boolean values, each determining if the corresponding knob is active
--- texts: list of 8 strings, each representing the text to be displayed below the know corresponding knob
--- row: row number 1-4; by convention, row 1 shows the text label and row 2 shows the value as a number; defaults to 1
-local function makeKnobsTextEvent(statuses, texts, row)
+-- statuses: list of 8 boolean values, each determining if the corresponding remote surface element is active
+-- texts: list of 8 strings, each representing the text to be displayed below the corresponding knob or above the
+--        corresponding button
+-- row: row number 1-4; defaults to 1
+--      row 1: rotary knob label
+--      row 2: rotary knob value
+--      row 3: (currently not used)
+--      row 4: button label
+local function makeDisplayEvent(statuses, texts, row)
     local rowHex = row ~= nil and hexUtils.decToHex(row - 1) or "00"
     local event = constants.sysexHeader .. " 02 "
     for i, knobIsActive in ipairs(statuses) do
@@ -92,6 +98,6 @@ return {
     makeNotificationEvent = makeNotificationEvent,
     makeKnobsStatusEvent = makeKnobsStatusEvent,
     makeCreateKnobEvent = makeCreateKnobEvent,
-    makeKnobsTextEvent = makeKnobsTextEvent,
+    makeDisplayEvent = makeDisplayEvent,
     makeControlChangeEvent = makeControlChangeEvent
 }

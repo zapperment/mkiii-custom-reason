@@ -1504,11 +1504,11 @@ function remote_deliver_midi()
     end
 
     if counter_2 > 0 then
-        table.insert(ret_events, midiUtils.makeKnobsTextEvent(g_label_1_row_enabled, g_label_1_row_text, 1))
+        table.insert(ret_events, midiUtils.makeDisplayEvent(g_label_1_row_enabled, g_label_1_row_text, 1))
     end
 
     if counter_3 > 0 then
-        table.insert(ret_events, midiUtils.makeKnobsTextEvent(g_label_1_row_enabled, g_label_1_row_value, 2))
+        table.insert(ret_events, midiUtils.makeDisplayEvent(g_label_1_row_enabled, g_label_1_row_value, 2))
     end
 
     -- check if enabled BUTTONS have changed their status

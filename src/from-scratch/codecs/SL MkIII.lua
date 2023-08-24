@@ -268,7 +268,7 @@ function remote_deliver_midi()
     end
 
     if knobLabelChanged then
-        table.insert(events, midiUtils.makeKnobsTextEvent(
+        table.insert(events, midiUtils.makeDisplayEvent(
                 knobStates,
                 knobLabels,
                 1
@@ -276,7 +276,7 @@ function remote_deliver_midi()
     end
 
     if knobValueChanged then
-        table.insert(events, midiUtils.makeKnobsTextEvent(
+        table.insert(events, midiUtils.makeDisplayEvent(
                 knobStates,
                 knobValues,
                 2
@@ -284,7 +284,7 @@ function remote_deliver_midi()
     end
 
     if buttonLabelChanged then
-        table.insert(events, midiUtils.makeKnobsTextEvent(
+        table.insert(events, midiUtils.makeDisplayEvent(
                 buttonStates,
                 buttonLabels,
                 4
