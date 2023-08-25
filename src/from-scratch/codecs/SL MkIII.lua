@@ -3,6 +3,7 @@ local hexUtils = require("hexUtils")
 local colours = require("colours")
 local stateUtils = require("stateUtils")
 local items = require("items")
+local combinatorUtils = require("combinatorUtils")
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
@@ -149,6 +150,18 @@ end
 -- changed_items is a table containing indexes to the items that have changed since the last
 -- call.
 function remote_set_state(changedItems)
+    -- We iterate TWICE because we have to make sure the device and patch name changes are processed before
+    -- anything else
+    for _, changedItemIndex in ipairs(changedItems) do
+        if changedItemIndex == items.deviceName.index then
+            stateUtils.set("deviceName", remote.get_item_text_value(changedItemIndex))
+        end
+
+        if changedItemIndex == items.patchName.index then
+            stateUtils.set("patchName", remote.get_item_text_value(changedItemIndex))
+        end
+    end
+
     for _, changedItemIndex in ipairs(changedItems) do
         local changedItem = remote.get_item_state(changedItemIndex)
         for i = 1, 8 do
@@ -168,7 +181,7 @@ function remote_set_state(changedItems)
                 -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
                 if changedItem.is_enabled then
-                    stateUtils.set(knob .. ".label", changedItem.short_name)
+                    stateUtils.set(knob .. ".label", combinatorUtils.getLabel(knob) or changedItem.short_name)
                     stateUtils.set(knob .. ".value", changedItem.value)
                     stateUtils.set(knob .. ".enabled", true)
                 else
@@ -181,7 +194,7 @@ function remote_set_state(changedItems)
             local button = "button" .. i
             if changedItemIndex == items[button].index then
                 if changedItem.is_enabled then
-                    stateUtils.set(button .. ".label", changedItem.short_name)
+                    stateUtils.set(button .. ".label", combinatorUtils.getLabel(button) or changedItem.short_name)
                     stateUtils.set(button .. ".value", changedItem.value > 0)
                     stateUtils.set(button .. ".enabled", true)
                 else
@@ -190,14 +203,6 @@ function remote_set_state(changedItems)
                     stateUtils.set(button .. ".enabled", false)
                 end
             end
-        end
-
-        if changedItemIndex == items.deviceName.index then
-            stateUtils.set("deviceName", remote.get_item_text_value(changedItemIndex))
-        end
-
-        if changedItemIndex == items.patchName.index then
-            stateUtils.set("patchName", remote.get_item_text_value(changedItemIndex))
         end
     end
 end
