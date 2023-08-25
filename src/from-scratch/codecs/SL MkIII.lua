@@ -1,4 +1,5 @@
 local midiUtils = require("midiUtils")
+local hexUtils = require("hexUtils")
 local colours = require("colours")
 local stateUtils = require("stateUtils")
 local items = require("items")
@@ -134,6 +135,12 @@ function remote_process_midi(event)
             processed = true
         end
     end
+    -- DELETE ME: fader 1 controls button colour – just for experimentation
+    ret = remote.match_midi("BF 29 xx", event)
+    if ret then
+        stateUtils.set("buttonColour", ret.x)
+        stateUtils.set("patchName", "buttonColour=" .. tostring(ret.x))
+    end
     return processed
 end
 
@@ -266,18 +273,23 @@ function remote_deliver_midi()
         if stateUtils.hasChanged(path) then
             buttonValueChanged = true
             value = stateUtils.update(path)
-            table.insert(
-                    events,
-                    midiUtils.makeControlChangeEvent(
-                            items["button" .. i].controller, value and 127 or 0))
         else
             value = stateUtils.get(path)
         end
         table.insert(buttonValues, value and "ON" or "off")
     end
 
+    local buttonColour
+    if stateUtils.hasChanged("buttonColour") then
+        knobStateChanged = true
+        buttonValueChanged = true
+        buttonColour = stateUtils.update("buttonColour")
+    else
+        buttonColour = stateUtils.get("buttonColour")
+    end
+
     if knobStateChanged then
-        table.insert(events, midiUtils.makeKnobsStatusEvent(knobStates, colours.orange))
+        table.insert(events, midiUtils.makeKnobsStatusEvent(knobStates, hexUtils.decToHex(buttonColour)))
     end
 
     if knobLabelChanged then
@@ -310,6 +322,12 @@ function remote_deliver_midi()
                 buttonValues,
                 4
         ))
+        for i, value in ipairs(buttonValues) do
+            table.insert(
+                    events,
+                    midiUtils.makeControlChangeEvent(
+                            items["button" .. i].controller, value == "ON" and buttonColour or 0))
+        end
     end
 
     if stateUtils.hasChanged("debugMessage1") then

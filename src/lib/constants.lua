@@ -3,8 +3,10 @@ local sysexHeader = "F0 00 20 29 02 0A 01"
 
 -- System exclusive message to reset know layout
 local sysexKnobLayout = sysexHeader .. "01 01 F7"
+local buttonColourNumber = 9
 
 return {
     sysexHeader = sysexHeader,
-    sysexKnobLayout = sysexKnobLayout
+    sysexKnobLayout = sysexKnobLayout,
+    buttonColourNumber = buttonColourNumber
 }

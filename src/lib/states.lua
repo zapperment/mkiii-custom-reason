@@ -1,3 +1,5 @@
+local constants = require("constants")
+
 return {
     knob1 = {
         label = {
@@ -224,19 +226,23 @@ return {
         }
     },
     deviceName = {
-        current =  " ",
+        current = " ",
         next = " "
     },
     patchName = {
-        current =  " ",
+        current = " ",
         next = " "
     },
     debugMessage1 = {
-        current =  " ",
+        current = " ",
         next = " "
     },
     debugMessage2 = {
-        current =  " ",
+        current = " ",
         next = " "
+    },
+    buttonColour = {
+        current = constants.buttonColourNumber,
+        next = constants.buttonColourNumber
     }
 }
