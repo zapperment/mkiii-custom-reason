@@ -15,10 +15,16 @@ Run the installer like so:
 ./install.sh
 ```
 
+On Windows, use PowerShell:
+
+```
+./install.ps1
+```
+
 Besides the default control surface, there are also some special ones:
 
-* `original`: the original control surface from Novation
-* `from-scratch`: experimental control surface where I'm trying to make things better (work in progress)
+- `original`: the original control surface from Novation
+- `from-scratch`: experimental control surface where I'm trying to make things better (work in progress)
 
 Install these by providing the control surface variant name, like so:
 

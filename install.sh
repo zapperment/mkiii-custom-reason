@@ -1,4 +1,6 @@
-﻿#!/usr/bin/env bash
+﻿#!/bin/bash
+
+set -euo pipefail
 
 function echo_red() {
   echo -e "\033[1;31m$1\033[0m"
@@ -8,19 +10,8 @@ function echo_bold() {
   echo -e "\033[1m$1\033[0m"
 }
 
-OS_NAME="$(uname)"
-
-if [[ "${OS_NAME}" == "Darwin" ]]; then
-  echo "Detected macOS"
-  USER_NAME=$(scutil <<<"show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ { print $3 }')
-  REMOTE_DIR="/Users/${USER_NAME}/Library/Application Support/Propellerhead Software/Remote"
-elif [[ "${OS_NAME}" == MINGW* ]] || [[ "${OS_NAME}" == MSYS* ]] || [[ "${OS_NAME}" == "Windows_NT" ]]; then
-  echo "Detected Windows"
-  REMOTE_DIR="/c/ProgramData/Propellerhead Software/Remote"
-else
-  echo_red "Unsupported OS"
-  exit 1
-fi
+USER_NAME=$(scutil <<<"show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ { print $3 }')
+REMOTE_DIR="/Users/${USER_NAME}/Library/Application Support/Propellerhead Software/Remote"
 
 if [ -z "$1" ]; then
   echo_bold "Using default configuration (custom)"
@@ -102,7 +93,12 @@ cp -vR "${MAPS_SOURCE_DIR}" "${DIST_DIR}/"
 
 echo_bold "Bundling Lua code"
 
-luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/lib/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"
+echo "luabundler bundle \"${CODECS_DIST_DIR}/SL MkIII.lua\" -p \"${SRC_DIR}/lib/?.lua\" -o \"${CODECS_DIST_DIR}/SL MkIII.lua\""
+
+if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/lib/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"; then
+    echo "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
+    exit 1
+fi
 
 echo_bold "Copying files to Reason remote dirs:"
 
