@@ -226,17 +226,13 @@ end
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi()
     local events = {}
-    local knobStateChanged = false
+    local knobChanged = false
     local knobStates = {}
-    local knobLabelChanged = false
     local knobLabels = {}
-    local knobValueChanged = false
     local knobValues = {}
-    local buttonStateChanged = false
+    local buttonChanged = false
     local buttonStates = {}
-    local buttonLabelChanged = false
     local buttonLabels = {}
-    local buttonValueChanged = false
     local buttonValues = {}
 
     for i = 1, 8 do
@@ -244,7 +240,7 @@ function remote_deliver_midi()
 
         path = "knob" .. i .. ".enabled"
         if stateUtils.hasChanged(path) then
-            knobStateChanged = true
+            knobChanged = true
             enabled = stateUtils.update(path)
         else
             enabled = stateUtils.get(path)
@@ -253,7 +249,7 @@ function remote_deliver_midi()
 
         path = "knob" .. i .. ".label"
         if stateUtils.hasChanged(path) then
-            knobLabelChanged = true
+            knobChanged = true
             label = stateUtils.update(path)
         else
             label = stateUtils.get(path)
@@ -262,7 +258,7 @@ function remote_deliver_midi()
 
         path = "knob" .. i .. ".value"
         if stateUtils.hasChanged(path) then
-            knobValueChanged = true
+            knobChanged = true
             value = stateUtils.update(path)
             table.insert(events, midiUtils.makeControlChangeEvent(items["knob" .. i].controller, value))
         else
@@ -272,7 +268,7 @@ function remote_deliver_midi()
 
         path = "button" .. i .. ".enabled"
         if stateUtils.hasChanged(path) then
-            buttonStateChanged = true
+            buttonChanged = true
             enabled = stateUtils.update(path)
         else
             enabled = stateUtils.get(path)
@@ -281,7 +277,7 @@ function remote_deliver_midi()
 
         path = "button" .. i .. ".label"
         if stateUtils.hasChanged(path) then
-            buttonLabelChanged = true
+            buttonChanged = true
             label = stateUtils.update(path)
         else
             label = stateUtils.get(path)
@@ -290,7 +286,7 @@ function remote_deliver_midi()
 
         path = "button" .. i .. ".value"
         if stateUtils.hasChanged(path) then
-            buttonValueChanged = true
+            buttonChanged = true
             value = stateUtils.update(path)
         else
             value = stateUtils.get(path)
@@ -298,32 +294,35 @@ function remote_deliver_midi()
         table.insert(buttonValues, value and "ON" or "off")
     end
 
+    -- Special case handling for Combinators with custom labels: if the
+    -- label is an empty string, treat them as if they were disabled
+    for i = 1, 8 do
+        local knobLabel = knobLabels[i]
+        if knobLabel == "" then
+            knobStates[i] = false
+        end
+        local buttonLabel = buttonLabels[i]
+        if buttonLabel == "" then
+            buttonStates[i] = false
+        end
+    end
+
     local buttonColour
     if stateUtils.hasChanged("buttonColour") then
-        knobStateChanged = true
-        buttonValueChanged = true
+        knobChanged = true
         buttonColour = stateUtils.update("buttonColour")
     else
         buttonColour = stateUtils.get("buttonColour")
     end
 
-    if knobStateChanged then
+    if knobChanged then
         table.insert(events, midiUtils.makeKnobsStatusEvent(knobStates, hexUtils.decToHex(buttonColour)))
-    end
-
-    if knobLabelChanged then
         table.insert(events, midiUtils.makeDisplayEvent(knobStates, knobLabels, 1))
-    end
-
-    if knobValueChanged then
         table.insert(events, midiUtils.makeDisplayEvent(knobStates, knobValues, 2))
     end
 
-    if buttonLabelChanged then
+    if buttonChanged then
         table.insert(events, midiUtils.makeDisplayEvent(buttonStates, buttonLabels, 3))
-    end
-
-    if buttonValueChanged then
         table.insert(events, midiUtils.makeDisplayEvent(buttonStates, buttonValues, 4))
         for i, value in ipairs(buttonValues) do
             table.insert(events, midiUtils.makeControlChangeEvent(items["button" .. i].controller,
