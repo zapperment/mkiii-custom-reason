@@ -5,12 +5,14 @@ local stateUtils = require("stateUtils")
 local items = require("items")
 local combinatorUtils = require("combinatorUtils")
 
+local hasCustomLabels
+
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
 -- each supported model.
 function remote_probe(_, _, prober)
 
-    local request_events = { remote.make_midi("F0 7E 7F 06 01 F7") }
+    local request_events = {remote.make_midi("F0 7E 7F 06 01 F7")}
     local response = "F0 7E 00 06 02 00 20 29 01 01 00 00 ?? ?? ?? ?? F7"
 
     local function match_events(mask, events)
@@ -58,8 +60,8 @@ function remote_probe(_, _, prober)
 
     if dev_found ~= 0 then
         local one_result = {
-            in_ports = { ins[1], ins[2] },
-            out_ports = { port_out }
+            in_ports = {ins[1], ins[2]},
+            out_ports = {port_out}
         }
         table.insert(results, one_result)
     end
@@ -159,6 +161,14 @@ function remote_set_state(changedItems)
 
         if changedItemIndex == items.patchName.index then
             stateUtils.set("patchName", remote.get_item_text_value(changedItemIndex))
+            local combinatorConfig = combinatorUtils.getCombinatorConfig()
+            if combinatorConfig then
+                hasCustomLabels = true
+                combinatorUtils.assignConfig(combinatorConfig)
+            else
+                hasCustomLabels = false
+                combinatorUtils.resetConfig(combinatorConfig)
+            end
         end
     end
 
@@ -181,11 +191,13 @@ function remote_set_state(changedItems)
                 -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
 
                 if changedItem.is_enabled then
-                    stateUtils.set(knob .. ".label", combinatorUtils.getLabel(knob) or changedItem.short_name)
+                    if hasCustomLabels == false then
+                        stateUtils.set(knob .. ".label", changedItem.short_name)
+                    end
                     stateUtils.set(knob .. ".value", changedItem.value)
                     stateUtils.set(knob .. ".enabled", true)
                 else
-                    stateUtils.set(knob .. ".label", " ")
+                    stateUtils.set(knob .. ".label", "")
                     stateUtils.set(knob .. ".value", 0)
                     stateUtils.set(knob .. ".enabled", false)
                 end
@@ -194,11 +206,13 @@ function remote_set_state(changedItems)
             local button = "button" .. i
             if changedItemIndex == items[button].index then
                 if changedItem.is_enabled then
-                    stateUtils.set(button .. ".label", combinatorUtils.getLabel(button) or changedItem.short_name)
+                    if hasCustomLabels == false then
+                        stateUtils.set(button .. ".label", changedItem.short_name)
+                    end
                     stateUtils.set(button .. ".value", changedItem.value > 0)
                     stateUtils.set(button .. ".enabled", true)
                 else
-                    stateUtils.set(button .. ".label", " ")
+                    stateUtils.set(button .. ".label", "")
                     stateUtils.set(button .. ".value", false)
                     stateUtils.set(button .. ".enabled", false)
                 end
@@ -298,40 +312,22 @@ function remote_deliver_midi()
     end
 
     if knobLabelChanged then
-        table.insert(events, midiUtils.makeDisplayEvent(
-                knobStates,
-                knobLabels,
-                1
-        ))
+        table.insert(events, midiUtils.makeDisplayEvent(knobStates, knobLabels, 1))
     end
 
     if knobValueChanged then
-        table.insert(events, midiUtils.makeDisplayEvent(
-                knobStates,
-                knobValues,
-                2
-        ))
+        table.insert(events, midiUtils.makeDisplayEvent(knobStates, knobValues, 2))
     end
 
     if buttonLabelChanged then
-        table.insert(events, midiUtils.makeDisplayEvent(
-                buttonStates,
-                buttonLabels,
-                3
-        ))
+        table.insert(events, midiUtils.makeDisplayEvent(buttonStates, buttonLabels, 3))
     end
 
     if buttonValueChanged then
-        table.insert(events, midiUtils.makeDisplayEvent(
-                buttonStates,
-                buttonValues,
-                4
-        ))
+        table.insert(events, midiUtils.makeDisplayEvent(buttonStates, buttonValues, 4))
         for i, value in ipairs(buttonValues) do
-            table.insert(
-                    events,
-                    midiUtils.makeControlChangeEvent(
-                            items["button" .. i].controller, value == "ON" and buttonColour or 0))
+            table.insert(events, midiUtils.makeControlChangeEvent(items["button" .. i].controller,
+                value == "ON" and buttonColour or 0))
         end
     end
 
@@ -348,7 +344,7 @@ function remote_deliver_midi()
     if stateUtils.hasChanged("deviceName") or stateUtils.hasChanged("patchName") then
         local deviceName = stateUtils.update("deviceName")
         local patchName = stateUtils.update("patchName")
-        local line2 = deviceName == patchName and " " or patchName
+        local line2 = deviceName == patchName and "" or patchName
         table.insert(events, midiUtils.makeNotificationEvent(deviceName, line2))
     end
 
@@ -356,27 +352,17 @@ function remote_deliver_midi()
 end
 
 function remote_prepare_for_use()
-    return { midiUtils.makeKnobsStatusEvent(),
-             midiUtils.makeCreateKnobEvent(1, colours.noColour),
-             midiUtils.makeCreateKnobEvent(2, colours.noColour),
-             midiUtils.makeCreateKnobEvent(3, colours.noColour),
-             midiUtils.makeCreateKnobEvent(4, colours.noColour),
-             midiUtils.makeCreateKnobEvent(5, colours.noColour),
-             midiUtils.makeCreateKnobEvent(6, colours.noColour),
-             midiUtils.makeCreateKnobEvent(7, colours.noColour),
-             midiUtils.makeCreateKnobEvent(8, colours.noColour)
-    }
+    return {midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
+            midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
+            midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
+            midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
+            midiUtils.makeCreateKnobEvent(8, colours.noColour)}
 end
 
 function remote_release_from_use()
-    return { midiUtils.makeKnobsStatusEvent(),
-             midiUtils.makeCreateKnobEvent(1, colours.noColour),
-             midiUtils.makeCreateKnobEvent(2, colours.noColour),
-             midiUtils.makeCreateKnobEvent(3, colours.noColour),
-             midiUtils.makeCreateKnobEvent(4, colours.noColour),
-             midiUtils.makeCreateKnobEvent(5, colours.noColour),
-             midiUtils.makeCreateKnobEvent(6, colours.noColour),
-             midiUtils.makeCreateKnobEvent(7, colours.noColour),
-             midiUtils.makeCreateKnobEvent(8, colours.noColour)
-    }
+    return {midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
+            midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
+            midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
+            midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
+            midiUtils.makeCreateKnobEvent(8, colours.noColour)}
 end
