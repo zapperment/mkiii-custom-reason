@@ -43,54 +43,25 @@ return {
         knob2 = "BassRoll",
         knob3 = "Decay",
         knob4 = "Presence",
-        knob5 = "",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
         button1 = "Release",
         button2 = "ChorsMute",
         button3 = "Enhancmnt",
         button4 = "VerbMute",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
     },
     ["Jazz Upright"] = {
         knob1 = "CompDfntn",
         knob2 = "ReverbMix",
-        knob3 = "LoFreqShp",
-        knob4 = "",
-        knob5 = "",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
-        button1 = "",
-        button2 = "",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        knob3 = "LoFreqShp"
     },
     ["Absent Devotion"] = {
         knob1 = "Cutoff",
         knob2 = "Resonance",
         knob3 = "Attack",
         knob4 = "Release",
-        knob5 = "",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
         button1 = "Perfrmnc",
         button2 = "Spread",
         button3 = "Delay",
-        button4 = "Reverb",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button4 = "Reverb"
     },
     ["Air Vent Beats [RUN]"] = {
         knob1 = "Cutoff",
@@ -103,10 +74,6 @@ return {
         knob8 = "Decay",
         button1 = "LP/HP",
         button2 = "Spread",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
         button7 = "Delay",
         button8 = "Reverb"
     },
@@ -123,10 +90,6 @@ return {
         button2 = "RootTop",
         button3 = "AllgtrOn",
         button4 = "PayerOn",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
     },
     ["Bitcrushed Poly Vocals"] = {
         knob1 = "Noise",
@@ -135,16 +98,7 @@ return {
         knob4 = "Reverb",
         knob5 = "TapeDelay",
         knob6 = "Chorus",
-        knob7 = "LoCut",
-        knob8 = "HiCut",
-        button1 = "SclsChrd",
-        button2 = "",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button1 = "SclsChrd"
     },
     ["Catacombs Calling [RUN]"] = {
         knob1 = "Cutoff",
@@ -158,9 +112,6 @@ return {
         button1 = "HP/LP",
         button2 = "Spread",
         button3 = "KEY/SEQ",
-        button4 = "",
-        button5 = "",
-        button6 = "",
         button7 = "Delay",
         button8 = "Reverb"
     },
@@ -169,18 +120,11 @@ return {
         knob2 = "Gain",
         knob3 = "DrySignal",
         knob4 = "Tone",
-        knob5 = "",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
         button1 = "Delay",
         button2 = "EQ",
         button3 = "AmpBoost",
         button4 = "Widen",
-        button5 = "Players",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button5 = "Players"
     },
     ["Cloudy Keys"] = {
         knob1 = "Lo",
@@ -191,14 +135,8 @@ return {
         knob6 = "ReverbDec",
         knob7 = "DelayAmt",
         knob8 = "Feedback",
-        button1 = "",
-        button2 = "",
-        button3 = "",
-        button4 = "",
         button5 = "Reverb",
-        button6 = "",
-        button7 = "Delay",
-        button8 = ""
+        button7 = "Delay"
     },
     ["CP Style Keys"] = {
         knob1 = "Lo",
@@ -211,12 +149,8 @@ return {
         knob8 = "Feedback",
         button1 = "On1",
         button2 = "On2",
-        button3 = "",
-        button4 = "",
         button5 = "Reverb",
-        button6 = "",
-        button7 = "Delay",
-        button8 = ""
+        button7 = "Delay"
     },
     ["Felt Piano"] = {
         knob1 = "Lo",
@@ -227,14 +161,8 @@ return {
         knob6 = "ReverbDec",
         knob7 = "DelayAmt",
         knob8 = "Feedback",
-        button1 = "",
-        button2 = "",
-        button3 = "",
-        button4 = "",
         button5 = "Reverb",
-        button6 = "",
-        button7 = "Delay",
-        button8 = ""
+        button7 = "Delay"
     },
     ["Filtered Vocal AdLibs (Ab_120BPM)"] = {
         knob1 = "FilterFrq",
@@ -242,17 +170,7 @@ return {
         knob3 = "OctaveDwn",
         knob4 = "Reverb",
         knob5 = "TapeDelay",
-        knob6 = "Chorus",
-        knob7 = "",
-        knob8 = "",
-        button1 = "",
-        button2 = "",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        knob6 = "Chorus"
     },
     ["Filtered Vocal AdLibs (FSharpMinor_90BPM)"] = {
         knob1 = "FilterFrq",
@@ -260,17 +178,7 @@ return {
         knob3 = "OctaveDwn",
         knob4 = "Reverb",
         knob5 = "TapeDelay",
-        knob6 = "Chorus",
-        knob7 = "",
-        knob8 = "",
-        button1 = "",
-        button2 = "",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        knob6 = "Chorus"
     },
     ["HearthQuake [Arp]"] = {
         knob1 = "Highs",
@@ -279,16 +187,7 @@ return {
         knob4 = "Hall",
         knob5 = "Echo",
         knob6 = "Out",
-        knob7 = "",
-        knob8 = "",
-        button1 = "AutoPlay",
-        button2 = "",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button1 = "AutoPlay"
     },
     ["Legendary Beats"] = {
         knob1 = "BeatVol",
@@ -300,31 +199,17 @@ return {
         knob7 = "ReverbAmt",
         knob8 = "ReverbDec",
         button1 = "12bB/24dB",
-        button2 = "HP/LP",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button2 = "HP/LP"
     },
     ["Lush Stretch"] = {
         knob1 = "PianoLayr",
         knob2 = "GrainALyr",
         knob3 = "GrainBLyr",
         knob4 = "Reverb",
-        knob5 = "",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
         button1 = "LoCut",
         button2 = "TapeComp",
         button3 = "Polar",
-        button4 = "Delay",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button4 = "Delay"
     },
     ["Objekt Brass Section"] = {
         knob1 = "Trumpet1",
@@ -332,17 +217,11 @@ return {
         knob3 = "Horn",
         knob4 = "TenorSax",
         knob5 = "AltoSax",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
         button1 = "Trumpet1",
         button2 = "Trumpet2",
         button3 = "Horn",
         button4 = "TenorSax",
-        button5 = "AltoSax",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button5 = "AltoSax"
     },
     ["Objekt Tribalism [RUN]"] = {
         knob1 = "Cutoff",
@@ -355,10 +234,6 @@ return {
         knob8 = "Decay",
         button1 = "LP/HP",
         button2 = "Spread",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
         button7 = "Delay",
         button8 = "Reverb"
     },
@@ -371,31 +246,15 @@ return {
         knob6 = "ReverbDec",
         knob7 = "DelayAmt",
         knob8 = "Feedback",
-        button1 = "",
-        button2 = "",
-        button3 = "",
-        button4 = "",
         button5 = "Reverb",
-        button6 = "",
-        button7 = "Delay",
-        button8 = ""
+        button7 = "Delay"
     },
     ["Persimmon Pad"] = {
         knob1 = "LPFilter",
         knob2 = "LFO2Rate",
         knob3 = "LFO3Rate",
         knob4 = "WaveMod",
-        knob5 = "",
-        knob6 = "",
-        knob7 = "",
-        knob8 = "",
         button1 = "Osc2",
-        button2 = "Portamnto",
-        button3 = "",
-        button4 = "",
-        button5 = "",
-        button6 = "",
-        button7 = "",
-        button8 = ""
+        button2 = "Portamnto"
     }
 }

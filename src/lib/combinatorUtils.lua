@@ -14,13 +14,9 @@ end
 local function assignConfig(combinatorConfig)
     for i = 1, 8 do
         local knobLabel = combinatorConfig["knob" .. i]
-        if knobLabel ~= nil then
-            stateUtils.set("knob" .. i .. ".label", knobLabel)
-        end
+        stateUtils.set("knob" .. i .. ".label", knobLabel or "")
         local buttonLabel = combinatorConfig["button" .. i]
-        if buttonLabel then
-            stateUtils.set("button" .. i .. ".label", buttonLabel)
-        end
+        stateUtils.set("button" .. i .. ".label", buttonLabel or "")
     end
 end
 
