@@ -132,5 +132,13 @@ return {
     },
     patchName = {
         output = "text"
+    },
+    buttonLayerA = {
+        input = "button",
+        output = "value",
+    },
+    buttonLayerB = {
+        input = "button",
+        output = "value",
     }
 }
