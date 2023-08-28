@@ -4,8 +4,7 @@ local colours = require("lib.colours")
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 local combinatorUtils = require("lib.combinatorUtils")
-local processKnobsAndButtons = require("proc.processKnobsAndButtons")
-local processButtonColorFader = require("proc.processButtonColorFader")
+local processMidi = require("processMidi._")
 
 local hasCustomLabels
 
@@ -102,7 +101,9 @@ end
 -- function returns false, Remote will try to find a match using the automatic input registry
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
-    return processKnobsAndButtons(event) or processButtonColorFader(event)
+    return processMidi.knobsAndButtons(event)
+            or processMidi.colourFader(event)
+            or processMidi.layerButtons(event)
 end
 
 -- REASON => CODEC

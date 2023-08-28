@@ -59,8 +59,8 @@ if (-not (Test-Path $MAPS_TARGET_DIR)) {
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $DIST_DIR = "${SCRIPT_DIR}\dist"
 $SRC_DIR = "${SCRIPT_DIR}\src"
-$CODECS_SOURCE_DIR = "${SRC_DIR}\${CONFIG}\codecs"
-$MAPS_SOURCE_DIR = "${SRC_DIR}\${CONFIG}\maps"
+$CODECS_SOURCE_DIR = "${SRC_DIR}\config\${CONFIG}\codecs"
+$MAPS_SOURCE_DIR = "${SRC_DIR}\config\${CONFIG}\maps"
 $CODECS_DIST_DIR = "${DIST_DIR}\codecs"
 $MAPS_DIST_DIR = "${DIST_DIR}\maps"
 

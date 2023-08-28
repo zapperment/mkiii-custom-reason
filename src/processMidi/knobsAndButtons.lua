@@ -1,7 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 
-local function processKnobsAndButtons(event)
+return function (event)
     local processed = false
 
     for i = 1, 8 do
@@ -44,5 +44,3 @@ local function processKnobsAndButtons(event)
 
     return processed
 end
-
-return processKnobsAndButtons
