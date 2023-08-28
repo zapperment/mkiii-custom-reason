@@ -244,5 +244,9 @@ return {
     buttonColour = {
         current = constants.buttonColourNumber,
         next = constants.buttonColourNumber
+    },
+    layer = {
+        current = constants.layerA,
+        next = constants.layerA
     }
 }
