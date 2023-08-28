@@ -18,4 +18,5 @@ return function (changedItems)
             end
         end
     end
+    return false
 end

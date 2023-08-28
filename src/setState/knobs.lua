@@ -1,7 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 
-return function (changedItems, hasCustomLabels)
+return function(changedItems, hasCustomLabels)
     for _, changedItemIndex in ipairs(changedItems) do
         local changedItem = remote.get_item_state(changedItemIndex)
         for i = 1, 8 do

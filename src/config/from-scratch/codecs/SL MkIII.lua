@@ -193,6 +193,7 @@ function remote_deliver_midi()
         end
         table.insert(buttonValues, value and "ON" or "off")
     end
+
     if stateUtils.hasChanged("layer") then
         layer = stateUtils.update("layer")
         layerChanged = true
