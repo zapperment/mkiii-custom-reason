@@ -1,9 +1,26 @@
 local combinators = require("lib.combinators")
 local stateUtils = require("lib.stateUtils")
+local constants = require("lib.constants")
+
+local function hasLayers(combinatorConfig)
+    return combinatorConfig.layerA or combinatorConfig.layerB
+end
 
 local function getCombinatorConfig()
     local patchName = stateUtils.getNext("patchName")
-    return combinators[patchName]
+    local combinatorConfig = combinators[patchName]
+    if combinatorConfig == nil then
+        return nil
+    end
+    if hasLayers(combinatorConfig) then
+        local layer = stateUtils.getNext("layer")
+        return combinatorConfig[layer]
+    end
+    local layer = stateUtils.getNext("layer")
+    if layer == constants.layerB then
+        return {}
+    end
+    return combinatorConfig
 end
 
 local function getLabel(itemName)

@@ -3,40 +3,56 @@
 -- LC displays will break!
 return {
     ["X-Touch Quad Piano"] = {
-        knob1 = "RadPnoVol",
-        knob2 = "RadKysVol",
-        knob3 = "Px7Vol",
-        knob4 = "PrcPnoVol",
-        knob5 = "LegendVol",
-        knob6 = "OomphVol",
-        knob7 = "RevDecay",
-        knob8 = "RevDryWt",
-        button1 = "SplitMode",
-        button2 = "BassSeq",
-        button3 = "BassBusy",
-        button4 = "DrumsBusy",
-        button5 = "Kick",
-        button6 = "Snare",
-        button7 = "HiHats",
-        button8 = "Percussion"
+        layerA = {
+            knob1 = "RadPnoVol",
+            knob2 = "RadKysVol",
+            knob3 = "Px7Vol",
+            knob4 = "PrcPnoVol",
+            knob5 = "LegendVol",
+            knob6 = "OomphVol",
+            knob7 = "RevDecay",
+            knob8 = "RevDryWt",
+            button1 = "SplitMode",
+            button2 = "BassSeq",
+            button3 = "BassBusy",
+            button4 = "DrumsBusy",
+            button5 = "Kick",
+            button6 = "Snare",
+            button7 = "HiHats",
+            button8 = "Percussion"
+        },
+        layerB = {
+            knob1 = "MasterVol",
+            knob2 = "PatchSel",
+            knob3 = "ReverbSel",
+            knob4 = "Transpose"
+        }
     },
     ["X-Touch Quad Piano v2"] = {
-        knob1 = "RadPnoVol",
-        knob2 = "RadKysVol",
-        knob3 = "Px7Vol",
-        knob4 = "PrcPnoVol",
-        knob5 = "LegendVol",
-        knob6 = "OomphVol",
-        knob7 = "RevDecay",
-        knob8 = "RevDryWt",
-        button1 = "SplitMode",
-        button2 = "BassSeq",
-        button3 = "BassBusy",
-        button4 = "DrumsBusy",
-        button5 = "Kick",
-        button6 = "Snare",
-        button7 = "HiHats",
-        button8 = "Percussion"
+        layerA = {
+            knob1 = "RadPnoVol",
+            knob2 = "RadKysVol",
+            knob3 = "Px7Vol",
+            knob4 = "PrcPnoVol",
+            knob5 = "LegendVol",
+            knob6 = "OomphVol",
+            knob7 = "RevDecay",
+            knob8 = "RevDryWt",
+            button1 = "SplitMode",
+            button2 = "BassSeq",
+            button3 = "BassBusy",
+            button4 = "DrumsBusy",
+            button5 = "Kick",
+            button6 = "Snare",
+            button7 = "HiHats",
+            button8 = "Percussion"
+        },
+        layerB = {
+            knob1 = "MasterVol",
+            knob2 = "PatchSel",
+            knob3 = "ReverbSel",
+            knob4 = "Transpose"
+        }
     },
     ["Acoustic Bass Rig"] = {
         knob1 = "Treble",

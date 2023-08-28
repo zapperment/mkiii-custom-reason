@@ -7,8 +7,6 @@ local processMidi = require("processMidi._")
 local setState = require("setState._")
 local constants = require("lib.constants")
 
-local hasCustomLabels
-
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
 -- each supported model.
@@ -114,9 +112,9 @@ end
 -- call.
 function remote_set_state(changedItems)
     setState.deviceName(changedItems)
-    hasCustomLabels = setState.patchName(changedItems)
-    setState.knobs(changedItems, hasCustomLabels)
-    setState.buttons(changedItems, hasCustomLabels)
+    setState.patchName(changedItems)
+    setState.knobs(changedItems)
+    setState.buttons(changedItems)
 end
 
 -- CODEC => KEYBOARD
