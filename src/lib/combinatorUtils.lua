@@ -1,5 +1,5 @@
-local combinators = require("combinators")
-local stateUtils = require("stateUtils")
+local combinators = require("lib.combinators")
+local stateUtils = require("lib.stateUtils")
 
 local function getCombinatorConfig(itemName)
     local patchName = stateUtils.getNext("patchName")

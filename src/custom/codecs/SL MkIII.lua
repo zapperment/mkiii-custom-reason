@@ -1,8 +1,8 @@
-local constants = require("constants")
-local hexUtils = require("hexUtils")
-local numUtils = require("numUtils")
-local midiUtils = require("midiUtils")
-local colours = require("colours")
+local constants = require("lib.constants")
+local hexUtils = require("lib.hexUtils")
+local numUtils = require("lib.numUtils")
+local midiUtils = require("lib.midiUtils")
+local colours = require("lib.colours")
 
 -- table.insertPID = 0x0A																													-- product ID
 dim = "08"

@@ -75,7 +75,7 @@ Copy-Item -Path $MAPS_SOURCE_DIR -Destination "${DIST_DIR}\" -Recurse
 
 Write-Host "Bundling Lua code"
 
-luabundler bundle "${CODECS_DIST_DIR}\SL MkIII.lua" -p "${SRC_DIR}\lib\?.lua" -o "${CODECS_DIST_DIR}\SL MkIII.lua"
+luabundler bundle "${CODECS_DIST_DIR}\SL MkIII.lua" -p "${SRC_DIR}\?.lua" -o "${CODECS_DIST_DIR}\SL MkIII.lua"
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1

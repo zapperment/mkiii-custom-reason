@@ -1,4 +1,4 @@
-local constants = require("constants")
+local constants = require("lib.constants")
 
 return {
     knob1 = {

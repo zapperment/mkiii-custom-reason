@@ -1,9 +1,9 @@
-local midiUtils = require("midiUtils")
-local hexUtils = require("hexUtils")
-local colours = require("colours")
-local stateUtils = require("stateUtils")
-local items = require("items")
-local combinatorUtils = require("combinatorUtils")
+local midiUtils = require("lib.midiUtils")
+local hexUtils = require("lib.hexUtils")
+local colours = require("lib.colours")
+local stateUtils = require("lib.stateUtils")
+local items = require("lib.items")
+local combinatorUtils = require("lib.combinatorUtils")
 
 local hasCustomLabels
 
