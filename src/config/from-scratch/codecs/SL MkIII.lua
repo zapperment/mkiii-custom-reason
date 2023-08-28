@@ -3,8 +3,8 @@ local hexUtils = require("lib.hexUtils")
 local colours = require("lib.colours")
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
-local combinatorUtils = require("lib.combinatorUtils")
 local processMidi = require("processMidi._")
+local setState = require("setState._")
 
 local hasCustomLabels
 
@@ -101,7 +101,8 @@ end
 -- function returns false, Remote will try to find a match using the automatic input registry
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
-    return processMidi.knobsAndButtons(event)
+    return processMidi.knobs(event)
+            or processMidi.buttons(event)
             or processMidi.colourFader(event)
             or processMidi.layerButtons(event)
 end
@@ -111,73 +112,10 @@ end
 -- changed_items is a table containing indexes to the items that have changed since the last
 -- call.
 function remote_set_state(changedItems)
-    -- We iterate TWICE because we have to make sure the device and patch name changes are processed before
-    -- anything else
-    for _, changedItemIndex in ipairs(changedItems) do
-        if changedItemIndex == items.deviceName.index then
-            stateUtils.set("deviceName", remote.get_item_text_value(changedItemIndex))
-        end
-
-        if changedItemIndex == items.patchName.index then
-            stateUtils.set("patchName", remote.get_item_text_value(changedItemIndex))
-            local combinatorConfig = combinatorUtils.getCombinatorConfig()
-            if combinatorConfig then
-                hasCustomLabels = true
-                combinatorUtils.assignConfig(combinatorConfig)
-            else
-                hasCustomLabels = false
-                combinatorUtils.resetConfig(combinatorConfig)
-            end
-        end
-    end
-
-    for _, changedItemIndex in ipairs(changedItems) do
-        local changedItem = remote.get_item_state(changedItemIndex)
-        for i = 1, 8 do
-            local knob = "knob" .. i
-            if changedItemIndex == items[knob].index then
-                -- remote.get_item_state returns a table with the complete state of the given item. The table has the following
-                -- fields:
-                -- is_enabled – true if the control surface item is mapped/enabled
-                -- value – the value of the item (e.g. 64)
-                -- mode – mode the current mode for the item
-                -- remote_item_name – the name of the remotable item mapped (e.g. "Rotary 1")
-                -- text_value – the text value of the remotable item (e.g. "64")
-                -- short_name – the short version of the name (8 characters maximum, e.g. "Rot 1")
-                -- shortest_name – the shortest version of the name (4 chars, e.g. "R1")
-                -- name_and_value – the name and value combined
-                -- short_name_and_value – the short version of name-and-value (16 chars)
-                -- shortest_name_and_value - the shortest version of name-and-value (8 chars)
-
-                if changedItem.is_enabled then
-                    if hasCustomLabels == false then
-                        stateUtils.set(knob .. ".label", changedItem.short_name)
-                    end
-                    stateUtils.set(knob .. ".value", changedItem.value)
-                    stateUtils.set(knob .. ".enabled", true)
-                else
-                    stateUtils.set(knob .. ".label", "")
-                    stateUtils.set(knob .. ".value", 0)
-                    stateUtils.set(knob .. ".enabled", false)
-                end
-            end
-
-            local button = "button" .. i
-            if changedItemIndex == items[button].index then
-                if changedItem.is_enabled then
-                    if hasCustomLabels == false then
-                        stateUtils.set(button .. ".label", changedItem.short_name)
-                    end
-                    stateUtils.set(button .. ".value", changedItem.value > 0)
-                    stateUtils.set(button .. ".enabled", true)
-                else
-                    stateUtils.set(button .. ".label", "")
-                    stateUtils.set(button .. ".value", false)
-                    stateUtils.set(button .. ".enabled", false)
-                end
-            end
-        end
-    end
+    setState.deviceName(changedItems)
+    hasCustomLabels = setState.patchName(changedItems)
+    setState.knobs(changedItems, hasCustomLabels)
+    setState.buttons(changedItems, hasCustomLabels)
 end
 
 -- CODEC => KEYBOARD

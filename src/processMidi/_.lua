@@ -1,5 +1,6 @@
 return {
     colourFader = require("processMidi.colourFader"),
-    knobsAndButtons = require("processMidi.knobsAndButtons"),
+    knobs = require("processMidi.knobs"),
+    buttons = require("processMidi.buttons"),
     layerButtons = require("processMidi.layerButtons")
 }
