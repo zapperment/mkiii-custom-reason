@@ -5,6 +5,7 @@ local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 local processMidi = require("processMidi._")
 local setState = require("setState._")
+local constants = require("lib.constants")
 
 local hasCustomLabels
 
@@ -13,7 +14,7 @@ local hasCustomLabels
 -- each supported model.
 function remote_probe(_, _, prober)
 
-    local request_events = {remote.make_midi("F0 7E 7F 06 01 F7")}
+    local request_events = { remote.make_midi("F0 7E 7F 06 01 F7") }
     local response = "F0 7E 00 06 02 00 20 29 01 01 00 00 ?? ?? ?? ?? F7"
 
     local function match_events(mask, events)
@@ -61,8 +62,8 @@ function remote_probe(_, _, prober)
 
     if dev_found ~= 0 then
         local one_result = {
-            in_ports = {ins[1], ins[2]},
-            out_ports = {port_out}
+            in_ports = { ins[1], ins[2] },
+            out_ports = { port_out }
         }
         table.insert(results, one_result)
     end
@@ -131,6 +132,8 @@ function remote_deliver_midi()
     local buttonStates = {}
     local buttonLabels = {}
     local buttonValues = {}
+    local layerChanged = false
+    local layer
 
     for i = 1, 8 do
         local enabled, path, label, value
@@ -190,6 +193,13 @@ function remote_deliver_midi()
         end
         table.insert(buttonValues, value and "ON" or "off")
     end
+    if stateUtils.hasChanged("layer") then
+        layer = stateUtils.update("layer")
+        layerChanged = true
+    else
+        layer = stateUtils.get("layer")
+        layerChanged = false
+    end
 
     -- Special case handling for Combinators with custom labels: if the
     -- label is an empty string, treat them as if they were disabled
@@ -207,6 +217,8 @@ function remote_deliver_midi()
     local buttonColour
     if stateUtils.hasChanged("buttonColour") then
         knobChanged = true
+        buttonChanged = true
+        layerChanged = true
         buttonColour = stateUtils.update("buttonColour")
     else
         buttonColour = stateUtils.get("buttonColour")
@@ -223,7 +235,7 @@ function remote_deliver_midi()
         table.insert(events, midiUtils.makeDisplayEvent(buttonStates, buttonValues, 4))
         for i, value in ipairs(buttonValues) do
             table.insert(events, midiUtils.makeControlChangeEvent(items["button" .. i].controller,
-                value == "ON" and buttonColour or 0))
+                    value == "ON" and buttonColour or 0))
         end
     end
 
@@ -244,21 +256,40 @@ function remote_deliver_midi()
         table.insert(events, midiUtils.makeNotificationEvent(deviceName, line2))
     end
 
+    if layerChanged then
+        local activeButtonController, inactiveButtonController
+        if layer == constants.layerA then
+            activeButtonController = items["buttonLayerA"].controller
+            inactiveButtonController = items["buttonLayerB"].controller
+        else
+            activeButtonController = items["buttonLayerB"].controller
+            inactiveButtonController = items["buttonLayerA"].controller
+        end
+        table.insert(events, midiUtils.makeControlChangeEvent(activeButtonController, buttonColour))
+        table.insert(events, midiUtils.makeControlChangeEvent(inactiveButtonController, 0))
+    end
+
     return events
 end
 
 function remote_prepare_for_use()
-    return {midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
-            midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
-            midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
-            midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
-            midiUtils.makeCreateKnobEvent(8, colours.noColour)}
+    return { midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
+             midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
+             midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
+             midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
+             midiUtils.makeCreateKnobEvent(8, colours.noColour),
+             midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, constants.buttonColourNumber),
+             midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.noColour)
+    }
 end
 
 function remote_release_from_use()
-    return {midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
-            midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
-            midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
-            midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
-            midiUtils.makeCreateKnobEvent(8, colours.noColour)}
+    return { midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
+             midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
+             midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
+             midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
+             midiUtils.makeCreateKnobEvent(8, colours.noColour),
+             midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, colours.noColour),
+             midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.noColour)
+    }
 end

@@ -136,11 +136,13 @@ return {
     buttonLayerA = {
         input = "button",
         output = "value",
-        midiMatcher = "BF 51 xx"
+        midiMatcher = "BF 51 xx",
+        controller = 81
     },
     buttonLayerB = {
         input = "button",
         output = "value",
-        midiMatcher = "BF 52 xx"
+        midiMatcher = "BF 52 xx",
+        controller = 82
     }
 }
