@@ -54,6 +54,7 @@ Map	button5		Button 13			layerB
 Map	button6		Button 14			layerB
 Map	button7		Button 15			layerB
 Map	button8		Button 16			layerB
+Map	footSwitch		Run Pattern Devices
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 
