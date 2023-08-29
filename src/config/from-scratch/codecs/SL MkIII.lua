@@ -111,6 +111,7 @@ end
 -- changed_items is a table containing indexes to the items that have changed since the last
 -- call.
 function remote_set_state(changedItems)
+    setState.layerButtons(changedItems)
     setState.deviceName(changedItems)
     setState.patchName(changedItems)
     setState.knobs(changedItems)
