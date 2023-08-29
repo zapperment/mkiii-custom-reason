@@ -37,16 +37,8 @@ local function assignConfig(combinatorConfig)
     end
 end
 
-local function resetConfig()
-    for i = 1, 8 do
-        stateUtils.set("knob" .. i .. ".label", "Rot " .. 1)
-        stateUtils.set("button" .. i .. ".label", "But " .. 1)
-    end
-end
-
 return {
     assignConfig = assignConfig,
-    resetConfig = resetConfig,
     getCombinatorConfig = getCombinatorConfig,
     getLabel = getLabel
 }
