@@ -2,17 +2,17 @@ return {
     keyboard = {
         input = "keyboard"
     },
-    pitchBend = {
+    pitchBendWheel = {
         input = "value",
         min = 0,
         max = 16383
     },
-    modulation = {
+    modulationWheel = {
         input = "value",
         min = 0,
         max = 127
     },
-    sustain = {
+    sustainPedal = {
         input = "value",
         min = 0,
         max = 127
@@ -22,7 +22,7 @@ return {
         min = 0,
         max = 127
     },
-    expression = {
+    expressionPedal = {
         input = "value",
         min = 0,
         max = 127
@@ -31,9 +31,73 @@ return {
         input = "button",
         output = "value",
         min = 0,
-        max = 127,
-        midiMatcher = "B0 44 xx",
-        controller = 68
+        max = 127
+    },
+    trackRightButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    trackLeftButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    loopButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    rewindButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    fastForwardButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    stopButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    playButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    recordButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    optionsButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    clipUpButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    clipDownButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
     },
     knob1 = {
         input = "delta",
