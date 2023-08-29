@@ -45,3 +45,35 @@ Map	button7		Button 15			layerB
 Map	button8		Button 16			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
+
+Scope	Propellerheads	SubTractor Analog Synthesizer
+
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+
+//	Control Surface Item	Key	Remotable Item	Scale	Mode	Scale	Mode
+Map	knob1		Filter Freq			layerA
+Map	knob2		Filter Res			layerA
+Map	knob3		Filter Env Amount			layerA
+Map	knob4		Filter Env Decay			layerA
+Map	knob5		Filter Env Sustain			layerA
+Map	knob6		Filter Env Release			layerA
+Map	knob7		LFO1 Rate			layerA
+Map	knob8		LFO1 Amount			layerA
+Map	button1		Filter Env Invert			layerA
+Map	button2		Filter2 On/Off			layerA
+Map	button3		Filter Link Freq On/Off			layerA
+Map	knob1		Osc Mix			layerB
+Map	knob2		FM Amount			layerB
+Map	knob3		Osc2 Octave			layerB
+Map	knob4		Amp Env Decay			layerB
+Map	knob5		Amp Env Sustain			layerB
+Map	knob6		Amp Env Release			layerB
+Map	knob7		LFO2 Rate			layerB
+Map	knob8		LFO2 Amount			layerB
+Map	button1		Ring Mod			layerB
+Map	button2		Noise On/Off			layerB
+Map	button3		Osc2 On/Off			layerB
+Map	deviceName		Device Name
+Map	patchName		Patch Name

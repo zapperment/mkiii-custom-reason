@@ -9,8 +9,6 @@ return function (changedItems)
             local combinatorConfig = combinatorUtils.getCombinatorConfig()
             if combinatorConfig then
                 combinatorUtils.assignConfig(combinatorConfig)
-            else
-                combinatorUtils.resetConfig(combinatorConfig)
             end
         end
     end
