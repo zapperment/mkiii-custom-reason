@@ -106,7 +106,6 @@ function remote_process_midi(event)
             or processMidi.buttons(event)
             or processMidi.colourFader(event)
             or processMidi.layerButtons(event)
-            or processMidi.footSwitch(event)
 end
 
 -- REASON => CODEC
@@ -119,7 +118,6 @@ function remote_set_state(changedItems)
     setState.patchName(changedItems)
     setState.knobs(changedItems)
     setState.buttons(changedItems)
-    setState.footSwitch(changedItems)
 end
 
 -- CODEC => KEYBOARD
@@ -241,11 +239,6 @@ function remote_deliver_midi()
             table.insert(events, midiUtils.makeControlChangeEvent(items["button" .. i].controller,
                     value == "ON" and buttonColour or 0))
         end
-    end
-
-    if stateUtils.hasChanged("footSwitch") then
-        local footSwitch = stateUtils.update("footSwitch")
-        -- when the foot switch state changes, we don't actually send any MIDI data to the SL MkIII
     end
 
     if stateUtils.hasChanged("debugMessage1") then

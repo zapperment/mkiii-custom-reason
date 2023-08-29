@@ -29,5 +29,10 @@ return {
         pattern = "B? 0B xx",
         name = "expression",
         port = 2
+    },
+    {
+        pattern = "B0 44 xx",
+        name = "footSwitch",
+        port = 2
     }
 }
