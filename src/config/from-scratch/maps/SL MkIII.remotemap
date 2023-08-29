@@ -4,6 +4,17 @@ Control Surface Manufacturer	Novation
 Control Surface Model	SL MkIII
 Map Version	3.0.1
 
+Scope	Propellerheads	Master Keyboard
+
+//	Control Surface Item	Key	Remotable Item	Scale	Mode
+
+Map	keyboard		Keyboard
+Map	pitchBend		Pitch Bend
+Map	modulation		Mod Wheel
+Map	sustain		Damper Pedal
+Map	channelPressure		Channel Pressure
+Map	expression		Expression
+
 Scope	Propellerheads	Combinator
 
 Define Group	layer	layerA	layerB
@@ -43,6 +54,7 @@ Map	button5		Button 13			layerB
 Map	button6		Button 14			layerB
 Map	button7		Button 15			layerB
 Map	button8		Button 16			layerB
+Map	footSwitch		Run Pattern Devices
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 

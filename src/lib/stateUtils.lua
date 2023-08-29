@@ -39,7 +39,11 @@ end
 
 local function flip(path)
     local item = tableUtils.getValueFromPath(states, path)
-    item.next = item.current and false or true
+    if item.current then
+        item.next = false
+    else
+        item.next = true
+    end
 end
 
 return {

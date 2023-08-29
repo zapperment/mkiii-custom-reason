@@ -3,6 +3,7 @@ local hexUtils = require("lib.hexUtils")
 local colours = require("lib.colours")
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
+local autoInputs = require("lib.autoInputs")
 local processMidi = require("processMidi._")
 local setState = require("setState._")
 local constants = require("lib.constants")
@@ -90,6 +91,7 @@ function remote_init()
     -- item’s index in the array is important. This index is later used in all other functions that
     -- refer to control surface items.
     remote.define_items(itemsToDefine)
+    remote.define_auto_inputs(autoInputs)
 end
 
 -- KEYBOARD => CODEC
