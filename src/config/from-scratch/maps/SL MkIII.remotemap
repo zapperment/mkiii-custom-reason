@@ -9,11 +9,25 @@ Scope	Propellerheads	Master Keyboard
 //	Control Surface Item	Key	Remotable Item	Scale	Mode
 
 Map	keyboard		Keyboard
-Map	pitchBend		Pitch Bend
-Map	modulation		Mod Wheel
-Map	sustain		Damper Pedal
+Map	pitchBendWheel		Pitch Bend
+Map	modulationWheel		Mod Wheel
+Map	sustainPedal		Damper Pedal
 Map	channelPressure		Channel Pressure
-Map	expression		Expression
+Map	expressionPedal		Expression
+
+Scope	Propellerheads	Reason Document
+
+//	Control Surface Item	Key	Remotable Item	Scale	Mode
+
+Map	trackRightButton		Target Next Track
+Map	trackLeftButton		Target Previous Track
+Map	loopButton		Loop On/Off
+Map	rewindButton		Rewind
+Map	fastForwardButton		Fast Forward
+Map	stopButton		Stop
+Map	playButton		Play
+Map	recordButton		Record
+Map	optionsButton		Click On/Off
 
 Scope	Propellerheads	Combinator
 
@@ -57,6 +71,8 @@ Map	button8		Button 16			layerB
 Map	footSwitch		Run Pattern Devices
 Map	deviceName		Device Name
 Map	patchName		Patch Name
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	SubTractor Analog Synthesizer
 
@@ -89,3 +105,889 @@ Map	button2		Noise On/Off			layerB
 Map	button3		Osc2 On/Off			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Dr.REX Loop Player
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Europa
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Grain
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Humana
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Klang
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Kong Drum Designer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Malstrom Graintable Synthesizer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Mimic
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Monotone
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	NN-XT Advanced Sampler
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	NN19 Digital Sampler
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Objekt
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Pangea
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ProcessedPianos
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.RadicalKeys
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.radicalpiano
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Redrum Drum Computer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.DMFC
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Thor Polysonic Synthesizer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Umpf
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.UmpfRetroBeats
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio	com.synapseAudioSoftware.Antidote
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Complex
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Friktion
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.Iridium
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.layers
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.layers_wave_edition
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.Nautilus2
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.Nautilus
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.Nostromo
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Parsec
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.RDK
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ElectricBass
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ScenicHybrid
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio	com.synapseAudioSoftware.Legend
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.Radiator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Blamsoft, Inc.	com.blamsoft.Viking
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.3BandEQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Quadelectra Audioworx	com.quadelectra.ThreePlex
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Flower Audio	com.flowerau.4Dyne
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Alligator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Jiggery Pokery	com.jiggerypokery.Animus
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Audiomatic
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Bitcrush
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Sonic Charge	com.soniccharge.Bitspeek
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.BlackKnightEq
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.BlueDepth
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Peff	com.peff.Buffre
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.C670
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ChannelDynamics
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ChannelEQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Jiggery Pokery	com.jiggerypokery.Chenille
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Chorus
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	MagmaSonic	drno.magmasonic.ClassicFilter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Compressor
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.CombFilter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Reasonistas	com.reasonistas.CORE
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.CustomVibe
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	SKP Sound Design	com.skepticalproductions.D1RT
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMBusComp
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMChanComp
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMEnvShaper
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.DYN4
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Delay
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Disperser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	ThatMusicCompany	com.thatmusiccompany.DistortChain
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Distortion
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.E670
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Kuassa	com.kuassa.EVEAT4
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Sonic Charge	com.soniccharge.Echobode
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Kuassa	com.kuassa.EfektorGQ3607
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Kuassa	com.kuassa.EfektorSilencer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	AirRaid Audio	ch.airraid.ESplitter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LAB ONE Recordings	co.uk.labonerecordings.EQUILA
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Blamsoft, Inc.	com.blamsoft.F16
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.FRG4RE
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.FRGEEE
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Faturator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Filter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	BASSGRID	com.bassgrid.FilterX1
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Sugar Bytes	com.sugarbytes.FilterPattern
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.FormantFilter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.FrequencyShifter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.Fritz
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.FutzBox
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Unfiltered Audio	com.unfilteredaudio.G8Gate
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	GVXT	uk.co.gvxt.GClip
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Gain
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Gate
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.Ghammy
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Ochen K.	com.ochenk.GlitchEffect
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Red Rock Sound	ru.redrocksound.hlfre
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Haas
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.HarmBode
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.IsolateX
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Jiggery Pokery	com.jiggerypokery.Itsy
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Kuassa	com.kuassa.Kratos2Maximizer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.LadderFilter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Zvork	fr.zvork.LeSpace
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Limiter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Red Rock Sound	ru.redrocksound.MBC
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Blamsoft, Inc.	com.blamsoft.Mark_VIII
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.MasterCompressor
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Forgotten Clank Studios	com.forgottenclankstudios.MClipper
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Red Rock Sound	ru.redrocksound.500series2D
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.MooQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	McDSP	com.mcdsp.MooTube
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	ThatMusicCompany	com.thatmusiccompany.MrOverDrive
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	BASSGRID	com.bassgrid.Mutation_Collider
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Neptune Pitch Adjuster
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LoveOne	se.loveone.Neutron
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Forgotten Clank Studios	com.forgottenclankstudios.OmegaDEQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Forgotten Clank Studios	com.forgottenclankstudios.OmegaTrimmer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Inphonik	fr.mathieudemange.PCM2612
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Sugar Bytes	com.sugarbytes.PitchDelay
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.PhaseDistortion
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.PhaseTool
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Phaser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LoveOne	se.loveone.Bakelite
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.Pipeline
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.PitchShifter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Polar
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Pulveriser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	sonicbits.io	io.sonicbits.Pump
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Quartet
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Red Rock Sound	ru.redrocksound.RE200
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Red Rock Sound	ru.redrocksound.RE202
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Red Rock Sound	ru.redrocksound.RE302
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Rob Papen	com.robpapen.RPVerb
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Noise Engineering	us.noiseengineering.RS_RV
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	RV7000 Advanced Reverb
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Turn2on Software	ru.turn2on.Reasonator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Blamsoft, Inc.	com.blamsoft.Resampler
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Resonator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Reverb
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Reverser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.RingMod
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Rotor
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.SMFXDelay
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.SMFXDSAT
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Skrock Music	se.skrockmusic.SMFXReverb
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Ekssperimental Sounds	se.ekssperimentalsounds.SPACEXPANDER
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	Scream 4 Distortion
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Selig Audio	com.seligaudio.ColoringEQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Selig Audio	com.seligaudio.SeligDeEsser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Selig Audio	com.seligaudio.SeligGain
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Selig Audio	com.seligaudio.TheCurve
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Reasonistas	com.reasonistas.SCRE
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Sugar Bytes	com.sugarbytes.SliceArranger
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ReasonAmp
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ReasonBassAmp
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Softube	com.softube.re.Dynamite
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Softube	com.softube.re.FETCompressor
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Softube	com.softube.re.SaturationKnob
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Softube	com.softube.re.TSAR1R
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Jiggery Pokery	com.jiggerypokery.Steerpike
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.Stereo
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Speo	com.speomusic.StriveCF
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Sweeper
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseFilter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapsePhaser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseChorus
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseReverb1
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.FatSpace
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseGQ7
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseNinety
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRE160
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRingMod
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseVintEQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Synchronous
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	ThatMusicCompany	com.thatmusiccompany.T2Phaser
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.TapeStop
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	BASSGRID	com.bassgrid.Terminal
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerheads	The Echo
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.TranceGate
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	kiloHearts	com.kilohearts.TransientShaper
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	pongasoft	com.pongasoft.VAC6
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Sugar Bytes	com.sugarbytes.Vocodizer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Jiggery Pokery	com.jiggerypokery.Villanelle
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	omino	com.omino.Wbl6414
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Forgotten Clank Studios	com.forgottenclankstudios.Waveshaper2
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Tonicmint	com.tonicmint.ABTranspose
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.Aggregate
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Static Cling	com.staticcling.AutoLatch
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Bassline
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.BeatMap
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.CVP
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ChordSequencer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.Chordbank
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Static Cling	com.staticcling.Delta
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Andrew Russell	net.andrewrussell.Denote
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.DrumSeq
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Arpeggio
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Robotic Bean	com.roboticbean.EuclidPlayer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.Evolution
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Retouch Control	com.retouchcontrol.grid64P2
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.Inspiral
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.Kompulsion
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Retouch Control	com.retouchcontrol.Life
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LoveOne	se.loveone.MIDICompressor
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LoveOne	se.loveone.MIDICVConverter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Speo	com.speomusic.Map64
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.MeloDramatik
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.MelodicInverter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteAlter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.NoteEcho
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteFilter
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteHumanizer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteLatch
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.Mutator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.PolyStepSequencer
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.QuadNoteGenerator
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.RND_2
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	LeNoteLiveSoftware	it.lenotelive.ReceiveNotes
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Zvork	fr.zvork.ST100
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Propellerhead Software	se.propellerheads.ScalesAndChords
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Selig Audio	com.seligaudio.NoteView
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Robotic Bean	com.roboticbean.Sequences
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.UTL
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.mDSQ
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Lectric Panda LLC	com.lectricpanda.Janitor
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
