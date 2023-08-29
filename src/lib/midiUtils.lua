@@ -1,6 +1,6 @@
-local constants = require("constants")
-local stringUtils = require("stringUtils")
-local hexUtils = require("hexUtils")
+local constants = require("lib.constants")
+local stringUtils = require("lib.stringUtils")
+local hexUtils = require("lib.hexUtils")
 
 -- Makes a MIDI event object that displays a specified message in the lower half of the LC displays below the knobs
 -- on the SL MkIII. You can specify row number 1 or 2; 1 is default.

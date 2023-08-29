@@ -77,8 +77,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 DIST_DIR="${SCRIPT_DIR}/dist"
 SRC_DIR="${SCRIPT_DIR}/src"
-CODECS_SOURCE_DIR="${SRC_DIR}/${CONFIG}/codecs"
-MAPS_SOURCE_DIR="${SRC_DIR}/${CONFIG}/maps"
+CODECS_SOURCE_DIR="${SRC_DIR}/config/${CONFIG}/codecs"
+MAPS_SOURCE_DIR="${SRC_DIR}/config/${CONFIG}/maps"
 CODECS_DIST_DIR="${DIST_DIR}/codecs"
 MAPS_DIST_DIR="${DIST_DIR}/maps"
 
@@ -93,9 +93,9 @@ cp -vR "${MAPS_SOURCE_DIR}" "${DIST_DIR}/"
 
 echo_bold "Bundling Lua code"
 
-echo "luabundler bundle \"${CODECS_DIST_DIR}/SL MkIII.lua\" -p \"${SRC_DIR}/lib/?.lua\" -o \"${CODECS_DIST_DIR}/SL MkIII.lua\""
+echo "luabundler bundle \"${CODECS_DIST_DIR}/SL MkIII.lua\" -p \"${SRC_DIR}/?.lua\" -o \"${CODECS_DIST_DIR}/SL MkIII.lua\""
 
-if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/lib/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"; then
+if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"; then
     echo "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
 fi

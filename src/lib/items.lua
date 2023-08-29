@@ -68,7 +68,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 33 ?<???x>",
+        midiMatcher = "BF 33 xx",
         controller = 51
     },
     button2 = {
@@ -76,7 +76,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 34 ?<???x>",
+        midiMatcher = "BF 34 xx",
         controller = 52
     },
     button3 = {
@@ -84,7 +84,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 35 ?<???x>",
+        midiMatcher = "BF 35 xx",
         controller = 53
     },
     button4 = {
@@ -92,7 +92,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 36 ?<???x>",
+        midiMatcher = "BF 36 xx",
         controller = 54
     },
     button5 = {
@@ -100,7 +100,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 37 ?<???x>",
+        midiMatcher = "BF 37 xx",
         controller = 55
     },
     button6 = {
@@ -108,7 +108,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 38 ?<???x>",
+        midiMatcher = "BF 38 xx",
         controller = 56
     },
     button7 = {
@@ -116,7 +116,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 39 ?<???x>",
+        midiMatcher = "BF 39 xx",
         controller = 57
     },
     button8 = {
@@ -124,7 +124,7 @@ return {
         output = "value",
         min = 0,
         max = 127,
-        midiMatcher = "BF 3A ?<???x>",
+        midiMatcher = "BF 3A xx",
         controller = 58
     },
     deviceName = {
@@ -132,5 +132,17 @@ return {
     },
     patchName = {
         output = "text"
+    },
+    buttonLayerA = {
+        input = "button",
+        output = "value",
+        midiMatcher = "BF 51 xx",
+        controller = 81
+    },
+    buttonLayerB = {
+        input = "button",
+        output = "value",
+        midiMatcher = "BF 52 xx",
+        controller = 82
     }
 }

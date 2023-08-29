@@ -59,8 +59,8 @@ if (-not (Test-Path $MAPS_TARGET_DIR)) {
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $DIST_DIR = "${SCRIPT_DIR}\dist"
 $SRC_DIR = "${SCRIPT_DIR}\src"
-$CODECS_SOURCE_DIR = "${SRC_DIR}\${CONFIG}\codecs"
-$MAPS_SOURCE_DIR = "${SRC_DIR}\${CONFIG}\maps"
+$CODECS_SOURCE_DIR = "${SRC_DIR}\config\${CONFIG}\codecs"
+$MAPS_SOURCE_DIR = "${SRC_DIR}\config\${CONFIG}\maps"
 $CODECS_DIST_DIR = "${DIST_DIR}\codecs"
 $MAPS_DIST_DIR = "${DIST_DIR}\maps"
 
@@ -75,7 +75,7 @@ Copy-Item -Path $MAPS_SOURCE_DIR -Destination "${DIST_DIR}\" -Recurse
 
 Write-Host "Bundling Lua code"
 
-luabundler bundle "${CODECS_DIST_DIR}\SL MkIII.lua" -p "${SRC_DIR}\lib\?.lua" -o "${CODECS_DIST_DIR}\SL MkIII.lua"
+luabundler bundle "${CODECS_DIST_DIR}\SL MkIII.lua" -p "${SRC_DIR}\?.lua" -o "${CODECS_DIST_DIR}\SL MkIII.lua"
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1

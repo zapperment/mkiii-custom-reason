@@ -1,4 +1,4 @@
-local constants = require("constants")
+local constants = require("lib.constants")
 
 return {
     knob1 = {
@@ -244,5 +244,9 @@ return {
     buttonColour = {
         current = constants.buttonColourNumber,
         next = constants.buttonColourNumber
+    },
+    layer = {
+        current = constants.layerA,
+        next = constants.layerA
     }
 }
