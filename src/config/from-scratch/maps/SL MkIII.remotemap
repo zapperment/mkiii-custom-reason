@@ -628,10 +628,6 @@ Scope	Noise Engineering	us.noiseengineering.RS_RV
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
-Scope	Noise Engineering	us.noiseengineering.RS_RV
-Map	clipUpButton		Select Previous Patch
-Map	clipDownButton		Select Next Patch
-
 Scope	Propellerheads	RV7000 Advanced Reverb
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
