@@ -7,7 +7,7 @@ return function(changedItems)
         local changedItem = remote.get_item_state(changedItemIndex)
         for _, button in ipairs({ "buttonLayerA", "buttonLayerB" }) do
             if changedItemIndex == items[button].index then
-                local layer = changedItem.value == 1 and constants.layerA or constants.layerB
+                local layer = changedItem.value == 0 and constants.layerA or constants.layerB
                 stateUtils.set("layer", layer)
             end
         end
