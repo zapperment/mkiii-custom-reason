@@ -245,5 +245,101 @@ return {
         output = "value",
         midiMatcher = "BF 52 xx",
         controller = 82
-    }
+    },
+    pad1 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad2 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad3 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad4 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad5 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad6 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad7 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad8 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad9 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad10 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad11 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad12 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad13 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad14 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad15 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    pad16 = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
 }
