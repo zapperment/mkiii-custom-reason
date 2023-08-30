@@ -106,6 +106,7 @@ function remote_process_midi(event)
             or processMidi.buttons(event)
             or processMidi.colourFader(event)
             or processMidi.layerButtons(event)
+            or processMidi.pads(event)
 end
 
 -- REASON => CODEC

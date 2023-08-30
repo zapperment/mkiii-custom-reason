@@ -1,6 +1,7 @@
 return {
     keyboard = {
-        input = "keyboard"
+        input = "keyboard",
+        midiMatcher = "<100x>? yy zz"
     },
     pitchBendWheel = {
         input = "value",
