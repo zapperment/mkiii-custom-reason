@@ -13,23 +13,6 @@ function echo_bold() {
 USER_NAME=$(scutil <<<"show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ { print $3 }')
 REMOTE_DIR="/Users/${USER_NAME}/Library/Application Support/Propellerhead Software/Remote"
 
-if [ -z "$1" ]; then
-  echo_bold "Using default configuration (custom)"
-  CONFIG="custom"
-else
-  CONFIG="$1"
-fi
-
-# Validate the CONFIG value
-VALID_CONFIGS=("custom" "original" "from-scratch")
-
-if ! printf '%s\n' "${VALID_CONFIGS[@]}" | grep -q "^${CONFIG}$"; then
-  echo_red "Error: Invalid configuration '${CONFIG}'. Valid configurations are: ${VALID_CONFIGS[*]}"
-  exit 1
-else
-  echo_bold "Using configuration '${CONFIG}'"
-fi
-
 # Set VENDOR variable
 VENDOR="Novation"
 
@@ -77,8 +60,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 DIST_DIR="${SCRIPT_DIR}/dist"
 SRC_DIR="${SCRIPT_DIR}/src"
-CODECS_SOURCE_DIR="${SRC_DIR}/config/${CONFIG}/codecs"
-MAPS_SOURCE_DIR="${SRC_DIR}/config/${CONFIG}/maps"
+CODECS_SOURCE_DIR="${SRC_DIR}/codecs"
+MAPS_SOURCE_DIR="${SRC_DIR}/maps"
 CODECS_DIST_DIR="${DIST_DIR}/codecs"
 MAPS_DIST_DIR="${DIST_DIR}/maps"
 

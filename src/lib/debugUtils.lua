@@ -1,3 +1,7 @@
+local stateUtils = require("lib.stateUtils")
+
+local counter = 1
+
 -- this function accepts a table and returns a string with
 -- all the keys in the table; you can specify keys to exclude
 -- in the output by providing a second argument
@@ -27,7 +31,13 @@ local function midiEventToString(event)
     return table.concat(hexStrings, " ")
 end
 
+local function log(message)
+    stateUtils.set("deviceName", tostring(counter) .. ":" .. message)
+    counter = counter + 1
+end
+
 return {
     concatenateKeys = concatenateKeys,
-    midiEventToString = midiEventToString
+    midiEventToString = midiEventToString,
+    log = log
 }
