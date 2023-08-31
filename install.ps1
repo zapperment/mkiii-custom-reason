@@ -4,22 +4,11 @@ function Write-Error {
     Write-Host -ForegroundColor Red $args[0]
 }
 
+function Write-Success {
+    Write-Host -ForegroundColor Green $args[0]
+}
+
 $REMOTE_DIR = "C:\ProgramData\Propellerhead Software\Remote"
-
-$CONFIG = "custom"
-
-if ($args.Count -gt 0) {
-    $CONFIG = $args[0]
-}
-
-# Validate the CONFIG value
-$VALID_CONFIGS = "custom", "original", "from-scratch"
-if (-not ($VALID_CONFIGS -contains $CONFIG)) {
-    Write-Error "Error: Invalid configuration '$CONFIG'. Valid configurations are: $($VALID_CONFIGS -join ', ')"
-    exit 1
-} else {
-    Write-Host "Using configuration '$CONFIG'"
-}
 
 # Set VENDOR variable
 $VENDOR = "Novation"
@@ -59,8 +48,8 @@ if (-not (Test-Path $MAPS_TARGET_DIR)) {
 $SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $DIST_DIR = "${SCRIPT_DIR}\dist"
 $SRC_DIR = "${SCRIPT_DIR}\src"
-$CODECS_SOURCE_DIR = "${SRC_DIR}\config\${CONFIG}\codecs"
-$MAPS_SOURCE_DIR = "${SRC_DIR}\config\${CONFIG}\maps"
+$CODECS_SOURCE_DIR = "${SRC_DIR}\codecs"
+$MAPS_SOURCE_DIR = "${SRC_DIR}\maps"
 $CODECS_DIST_DIR = "${DIST_DIR}\codecs"
 $MAPS_DIST_DIR = "${DIST_DIR}\maps"
 
@@ -85,3 +74,5 @@ Write-Host "Copying files to Reason remote dirs"
 
 Copy-Item -Path "${CODECS_DIST_DIR}\*" -Destination "${CODECS_TARGET_DIR}\"
 Copy-Item -Path "${MAPS_DIST_DIR}\*" -Destination "${MAPS_TARGET_DIR}\"
+
+Write-Success "Installation successful!"

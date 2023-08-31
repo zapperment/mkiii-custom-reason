@@ -1,6 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 local combinatorUtils = require("lib.combinatorUtils")
+local debugUtils = require("lib.debugUtils")
 
 return function(changedItems)
     local combinatorConfig = combinatorUtils.getCombinatorConfig()
