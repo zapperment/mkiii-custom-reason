@@ -1,0 +1,33 @@
+Propellerhead Remote Mapping File
+File Format Version	1.0.0
+Control Surface Manufacturer	Novation
+Control Surface Model	SL MkIII Mixer
+Map Version	3.0.1
+
+Scope	Propellerheads	Reason Master Section
+Map	fader1		Channel 1 Level
+Map	fader2		Channel 2 Level
+Map	fader3		Channel 3 Level
+Map	fader4		Channel 4 Level
+Map	fader5		Channel 5 Level
+Map	fader6		Channel 6 Level
+Map	fader7		Channel 7 Level
+Map	fader8		Channel 8 Level
+Map	button9		Channel 1 Solo
+Map	button10		Channel 2 Solo
+Map	button11		Channel 3 Solo
+Map	button12		Channel 4 Solo
+Map	button13		Channel 5 Solo
+Map	button14		Channel 6 Solo
+Map	button15		Channel 7 Solo
+Map	button16		Channel 8 Solo
+Map	button17		Channel 1 Mute
+Map	button18		Channel 2 Mute
+Map	button19		Channel 3 Mute
+Map	button20		Channel 4 Mute
+Map	button21		Channel 5 Mute
+Map	button22		Channel 6 Mute
+Map	button23		Channel 7 Mute
+Map	button24		Channel 8 Mute
+Map	buttonPrev8Channels		Previous 8 Remote Base Channel
+Map	buttonNext8Channels		Next 8 Remote Base Channel

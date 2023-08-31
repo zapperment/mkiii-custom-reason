@@ -12,11 +12,11 @@ local stateUtils = require("lib.stateUtils")
 -- these functions need to be global because they are used by the auto inputs
 
 function greaterThanZero(x)
-	if x~=0 then
-		return 1
-	else
-		return 0
-	end
+    if x ~= 0 then
+        return 1
+    else
+        return 0
+    end
 end
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
@@ -113,8 +113,9 @@ end
 -- function returns false, Remote will try to find a match using the automatic input registry
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
-    return processMidi.knobs(event) or processMidi.buttons(event) or processMidi.colourFader(event) or
+    return processMidi.knobs(event) or processMidi.buttons(event) or
                processMidi.layerButtons(event) or processMidi.pads(event)
+               --  or processMidi.colourFader(event)
 end
 
 -- REASON => CODEC
