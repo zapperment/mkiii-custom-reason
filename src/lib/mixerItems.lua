@@ -144,4 +144,16 @@ return {
         min = 0,
         max = 127
     },
+    buttonNext8Channels = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    buttonPrev8Channels = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
 }

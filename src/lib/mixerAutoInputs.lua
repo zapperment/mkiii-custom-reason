@@ -71,4 +71,10 @@ return {{
 }, {
     name = "button24",
     pattern = "BF 4A ?<???x>"
+}, {
+    name = "buttonNext8Channels",
+    pattern = "BF 57 ?<???x>"
+}, {
+    name = "buttonPrev8Channels",
+    pattern = "BF 58 ?<???x>"
 }}

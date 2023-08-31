@@ -29,3 +29,5 @@ Map	button21		Channel 5 Mute
 Map	button22		Channel 6 Mute
 Map	button23		Channel 7 Mute
 Map	button24		Channel 8 Mute
+Map	buttonPrev8Channels		Previous 8 Remote Base Channel
+Map	buttonNext8Channels		Next 8 Remote Base Channel
