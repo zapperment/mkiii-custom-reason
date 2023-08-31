@@ -27,7 +27,6 @@ local function midiEventToString(event)
     return table.concat(hexStrings, " ")
 end
 
-
 return {
     concatenateKeys = concatenateKeys,
     midiEventToString = midiEventToString

@@ -341,5 +341,5 @@ return {
         output = "value",
         min = 0,
         max = 127
-    },
+    }
 }

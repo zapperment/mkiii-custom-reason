@@ -62,7 +62,7 @@ return {
         button1 = "Release",
         button2 = "ChorsMute",
         button3 = "Enhancmnt",
-        button4 = "VerbMute",
+        button4 = "VerbMute"
     },
     ["Jazz Upright"] = {
         knob1 = "CompDfntn",
@@ -105,7 +105,7 @@ return {
         button1 = "RootBot",
         button2 = "RootTop",
         button3 = "AllgtrOn",
-        button4 = "PayerOn",
+        button4 = "PayerOn"
     },
     ["Bitcrushed Poly Vocals"] = {
         knob1 = "Noise",

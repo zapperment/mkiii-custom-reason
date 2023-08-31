@@ -33,7 +33,6 @@ local function makeNotificationEvent(line1, line2)
     return remote.make_midi(msg)
 end
 
-
 -- Makes a MIDI event that sets the colour of the rotary graphics in the LC displays below the knob or hides the knobs.
 -- If no arguments are provided, resets the knob LC displays.
 --
@@ -72,7 +71,8 @@ local function makeDisplayEvent(statuses, texts, row)
     local event = constants.sysexHeader .. " 02 "
     for i, knobIsActive in ipairs(statuses) do
         if knobIsActive then
-            event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " " .. hexUtils.textToHex(texts[i]) .. " 00 "
+            event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " " .. hexUtils.textToHex(texts[i]) ..
+                        " 00 "
         else
             event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " 00 "
         end
@@ -86,7 +86,8 @@ end
 -- knobNumber: the number of the knob to create (1-8)
 -- colour: string with hex value of a colour
 local function makeCreateKnobEvent(knobNumber, colour)
-    return remote.make_midi(constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
+    return remote.make_midi(
+        constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
 end
 
 local function makeControlChangeEvent(controllerNumber, value)

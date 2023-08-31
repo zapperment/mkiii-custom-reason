@@ -1,7 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 
-return function (event)
+return function(event)
     local processed = false
 
     for i = 1, 8 do
