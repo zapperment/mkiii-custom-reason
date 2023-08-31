@@ -1,4 +1,5 @@
 local items = require("lib.items")
+local stateUtils = require("lib.stateUtils")
 
 return function(event)
     if event.port == 2 then
@@ -25,5 +26,5 @@ return function(event)
         velocity = ret.z,
         time_stamp = event.time_stamp
     })
-    return true
+    return false
 end

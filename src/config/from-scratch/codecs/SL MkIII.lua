@@ -1,12 +1,23 @@
-local midiUtils = require("lib.midiUtils")
-local hexUtils = require("lib.hexUtils")
-local colours = require("lib.colours")
-local stateUtils = require("lib.stateUtils")
-local items = require("lib.items")
-local autoInputs = require("lib.autoInputs")
 local processMidi = require("processMidi._")
 local setState = require("setState._")
+
+local autoInputs = require("lib.autoInputs")
+local colours = require("lib.colours")
 local constants = require("lib.constants")
+local hexUtils = require("lib.hexUtils")
+local items = require("lib.items")
+local midiUtils = require("lib.midiUtils")
+local stateUtils = require("lib.stateUtils")
+
+-- these functions need to be global because they are used by the auto inputs
+
+function greaterThanZero(x)
+	if x~=0 then
+		return 1
+	else
+		return 0
+	end
+end
 
 -- This function is called when Remote is auto-detecting surfaces. manufacturer and model are
 -- strings specifying the model being auto-detected. This function is always called once for
