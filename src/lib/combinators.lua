@@ -272,5 +272,141 @@ return {
         knob4 = "WaveMod",
         button1 = "Osc2",
         button2 = "Portamnto"
+    },
+    -- Reason+ Sound Pack "Mind Maze Trip Hop"
+    ["Band Pass Sparkle"] = {
+        knob1 = "Attack",
+        knob2 = "Decay",
+        knob3 = "Sustain",
+        knob4 = "Release",
+        knob5 = "Cutoff",
+        knob6 = "Resonance",
+        knob7 = "RevFeedbk",
+        knob8 = "RevDecay",
+        button1 = "HP/LP",
+        button2 = "Spread",
+        button3 = "Delay",
+        button4 = "Reverb"
+    },
+    ["Big Chungus Beat [RUN]"] = {
+        knob1 = "Cutoff",
+        knob2 = "Resonance",
+        knob3 = "Squash",
+        knob4 = "Dirt",
+        button1 = "Kick",
+        button2 = "Clap",
+        button3 = "Hats",
+        button4 = "Percussn"
+    },
+    ["Darbouka Atmosphere"] = {
+        knob1 = "Feedback",
+        knob2 = "Decay",
+        knob3 = "Cutoff",
+        knob4 = "Resonance",
+        button1 = "Delay",
+        button2 = "Reverb",
+        button3 = "LP/HP",
+        button4 = "BassBoost"
+    },
+    ["Low Fidelity Bell"] = {
+        knob1 = "Exciter",
+        knob2 = "Modal",
+        knob3 = "Object1",
+        knob4 = "Object2",
+        knob5 = "Cutoff",
+        knob6 = "Resonance",
+        knob7 = "RevFeedbk",
+        knob8 = "RevDecay",
+        button1 = "HP/LP",
+        button2 = "Spread",
+        button3 = "Delay",
+        button4 = "Reverb"
+    },
+    ["Quick Sweep Transition"] = {
+        --       123456789
+        knob1 = "FilterFrq",
+        knob2 = "RevDecay",
+        knob3 = "DelayFdbk",
+        knob4 = "ChorusAmt",
+        --         123456789
+        button1 = "LP/HP",
+        button2 = "Reverb",
+        button3 = "Delay",
+        button4 = "Chorus"
+    },
+    ["Sitar Echoes"] = {
+        knob1 = "Exciter",
+        knob2 = "Modal",
+        knob3 = "Object1",
+        knob4 = "Object2",
+        knob5 = "Cutoff",
+        knob6 = "Resonance",
+        knob7 = "RevFeedbk",
+        knob8 = "RevDecay",
+        button1 = "HP/LP",
+        button2 = "Spread",
+        button3 = "Delay",
+        button4 = "Reverb"
+    },
+    ["Snappy Focus Beat [RUN]"] = {
+        knob1 = "Cutoff",
+        knob2 = "Resonance",
+        knob3 = "Squash",
+        knob4 = "Dirt",
+        button1 = "Kick",
+        button2 = "Rim",
+        button3 = "Hats",
+        button4 = "Percussn"
+    },
+    ["Sub Mod Wubber"] = {
+        knob1 = "Cutoff",
+        knob2 = "BoostAmt",
+        knob3 = "Attack",
+        knob4 = "Decay",
+        knob5 = "Sustain",
+        knob6 = "Release",
+        button1 = "HP/LP",
+        button2 = "BotBoost"
+    },
+    ["Torque FX"] = {
+        knob1 = "FilterFrq",
+        knob2 = "RevDecay",
+        knob3 = "DlyFeedbk",
+        knob4 = "ChorsAmt",
+        button1 = "HP/LP",
+        button2 = "Reverb",
+        button3 = "Delay",
+        button4 = "Chorus"
+    },
+    ["Vinyl Groove Selection [RUN]"] = {
+        knob1 = "Cutoff",
+        knob2 = "Peak",
+        knob3 = "DelayAmt",
+        knob4 = "ReverbAmt",
+        knob5 = "LoopSelct",
+        button1 = "HP/LP",
+        button2 = "Spread",
+        button3 = "Delay",
+        button4 = "Reverb"
+    },
+    ["xxxTEMPLATExxx"] = {
+        --       123456789
+        knob1 = "xxx",
+        knob2 = "xxx",
+        knob3 = "xxx",
+        knob4 = "xxx",
+        knob5 = "xxx",
+        knob6 = "xxx",
+        knob7 = "xxx",
+        knob8 = "xxx",
+        --         123456789
+        button1 = "xxx",
+        button2 = "xxx",
+        button3 = "xxx",
+        button4 = "xxx",
+        button5 = "xxx",
+        button6 = "xxx",
+        button7 = "xxx",
+        button8 = "xxx"
     }
 }
