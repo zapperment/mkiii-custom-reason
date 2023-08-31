@@ -44,6 +44,7 @@ local function flip(path)
     else
         item.next = true
     end
+    return item.next
 end
 
 return {

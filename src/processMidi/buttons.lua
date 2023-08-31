@@ -1,7 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 
-return function (event)
+return function(event)
     local processed = false
 
     for i = 1, 8 do
@@ -12,7 +12,7 @@ return function (event)
             -- CODEC => REASON
             remote.handle_input({
                 item = items["button" .. i].index,
-                value = stateUtils.getNext("button" .. i .. ".value") and 127 or 0,
+                value = 127,
                 time_stamp = event.time_stamp
             })
             processed = true

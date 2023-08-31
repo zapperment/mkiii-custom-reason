@@ -248,9 +248,5 @@ return {
     layer = {
         current = constants.layerA,
         next = constants.layerA
-    },
-    footSwitch = {
-        current = false,
-        next = false
     }
 }
