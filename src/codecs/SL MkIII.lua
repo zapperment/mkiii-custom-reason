@@ -2,6 +2,7 @@ local processMidi = require("processMidi._")
 local setState = require("setState._")
 
 local autoInputs = require("lib.autoInputs")
+local autoOutputs = require("lib.autoOutputs")
 local colours = require("lib.colours")
 local constants = require("lib.constants")
 local hexUtils = require("lib.hexUtils")
@@ -9,7 +10,14 @@ local items = require("lib.items")
 local midiUtils = require("lib.midiUtils")
 local stateUtils = require("lib.stateUtils")
 
--- these functions need to be global because they are used by the auto inputs
+-- these variables and functions need to be global because they are used by the auto inputs
+
+buttonColourWhite = 3
+buttonColourDimOrange = 83
+buttonColourGreen = 21
+buttonColourDimGreen = 22
+buttonColourRed = 120
+buttonColourDimRed = 121
 
 function greaterThanZero(x)
     if x ~= 0 then
@@ -103,6 +111,7 @@ function remote_init()
     -- refer to control surface items.
     remote.define_items(itemsToDefine)
     remote.define_auto_inputs(autoInputs)
+    remote.define_auto_outputs(autoOutputs)
 end
 
 -- KEYBOARD => CODEC
@@ -113,9 +122,9 @@ end
 -- function returns false, Remote will try to find a match using the automatic input registry
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
-    return processMidi.knobs(event) or processMidi.buttons(event) or
-               processMidi.layerButtons(event) or processMidi.pads(event)
-               --  or processMidi.colourFader(event)
+    return processMidi.knobs(event) or processMidi.buttons(event) or processMidi.layerButtons(event) or
+               processMidi.pads(event)
+    --  or processMidi.colourFader(event)
 end
 
 -- REASON => CODEC
