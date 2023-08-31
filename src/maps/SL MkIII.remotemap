@@ -376,6 +376,25 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.radicalpiano
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Character			layerA
+Map	knob2		Microphone and Instrument Blend			layerA
+Map	knob3		Microphone 1 Type			layerA
+Map	knob4		Microphone 2 Type			layerA
+Map	knob5		Ambience Level			layerA
+Map	knob6		Ambience Type			layerA
+Map	knob7		Compression Amount			layerA
+Map	knob8		Stereo Width			layerA
+Map	knob1		Symp Res Release Time			layerB
+Map	knob2		Symp Res Level			layerB
+Map	knob3		Env Attack			layerB
+Map	knob4		Env Decay Curve			layerB
+Map	knob5		Env Release			layerB
+Map	knob6		Key Down Level			layerB
+Map	knob7		Key Up Level			layerB
+Map	knob8		Pedal Level			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
