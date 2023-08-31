@@ -70,6 +70,12 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
+luabundler bundle "${CODECS_DIST_DIR}\SL MkIII Mixer.lua" -p "${SRC_DIR}\?.lua" -o "${CODECS_DIST_DIR}\SL MkIII Mixer.lua"
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
+    exit 1
+}
+
 Write-Host "Copying files to Reason remote dirs"
 
 Copy-Item -Path "${CODECS_DIST_DIR}\*" -Destination "${CODECS_TARGET_DIR}\"
