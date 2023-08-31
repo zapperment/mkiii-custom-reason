@@ -9,11 +9,6 @@ local items = require("lib.mixerItems")
 local midiUtils = require("lib.midiUtils")
 local stateUtils = require("lib.stateUtils")
 
--- For the mixer, remote_probe does nothing - we have to set it up manually
-function remote_probe(_, _, prober)
-    return {}
-end
-
 function remote_init()
     local itemsToDefine = {}
 
@@ -40,13 +35,5 @@ function remote_set_state()
 end
 
 function remote_deliver_midi()
-    return {}
-end
-
-function remote_prepare_for_use()
-    return {}
-end
-
-function remote_release_from_use()
     return {}
 end

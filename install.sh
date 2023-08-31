@@ -83,8 +83,14 @@ if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/?.lua" -
     exit 1
 fi
 
+if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII Mixer.lua" -p "${SRC_DIR}/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII Mixer.lua"; then
+    echo "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
+    exit 1
+fi
+
 echo_bold "Copying files to Reason remote dirs:"
 
 cp -v "${CODECS_DIST_DIR}/"* "${CODECS_TARGET_DIR}/"
 cp -v "${MAPS_DIST_DIR}/"* "${MAPS_TARGET_DIR}/"
 
+echo "Installation successful!"
