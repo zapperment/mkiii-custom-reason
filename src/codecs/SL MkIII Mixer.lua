@@ -2,12 +2,17 @@ local processMidi = require("processMidi._")
 local setState = require("setState._")
 
 local autoInputs = require("lib.mixerAutoInputs")
+local autoOutputs = require("lib.mixerAutoOutputs")
 local colours = require("lib.colours")
 local constants = require("lib.constants")
 local hexUtils = require("lib.hexUtils")
 local items = require("lib.mixerItems")
 local midiUtils = require("lib.midiUtils")
 local stateUtils = require("lib.stateUtils")
+
+-- this needs to be global, it's used by auto outputs
+buttonColourMute = 120 -- red
+buttonColourSolo = 17 -- green
 
 function remote_init()
     local itemsToDefine = {}
@@ -25,6 +30,7 @@ function remote_init()
 
     remote.define_items(itemsToDefine)
     remote.define_auto_inputs(autoInputs)
+    remote.define_auto_outputs(autoOutputs)
 end
 
 function remote_process_midi()

@@ -1,5 +1,9 @@
-local function decToHex(decimal_value)
-    return string.format("%02X", decimal_value)
+local function decToHex(decimalValue)
+    return string.format("%02X", decimalValue)
+end
+
+local function hexToDec(stringWithHexCode)
+    return tonumber(stringWithHexCode, 16)
 end
 
 local function textToHex(text)
@@ -15,5 +19,6 @@ end
 
 return {
     textToHex = textToHex,
-    decToHex = decToHex
+    decToHex = decToHex,
+    hexToDec = hexToDec
 }
