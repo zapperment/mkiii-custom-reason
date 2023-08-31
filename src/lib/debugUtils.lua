@@ -19,6 +19,16 @@ local function concatenateKeys(tbl, excludeKeys)
     return table.concat(keys, ",")
 end
 
+local function midiEventToString(event)
+    local hexStrings = {}
+    for i = 1, #event do
+        table.insert(hexStrings, string.format("%02X", event[i]))
+    end
+    return table.concat(hexStrings, " ")
+end
+
+
 return {
-    concatenateKeys
+    concatenateKeys = concatenateKeys,
+    midiEventToString = midiEventToString
 }
