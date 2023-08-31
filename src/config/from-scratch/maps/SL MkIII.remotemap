@@ -109,885 +109,1504 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Dr.REX Loop Player
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Europa
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Grain
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Humana
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Klang
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Kong Drum Designer
+Define Group	targetDrum	drum1	drum2	drum3	drum4	drum5	drum6	drum7	drum8	drum9	drum10	drum11	drum12	drum13	drum14	drum15	drum16
+Map	pad1		targetDrum=drum1
+Map	pad2		targetDrum=drum2
+Map	pad3		targetDrum=drum3
+Map	pad4		targetDrum=drum4
+Map	pad5		targetDrum=drum5
+Map	pad6		targetDrum=drum6
+Map	pad7		targetDrum=drum7
+Map	pad8		targetDrum=drum8
+Map	pad9		targetDrum=drum9
+Map	pad10		targetDrum=drum10
+Map	pad11		targetDrum=drum11
+Map	pad12		targetDrum=drum12
+Map	pad13		targetDrum=drum13
+Map	pad14		targetDrum=drum14
+Map	pad15		targetDrum=drum15
+Map	pad16		targetDrum=drum16
+Map	knob1		Drum 1 Pitch Offset			drum1
+Map	knob2		Drum 1 Decay Offset			drum1
+Map	knob3		Drum 1 Bus FX Send			drum1
+Map	knob4		Drum 1 Aux 1 Send			drum1
+Map	knob5		Drum 1 Aux 2 Send			drum1
+Map	knob6		Drum 1 Tone			drum1
+Map	knob7		Drum 1 Pan			drum1
+Map	knob8		Drum 1 Level			drum1
+Map	button1		Pad 1 Solo			drum1
+Map	button2		Pad 1 Mute			drum1
+Map	knob1		Drum 2 Pitch Offset			drum2
+Map	knob2		Drum 2 Decay Offset			drum2
+Map	knob3		Drum 2 Bus FX Send			drum2
+Map	knob4		Drum 2 Aux 1 Send			drum2
+Map	knob5		Drum 2 Aux 2 Send			drum2
+Map	knob6		Drum 2 Tone			drum2
+Map	knob7		Drum 2 Pan			drum2
+Map	knob8		Drum 2 Level			drum2
+Map	button1		Pad 2 Solo			drum2
+Map	button2		Pad 2 Mute			drum2
+Map	knob1		Drum 3 Pitch Offset			drum3
+Map	knob2		Drum 3 Decay Offset			drum3
+Map	knob3		Drum 3 Bus FX Send			drum3
+Map	knob4		Drum 3 Aux 1 Send			drum3
+Map	knob5		Drum 3 Aux 2 Send			drum3
+Map	knob6		Drum 3 Tone			drum3
+Map	knob7		Drum 3 Pan			drum3
+Map	knob8		Drum 3 Level			drum3
+Map	button1		Pad 3 Solo			drum3
+Map	button2		Pad 3 Mute			drum3
+Map	knob1		Drum 4 Pitch Offset			drum4
+Map	knob2		Drum 4 Decay Offset			drum4
+Map	knob3		Drum 4 Bus FX Send			drum4
+Map	knob4		Drum 4 Aux 1 Send			drum4
+Map	knob5		Drum 4 Aux 2 Send			drum4
+Map	knob6		Drum 4 Tone			drum4
+Map	knob7		Drum 4 Pan			drum4
+Map	knob8		Drum 4 Level			drum4
+Map	button1		Pad 4 Solo			drum4
+Map	button2		Pad 4 Mute			drum4
+Map	knob1		Drum 5 Pitch Offset			drum5
+Map	knob2		Drum 5 Decay Offset			drum5
+Map	knob3		Drum 5 Bus FX Send			drum5
+Map	knob4		Drum 5 Aux 1 Send			drum5
+Map	knob5		Drum 5 Aux 2 Send			drum5
+Map	knob6		Drum 5 Tone			drum5
+Map	knob7		Drum 5 Pan			drum5
+Map	knob8		Drum 5 Level			drum5
+Map	button1		Pad 5 Solo			drum5
+Map	button2		Pad 5 Mute			drum5
+Map	knob1		Drum 6 Pitch Offset			drum6
+Map	knob2		Drum 6 Decay Offset			drum6
+Map	knob3		Drum 6 Bus FX Send			drum6
+Map	knob4		Drum 6 Aux 1 Send			drum6
+Map	knob5		Drum 6 Aux 2 Send			drum6
+Map	knob6		Drum 6 Tone			drum6
+Map	knob7		Drum 6 Pan			drum6
+Map	knob8		Drum 6 Level			drum6
+Map	button1		Pad 6 Solo			drum6
+Map	button2		Pad 6 Mute			drum6
+Map	knob1		Drum 7 Pitch Offset			drum7
+Map	knob2		Drum 7 Decay Offset			drum7
+Map	knob3		Drum 7 Bus FX Send			drum7
+Map	knob4		Drum 7 Aux 1 Send			drum7
+Map	knob5		Drum 7 Aux 2 Send			drum7
+Map	knob6		Drum 7 Tone			drum7
+Map	knob7		Drum 7 Pan			drum7
+Map	knob8		Drum 7 Level			drum7
+Map	button1		Pad 7 Solo			drum7
+Map	button2		Pad 7 Mute			drum7
+Map	knob1		Drum 8 Pitch Offset			drum8
+Map	knob2		Drum 8 Decay Offset			drum8
+Map	knob3		Drum 8 Bus FX Send			drum8
+Map	knob4		Drum 8 Aux 1 Send			drum8
+Map	knob5		Drum 8 Aux 2 Send			drum8
+Map	knob6		Drum 8 Tone			drum8
+Map	knob7		Drum 8 Pan			drum8
+Map	knob8		Drum 8 Level			drum8
+Map	button1		Pad 8 Solo			drum8
+Map	button2		Pad 8 Mute			drum8
+Map	knob1		Drum 9 Pitch Offset			drum9
+Map	knob2		Drum 9 Decay Offset			drum9
+Map	knob3		Drum 9 Bus FX Send			drum9
+Map	knob4		Drum 9 Aux 1 Send			drum9
+Map	knob5		Drum 9 Aux 2 Send			drum9
+Map	knob6		Drum 9 Tone			drum9
+Map	knob7		Drum 9 Pan			drum9
+Map	knob8		Drum 9 Level			drum9
+Map	button1		Pad 9 Solo			drum9
+Map	button2		Pad 9 Mute			drum9
+Map	knob1		Drum 10 Pitch Offset			drum10
+Map	knob2		Drum 10 Decay Offset			drum10
+Map	knob3		Drum 10 Bus FX Send			drum10
+Map	knob4		Drum 10 Aux 1 Send			drum10
+Map	knob5		Drum 10 Aux 2 Send			drum10
+Map	knob6		Drum 10 Tone			drum10
+Map	knob7		Drum 10 Pan			drum10
+Map	knob8		Drum 10 Level			drum10
+Map	button1		Pad 10 Solo			drum10
+Map	button2		Pad 10 Mute			drum10
+Map	knob1		Drum 11 Pitch Offset			drum11
+Map	knob2		Drum 11 Decay Offset			drum11
+Map	knob3		Drum 11 Bus FX Send			drum11
+Map	knob4		Drum 11 Aux 1 Send			drum11
+Map	knob5		Drum 11 Aux 2 Send			drum11
+Map	knob6		Drum 11 Tone			drum11
+Map	knob7		Drum 11 Pan			drum11
+Map	knob8		Drum 11 Level			drum11
+Map	button1		Pad 11 Solo			drum11
+Map	button2		Pad 11 Mute			drum11
+Map	knob1		Drum 12 Pitch Offset			drum12
+Map	knob2		Drum 12 Decay Offset			drum12
+Map	knob3		Drum 12 Bus FX Send			drum12
+Map	knob4		Drum 12 Aux 1 Send			drum12
+Map	knob5		Drum 12 Aux 2 Send			drum12
+Map	knob6		Drum 12 Tone			drum12
+Map	knob7		Drum 12 Pan			drum12
+Map	knob8		Drum 12 Level			drum12
+Map	button1		Pad 12 Solo			drum12
+Map	button2		Pad 12 Mute			drum12
+Map	knob1		Drum 13 Pitch Offset			drum13
+Map	knob2		Drum 13 Decay Offset			drum13
+Map	knob3		Drum 13 Bus FX Send			drum13
+Map	knob4		Drum 13 Aux 1 Send			drum13
+Map	knob5		Drum 13 Aux 2 Send			drum13
+Map	knob6		Drum 13 Tone			drum13
+Map	knob7		Drum 13 Pan			drum13
+Map	knob8		Drum 13 Level			drum13
+Map	button1		Pad 13 Solo			drum13
+Map	button2		Pad 13 Mute			drum13
+Map	knob1		Drum 14 Pitch Offset			drum14
+Map	knob2		Drum 14 Decay Offset			drum14
+Map	knob3		Drum 14 Bus FX Send			drum14
+Map	knob4		Drum 14 Aux 1 Send			drum14
+Map	knob5		Drum 14 Aux 2 Send			drum14
+Map	knob6		Drum 14 Tone			drum14
+Map	knob7		Drum 14 Pan			drum14
+Map	knob8		Drum 14 Level			drum14
+Map	button1		Pad 14 Solo			drum14
+Map	button2		Pad 14 Mute			drum14
+Map	knob1		Drum 15 Pitch Offset			drum15
+Map	knob2		Drum 15 Decay Offset			drum15
+Map	knob3		Drum 15 Bus FX Send			drum15
+Map	knob4		Drum 15 Aux 1 Send			drum15
+Map	knob5		Drum 15 Aux 2 Send			drum15
+Map	knob6		Drum 15 Tone			drum15
+Map	knob7		Drum 15 Pan			drum15
+Map	knob8		Drum 15 Level			drum15
+Map	button1		Pad 15 Solo			drum15
+Map	button2		Pad 15 Mute			drum15
+Map	knob1		Drum 16 Pitch Offset			drum16
+Map	knob2		Drum 16 Decay Offset			drum16
+Map	knob3		Drum 16 Bus FX Send			drum16
+Map	knob4		Drum 16 Aux 1 Send			drum16
+Map	knob5		Drum 16 Aux 2 Send			drum16
+Map	knob6		Drum 16 Tone			drum16
+Map	knob7		Drum 16 Pan			drum16
+Map	knob8		Drum 16 Level			drum16
+Map	button1		Pad 16 Solo			drum16
+Map	button2		Pad 16 Mute			drum16
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Malstrom Graintable Synthesizer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Mimic
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Monotone
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	NN-XT Advanced Sampler
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	NN19 Digital Sampler
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Objekt
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Pangea
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ProcessedPianos
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.RadicalKeys
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.radicalpiano
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Redrum Drum Computer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.DMFC
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Thor Polysonic Synthesizer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Umpf
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.UmpfRetroBeats
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio	com.synapseAudioSoftware.Antidote
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Complex
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Friktion
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Iridium
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.layers
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.layers_wave_edition
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Nautilus2
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Nautilus
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Nostromo
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Parsec
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.RDK
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ElectricBass
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ScenicHybrid
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio	com.synapseAudioSoftware.Legend
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Radiator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Blamsoft, Inc.	com.blamsoft.Viking
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.3BandEQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Quadelectra Audioworx	com.quadelectra.ThreePlex
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Flower Audio	com.flowerau.4Dyne
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Alligator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Jiggery Pokery	com.jiggerypokery.Animus
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Audiomatic
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Bitcrush
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Sonic Charge	com.soniccharge.Bitspeek
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LAB ONE Recordings	co.uk.labonerecordings.BlackKnightEq
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.BlueDepth
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Peff	com.peff.Buffre
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.C670
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ChannelDynamics
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ChannelEQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Jiggery Pokery	com.jiggerypokery.Chenille
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Chorus
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	MagmaSonic	drno.magmasonic.ClassicFilter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Compressor
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.CombFilter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Reasonistas	com.reasonistas.CORE
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.CustomVibe
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	SKP Sound Design	com.skepticalproductions.D1RT
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMBusComp
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMChanComp
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	FXpansion Audio UK Ltd.	com.fxpansion.DCAMEnvShaper
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.DYN4
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Delay
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Disperser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	ThatMusicCompany	com.thatmusiccompany.DistortChain
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Distortion
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.E670
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Kuassa	com.kuassa.EVEAT4
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Sonic Charge	com.soniccharge.Echobode
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Kuassa	com.kuassa.EfektorGQ3607
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Kuassa	com.kuassa.EfektorSilencer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	AirRaid Audio	ch.airraid.ESplitter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LAB ONE Recordings	co.uk.labonerecordings.EQUILA
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Blamsoft, Inc.	com.blamsoft.F16
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.FRG4RE
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.FRGEEE
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Faturator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Filter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	BASSGRID	com.bassgrid.FilterX1
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Sugar Bytes	com.sugarbytes.FilterPattern
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.FormantFilter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.FrequencyShifter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Fritz
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.FutzBox
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Unfiltered Audio	com.unfilteredaudio.G8Gate
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	GVXT	uk.co.gvxt.GClip
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Gain
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Gate
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.Ghammy
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Ochen K.	com.ochenk.GlitchEffect
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.hlfre
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Haas
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.HarmBode
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.IsolateX
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Jiggery Pokery	com.jiggerypokery.Itsy
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Kuassa	com.kuassa.Kratos2Maximizer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.LadderFilter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Zvork	fr.zvork.LeSpace
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Limiter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.MBC
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Blamsoft, Inc.	com.blamsoft.Mark_VIII
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.MasterCompressor
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Forgotten Clank Studios	com.forgottenclankstudios.MClipper
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.500series2D
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.MooQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	McDSP	com.mcdsp.MooTube
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	ThatMusicCompany	com.thatmusiccompany.MrOverDrive
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	BASSGRID	com.bassgrid.Mutation_Collider
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Neptune Pitch Adjuster
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LoveOne	se.loveone.Neutron
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Forgotten Clank Studios	com.forgottenclankstudios.OmegaDEQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Forgotten Clank Studios	com.forgottenclankstudios.OmegaTrimmer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Inphonik	fr.mathieudemange.PCM2612
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Sugar Bytes	com.sugarbytes.PitchDelay
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.PhaseDistortion
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.PhaseTool
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Phaser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LoveOne	se.loveone.Bakelite
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.Pipeline
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.PitchShifter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Polar
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Pulveriser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	sonicbits.io	io.sonicbits.Pump
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Quartet
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.RE200
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.RE202
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.RE302
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Rob Papen	com.robpapen.RPVerb
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Noise Engineering	us.noiseengineering.RS_RV
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	RV7000 Advanced Reverb
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Turn2on Software	ru.turn2on.Reasonator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Blamsoft, Inc.	com.blamsoft.Resampler
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Resonator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Reverb
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Reverser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.RingMod
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Rotor
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.SMFXDelay
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.SMFXDSAT
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.SMFXReverb
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Ekssperimental Sounds	se.ekssperimentalsounds.SPACEXPANDER
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Scream 4 Distortion
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Selig Audio	com.seligaudio.ColoringEQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Selig Audio	com.seligaudio.SeligDeEsser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Selig Audio	com.seligaudio.SeligGain
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Selig Audio	com.seligaudio.TheCurve
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Reasonistas	com.reasonistas.SCRE
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Sugar Bytes	com.sugarbytes.SliceArranger
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ReasonAmp
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ReasonBassAmp
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Softube	com.softube.re.Dynamite
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Softube	com.softube.re.FETCompressor
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Softube	com.softube.re.SaturationKnob
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Softube	com.softube.re.TSAR1R
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Jiggery Pokery	com.jiggerypokery.Steerpike
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Stereo
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Speo	com.speomusic.StriveCF
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Sweeper
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseFilter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapsePhaser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseChorus
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseReverb1
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.FatSpace
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseGQ7
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseNinety
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRE160
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRingMod
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseVintEQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Synchronous
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	ThatMusicCompany	com.thatmusiccompany.T2Phaser
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.TapeStop
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	BASSGRID	com.bassgrid.Terminal
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	The Echo
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.TranceGate
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.TransientShaper
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	pongasoft	com.pongasoft.VAC6
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Sugar Bytes	com.sugarbytes.Vocodizer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Jiggery Pokery	com.jiggerypokery.Villanelle
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	omino	com.omino.Wbl6414
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Forgotten Clank Studios	com.forgottenclankstudios.Waveshaper2
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Tonicmint	com.tonicmint.ABTranspose
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Aggregate
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Static Cling	com.staticcling.AutoLatch
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Bassline
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.BeatMap
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.CVP
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ChordSequencer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.Chordbank
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Static Cling	com.staticcling.Delta
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Andrew Russell	net.andrewrussell.Denote
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.DrumSeq
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Arpeggio
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Robotic Bean	com.roboticbean.EuclidPlayer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Evolution
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Retouch Control	com.retouchcontrol.grid64P2
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.Inspiral
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Kompulsion
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Retouch Control	com.retouchcontrol.Life
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LoveOne	se.loveone.MIDICompressor
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LoveOne	se.loveone.MIDICVConverter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Speo	com.speomusic.Map64
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.MeloDramatik
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.MelodicInverter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteAlter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.NoteEcho
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteFilter
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteHumanizer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteLatch
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Mutator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.PolyStepSequencer
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.QuadNoteGenerator
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.RND_2
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LeNoteLiveSoftware	it.lenotelive.ReceiveNotes
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Zvork	fr.zvork.ST100
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ScalesAndChords
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Selig Audio	com.seligaudio.NoteView
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Robotic Bean	com.roboticbean.Sequences
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.UTL
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.mDSQ
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Janitor
+Map	deviceName		Device Name
+Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch

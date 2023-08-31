@@ -18,7 +18,6 @@ function map(tbl, func)
     return newTbl
 end
 
-
 return {
     getValueFromPath = getValueFromPath
 }

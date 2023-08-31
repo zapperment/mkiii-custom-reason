@@ -4,7 +4,7 @@ local constants = require("lib.constants")
 
 return function(event)
     local processed = false
-    for _, button in ipairs({ "buttonLayerA", "buttonLayerB" }) do
+    for _, button in ipairs({"buttonLayerA", "buttonLayerB"}) do
         local ret = remote.match_midi(items[button].midiMatcher, event)
         if ret and ret.x > 0 then
             local layer = button == "buttonLayerA" and constants.layerA or constants.layerB
