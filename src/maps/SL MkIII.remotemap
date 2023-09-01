@@ -436,6 +436,37 @@ Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
+Scope	Propellerhead Software	se.propellerheads.Algoritm
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		FM Amount Offset			layerA
+Map	knob2		Decay/Release Offset			layerA
+Map	knob3		Feedback			layerA
+Map	knob4		Master			layerA
+Map	knob1		EQ Gain			layerB
+Map	knob2		Resonator Mix			layerB
+Map	knob3		Dist Amount			layerB
+// for some reason, there are no phaser parameters that you can control besides on/off;
+// using dummy value XXX to create an empty space above the "Phaser on/off" button
+Map	knob4		XXX			layerB
+Map	knob5		Comp Ratio			layerB
+Map	knob6		Delay Amount			layerB
+Map	knob7		Reverb Amount			layerB
+Map	knob8		Unison Spread			layerB
+Map	button1		EQ On			layerB
+Map	button2		Resonator On			layerB
+Map	button3		Dist On			layerB
+Map	button4		Phaser On			layerB
+Map	button5		Comp On			layerB
+Map	button6		Delay On			layerB
+Map	button7		Reverb On			layerB
+Map	button8		Unison On			layerB
+Map	deviceName		Device Name
+Map	patchName		Patch Name
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
 Scope	Propellerhead Software	se.propellerheads.Complex
 Map	deviceName		Device Name
 Map	patchName		Patch Name
