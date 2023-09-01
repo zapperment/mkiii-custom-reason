@@ -458,6 +458,17 @@ Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
+Scope	Propellerhead Software	se.propellerheads.PX7
+Map	knob1		Brightness
+Map	knob2		Attack
+Map	knob3		Decay
+Map	knob4		Operator Feedback
+Map	knob5		Volume
+Map	deviceName		Device Name
+Map	patchName		Patch Name
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
 Scope	Propellerhead Software	se.propellerheads.Algoritm
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
