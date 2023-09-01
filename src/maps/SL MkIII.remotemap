@@ -109,6 +109,28 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Dr.REX Loop Player
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		LFO1 Wave			layerA
+Map	button1		LFO Sync Enable			layerA
+Map	knob2		LFO1 Rate			layerA
+Map	knob3		LFO1 Amount			layerA
+Map	knob4		LFO1 Dest			layerA
+Map	knob5		Filter Freq			layerA
+Map	button5		Filter On/Off			layerA
+Map	knob6		Filter Res			layerA
+Map	knob7		Filter Mode			layerA
+Map	knob8		Filter Env Amount			layerA
+Map	knob1		Amp Env Attack			layerB
+Map	knob2		Amp Env Decay			layerB
+Map	knob3		Amp Env Sustain			layerB
+Map	knob4		Amp Env Release			layerB
+Map	knob5		Filter Env Attack			layerB
+Map	knob6		Filter Env Decay			layerB
+Map	knob7		Filter Env Sustain			layerB
+Map	knob8		Filter Env Release			layerB
+Map	footSwitch		Run
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -447,9 +469,6 @@ Map	knob4		Master			layerA
 Map	knob1		EQ Gain			layerB
 Map	knob2		Resonator Mix			layerB
 Map	knob3		Dist Amount			layerB
-// for some reason, there are no phaser parameters that you can control besides on/off;
-// using dummy value XXX to create an empty space above the "Phaser on/off" button
-Map	knob4		XXX			layerB
 Map	knob5		Comp Ratio			layerB
 Map	knob6		Delay Amount			layerB
 Map	knob7		Reverb Amount			layerB
