@@ -468,6 +468,25 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Complex
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Osc 1 Shape			layerA
+Map	knob2		Osc 2 Shape			layerA
+Map	knob3		Osc 3 Shape			layerA
+Map	knob4		Filter Freq			layerA
+Map	knob5		Filter Reso			layerA
+Map	knob6		Vol 1			layerA
+Map	knob7		Vol 2			layerA
+Map	knob8		Vol 3			layerA
+Map	knob1		Attack			layerB
+Map	knob2		Decay			layerB
+Map	knob3		Sustain			layerB
+Map	knob4		Release			layerB
+Map	knob5		LFO Rate			layerB
+Map	knob6		Pan 1			layerB
+Map	knob7		Pan 2			layerB
+Map	knob8		Pan 3			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
