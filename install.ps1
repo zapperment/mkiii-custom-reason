@@ -8,9 +8,15 @@ function Write-Success {
     Write-Host -ForegroundColor Green $args[0]
 }
 
+$DEBUG_MODE = $false
+
+if ($args[0] -eq "debug") {
+    Write-Host "Debug mode: deploying codec with extra output port for debug messages"
+    $DEBUG_MODE = $true
+}
+
 $REMOTE_DIR = "C:\ProgramData\Propellerhead Software\Remote"
 
-# Set VENDOR variable
 $VENDOR = "Novation"
 
 if (-not (Test-Path $REMOTE_DIR)) {
@@ -75,6 +81,17 @@ if ($LASTEXITCODE -ne 0) {
     Write-Error "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
 }
+
+if ($DEBUG_MODE -eq $true) {
+    Write-Host "Using debug versions of .luacodec files, replacing production versions"
+    Move-Item -Path "${CODECS_DIST_DIR}\SL MkIII.debug.luacodec" -Destination "${CODECS_DIST_DIR}\SL MkIII.luacodec" -Force
+    Move-Item -Path "${CODECS_DIST_DIR}\SL MkIII Mixer.debug.luacodec" -Destination "${CODECS_DIST_DIR}\SL MkIII Mixer.luacodec" -Force
+} else {
+    Write-Host "Using production versions of .luacodec files, removing debug versions"
+    Remove-Item -Path "${CODECS_DIST_DIR}\SL MkIII.debug.luacodec"
+    Remove-Item -Path "${CODECS_DIST_DIR}\SL MkIII Mixer.debug.luacodec"
+}
+
 
 Write-Host "Copying files to Reason remote dirs"
 

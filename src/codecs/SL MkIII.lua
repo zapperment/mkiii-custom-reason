@@ -113,7 +113,7 @@ function remote_init()
     remote.define_items(itemsToDefine)
     remote.define_auto_inputs(autoInputs)
     remote.define_auto_outputs(autoOutputs)
-    debugUtils.log("Remote control surface initialised successfully")
+    debugUtils.log("Novation SL MkIII remote control surface initialised successfully")
 end
 
 -- KEYBOARD => CODEC
