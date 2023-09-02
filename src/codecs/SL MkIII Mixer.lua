@@ -12,8 +12,8 @@ local midiUtils = require("lib.midiUtils")
 local stateUtils = require("lib.stateUtils")
 
 -- this needs to be global, it's used by auto outputs
-buttonColourMute = 120 -- red
-buttonColourSolo = 17 -- green
+buttonColourMute = colours.red.dec
+buttonColourSolo = colours.green.dec
 
 function remote_init()
     local itemsToDefine = {}
@@ -35,8 +35,8 @@ function remote_init()
     debugUtils.log("Novation SL MkIII Mixer remote control surface initialised successfully")
 end
 
-function remote_process_midi()
-    return false
+function remote_process_midi(event)
+    return processMidi.colourButtons(event)
 end
 
 function remote_set_state()
@@ -46,6 +46,16 @@ function remote_deliver_midi(_, port)
     if (port == 2) then
         return debugUtils.dumpLog(events)
     end
+    
+    local events = {}
 
-    return {}
+    if stateUtils.hasChanged("buttonColour") then
+        local buttonColour = stateUtils.update("buttonColour")
+        for i = 0, 7 do
+            local controllerNumber = 41 + i
+            table.insert(events, midiUtils.makeControlChangeEvent(controllerNumber, buttonColour))
+        end
+    end
+
+    return events
 end
