@@ -5,6 +5,7 @@ local autoInputs = require("lib.mixerAutoInputs")
 local autoOutputs = require("lib.mixerAutoOutputs")
 local colours = require("lib.colours")
 local constants = require("lib.constants")
+local debugUtils = require("lib.debugUtils")
 local hexUtils = require("lib.hexUtils")
 local items = require("lib.mixerItems")
 local midiUtils = require("lib.midiUtils")
@@ -31,6 +32,7 @@ function remote_init()
     remote.define_items(itemsToDefine)
     remote.define_auto_inputs(autoInputs)
     remote.define_auto_outputs(autoOutputs)
+    debugUtils.log("Novation SL MkIII Mixer remote control surface initialised successfully")
 end
 
 function remote_process_midi()
@@ -40,6 +42,10 @@ end
 function remote_set_state()
 end
 
-function remote_deliver_midi()
+function remote_deliver_midi(_, port)
+    if (port == 2) then
+        return debugUtils.dumpLog(events)
+    end
+
     return {}
 end

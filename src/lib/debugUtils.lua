@@ -1,6 +1,7 @@
-local stateUtils = require("lib.stateUtils")
+local midiUtils = require("lib.midiUtils")
 
-local counter = 1
+local logMessages = {}
+local maxLogMessages = 100
 
 -- this function accepts a table and returns a string with
 -- all the keys in the table; you can specify keys to exclude
@@ -32,12 +33,26 @@ local function midiEventToString(event)
 end
 
 local function log(message)
-    stateUtils.set("deviceName", tostring(counter) .. ":" .. message)
-    counter = counter + 1
+    table.insert(logMessages, message)
+    -- if the codec is not running in debug mode, the logs are never dumped
+    -- we need to limit the number of log messages to prevent memory leaks
+    if #logMessages > maxLogMessages then
+        table.remove(logMessages, 1)
+    end
+end
+
+local function dumpLog()
+    local events = {}
+    for _, message in pairs(logMessages) do
+        table.insert(events, midiUtils.makeLogEvent(message))
+    end
+    logMessages = {}
+    return events
 end
 
 return {
     concatenateKeys = concatenateKeys,
     midiEventToString = midiEventToString,
-    log = log
+    log = log,
+    dumpLog = dumpLog
 }

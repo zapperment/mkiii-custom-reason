@@ -233,14 +233,6 @@ return {
         current = " ",
         next = " "
     },
-    debugMessage1 = {
-        current = " ",
-        next = " "
-    },
-    debugMessage2 = {
-        current = " ",
-        next = " "
-    },
     buttonColour = {
         current = constants.buttonColourNumber,
         next = constants.buttonColourNumber
