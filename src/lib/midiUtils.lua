@@ -14,6 +14,11 @@ local function makeDebugMsgEvent(msg, row)
     return remote.make_midi(event .. "F7")
 end
 
+local function makeLogEvent(msg)
+    local event = constants.debugSysexHeader .. " " .. hexUtils.textToHex(msg) .. "F7"
+    return remote.make_midi(event)
+end
+
 -- Makes a MIDI event object that displays a notification in the fifth LC display, between the knobs and the faders.
 local function makeNotificationEvent(line1, line2)
     line1hex = " "
@@ -72,7 +77,7 @@ local function makeDisplayEvent(statuses, texts, row)
     for i, knobIsActive in ipairs(statuses) do
         if knobIsActive then
             event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " " .. hexUtils.textToHex(texts[i]) ..
-                        " 00 "
+                    " 00 "
         else
             event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " 00 "
         end
@@ -87,7 +92,7 @@ end
 -- colour: string with hex value of a colour
 local function makeCreateKnobEvent(knobNumber, colour)
     return remote.make_midi(
-        constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
+            constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
 end
 
 local function makeControlChangeEvent(controllerNumber, value)
@@ -96,6 +101,7 @@ end
 
 return {
     makeDebugMsgEvent = makeDebugMsgEvent,
+    makeLogEvent = makeLogEvent,
     makeNotificationEvent = makeNotificationEvent,
     makeKnobsStatusEvent = makeKnobsStatusEvent,
     makeCreateKnobEvent = makeCreateKnobEvent,

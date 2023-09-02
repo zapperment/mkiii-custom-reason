@@ -1,0 +1,16 @@
+version = { 3, 0, 0 }
+
+function remote_supported_control_surfaces()
+    local surfaces = {
+        { manufacturer = "Novation",
+          model = "SL MkIII Mixer",
+          source = "SL MkIII Mixer.lua",
+          picture = "SL MkIII Mixer.png",
+          in_ports = { { description = "Input" } },
+          out_ports = { { description = "Output" }, { description = "Debug" } },
+          setup_info_text = "Custom codec for mixer section by Zapperment (debug version)",
+          has_keyboard = false,
+        }
+    }
+    return surfaces
+end

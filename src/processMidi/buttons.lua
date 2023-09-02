@@ -1,4 +1,5 @@
 local stateUtils = require("lib.stateUtils")
+local debugUtils = require("lib.debugUtils")
 local items = require("lib.items")
 
 return function(event)

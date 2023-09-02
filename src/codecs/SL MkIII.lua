@@ -5,6 +5,7 @@ local autoInputs = require("lib.autoInputs")
 local autoOutputs = require("lib.autoOutputs")
 local colours = require("lib.colours")
 local constants = require("lib.constants")
+local debugUtils = require("lib.debugUtils")
 local hexUtils = require("lib.hexUtils")
 local items = require("lib.items")
 local midiUtils = require("lib.midiUtils")
@@ -32,7 +33,7 @@ end
 -- each supported model.
 function remote_probe(_, _, prober)
 
-    local request_events = {remote.make_midi("F0 7E 7F 06 01 F7")}
+    local request_events = { remote.make_midi("F0 7E 7F 06 01 F7") }
     local response = "F0 7E 00 06 02 00 20 29 01 01 00 00 ?? ?? ?? ?? F7"
 
     local function match_events(mask, events)
@@ -80,8 +81,8 @@ function remote_probe(_, _, prober)
 
     if dev_found ~= 0 then
         local one_result = {
-            in_ports = {ins[1], ins[2]},
-            out_ports = {port_out}
+            in_ports = { ins[1], ins[2] },
+            out_ports = { port_out }
         }
         table.insert(results, one_result)
     end
@@ -112,6 +113,7 @@ function remote_init()
     remote.define_items(itemsToDefine)
     remote.define_auto_inputs(autoInputs)
     remote.define_auto_outputs(autoOutputs)
+    debugUtils.log("Remote control surface initialised successfully")
 end
 
 -- KEYBOARD => CODEC
@@ -123,7 +125,7 @@ end
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
     return processMidi.knobs(event) or processMidi.buttons(event) or processMidi.layerButtons(event) or
-               processMidi.pads(event)
+            processMidi.pads(event)
     --  or processMidi.colourFader(event)
 end
 
@@ -142,8 +144,13 @@ end
 -- CODEC => KEYBOARD
 -- This function is called at regular intervals when the host is due to update the control
 -- surface state. The return value should be an array of MIDI events.
-function remote_deliver_midi()
+function remote_deliver_midi(_, port)
+    if (port == 2) then
+        return debugUtils.dumpLog(events)
+    end
+
     local events = {}
+
     local knobChanged = false
     local knobStates = {}
     local knobLabels = {}
@@ -256,18 +263,8 @@ function remote_deliver_midi()
         table.insert(events, midiUtils.makeDisplayEvent(buttonStates, buttonValues, 4))
         for i, value in ipairs(buttonValues) do
             table.insert(events, midiUtils.makeControlChangeEvent(items["button" .. i].controller,
-                value == "ON" and buttonColour or 0))
+                    value == "ON" and buttonColour or 0))
         end
-    end
-
-    if stateUtils.hasChanged("debugMessage1") then
-        local message = stateUtils.update("debugMessage1")
-        table.insert(events, midiUtils.makeDebugMsgEvent(message, 1))
-    end
-
-    if stateUtils.hasChanged("debugMessage2") then
-        local message = stateUtils.update("debugMessage2")
-        table.insert(events, midiUtils.makeDebugMsgEvent(message, 2))
     end
 
     if stateUtils.hasChanged("deviceName") or stateUtils.hasChanged("patchName") then
@@ -294,21 +291,21 @@ function remote_deliver_midi()
 end
 
 function remote_prepare_for_use()
-    return {midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
-            midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
-            midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
-            midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
-            midiUtils.makeCreateKnobEvent(8, colours.noColour),
-            midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, constants.buttonColourNumber),
-            midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.noColour)}
+    return { midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
+             midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
+             midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
+             midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
+             midiUtils.makeCreateKnobEvent(8, colours.noColour),
+             midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, constants.buttonColourNumber),
+             midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.noColour) }
 end
 
 function remote_release_from_use()
-    return {midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
-            midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
-            midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
-            midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
-            midiUtils.makeCreateKnobEvent(8, colours.noColour),
-            midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, colours.noColour),
-            midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.noColour)}
+    return { midiUtils.makeKnobsStatusEvent(), midiUtils.makeCreateKnobEvent(1, colours.noColour),
+             midiUtils.makeCreateKnobEvent(2, colours.noColour), midiUtils.makeCreateKnobEvent(3, colours.noColour),
+             midiUtils.makeCreateKnobEvent(4, colours.noColour), midiUtils.makeCreateKnobEvent(5, colours.noColour),
+             midiUtils.makeCreateKnobEvent(6, colours.noColour), midiUtils.makeCreateKnobEvent(7, colours.noColour),
+             midiUtils.makeCreateKnobEvent(8, colours.noColour),
+             midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, colours.noColour),
+             midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.noColour) }
 end

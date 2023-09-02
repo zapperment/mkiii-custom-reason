@@ -1,13 +1,24 @@
-﻿#!/bin/bash
+﻿#!/bin/zsh
+
+DEBUG_MODE=false
+
+if [[ $1 == "debug" ]]; then
+    echo "Debug mode: deploying codec with extra output port for debug messages"
+    DEBUG_MODE=true
+fi
 
 set -euo pipefail
 
 function echo_red() {
-  echo -e "\033[1;31m$1\033[0m"
+  echo "\033[31m$1\033[0m"
+}
+
+function echo_green() {
+  echo "\033[32m$1\033[0m"
 }
 
 function echo_bold() {
-  echo -e "\033[1m$1\033[0m"
+  echo "\033[1m$1\033[0m"
 }
 
 USER_NAME=$(scutil <<<"show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ { print $3 }')
@@ -15,8 +26,6 @@ REMOTE_DIR="/Users/${USER_NAME}/Library/Application Support/Propellerhead Softwa
 
 # Set VENDOR variable
 VENDOR="Novation"
-
-echo ""
 
 if [ ! -d "${REMOTE_DIR}" ]; then
   echo_red "Error – no Reason!"
@@ -27,8 +36,6 @@ else
   echo_bold "Reason is installed, using remote dir:"
   echo "${REMOTE_DIR}"
 fi
-
-echo ""
 
 CODECS_TARGET_DIR="${REMOTE_DIR}/Codecs/Lua Codecs/${VENDOR}"
 
@@ -41,8 +48,6 @@ else
   echo "${CODECS_TARGET_DIR}"
 fi
 
-echo ""
-
 MAPS_TARGET_DIR="${REMOTE_DIR}/Maps/${VENDOR}"
 
 if [ ! -d "${MAPS_TARGET_DIR}" ]; then
@@ -53,8 +58,6 @@ else
   echo_bold "Using existing maps dir:"
   echo "${MAPS_TARGET_DIR}"
 fi
-
-echo ""
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
@@ -79,13 +82,23 @@ echo_bold "Bundling Lua code"
 echo "luabundler bundle \"${CODECS_DIST_DIR}/SL MkIII.lua\" -p \"${SRC_DIR}/?.lua\" -o \"${CODECS_DIST_DIR}/SL MkIII.lua\""
 
 if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"; then
-    echo "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
+    echo_red "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
 fi
 
 if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII Mixer.lua" -p "${SRC_DIR}/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII Mixer.lua"; then
-    echo "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
+    echo_red "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
+fi
+
+if $DEBUG_MODE; then
+  echo_bold "Using debug versions of .luacodec files, replacing production versions:"
+  mv -v "${CODECS_DIST_DIR}/SL MkIII.debug.luacodec" "${CODECS_DIST_DIR}/SL MkIII.luacodec"
+  mv -v "${CODECS_DIST_DIR}/SL MkIII Mixer.debug.luacodec" "${CODECS_DIST_DIR}/SL MkIII Mixer.luacodec"
+else
+  echo_bold "Using production versions of .luacodec files, removing debug versions:"
+  rm -v "${CODECS_DIST_DIR}/SL MkIII.debug.luacodec"
+  rm -v "${CODECS_DIST_DIR}/SL MkIII Mixer.debug.luacodec"
 fi
 
 echo_bold "Copying files to Reason remote dirs:"
@@ -93,4 +106,4 @@ echo_bold "Copying files to Reason remote dirs:"
 cp -v "${CODECS_DIST_DIR}/"* "${CODECS_TARGET_DIR}/"
 cp -v "${MAPS_DIST_DIR}/"* "${MAPS_TARGET_DIR}/"
 
-echo "Installation successful!"
+echo_green "Installation successful!"

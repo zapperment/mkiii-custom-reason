@@ -1,0 +1,13 @@
+{
+  "name": "mkiii-custom-reason",
+  "packageManager": "yarn@3.6.3",
+  "scripts": {
+    "log-receiver": "node src/logReceiver/index.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  },
+  "dependencies": {
+    "easymidi": "^3.1.0"
+  }
+}
