@@ -100,6 +100,18 @@ return {
         min = 0,
         max = 127
     },
+    overdubButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
+    altTakeButton = {
+        input = "button",
+        output = "value",
+        min = 0,
+        max = 127
+    },
     knob1 = {
         input = "delta",
         output = "value",

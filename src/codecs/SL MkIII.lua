@@ -129,7 +129,7 @@ end
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
     return processMidi.knobs(event) or processMidi.buttons(event) or processMidi.layerButtons(event) or
-               processMidi.pads(event) or processMidi.colourButtons(event)
+               processMidi.pads(event) 
 end
 
 -- REASON => CODEC

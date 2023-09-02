@@ -33,4 +33,14 @@ return {{
     pattern = "BF 75 xx",
     x = "(value*(transportButtonColourRecord-transportButtonColourRecordDim))+transportButtonColourRecordDim",
     port = 1
+}, {
+    name = "overdubButton",
+    pattern = "BF 53 xx",
+    x = "(value*(transportButtonColour-transportButtonColourDim))+transportButtonColourDim",
+    port = 1
+}, {
+    name = "altTakeButton",
+    pattern = "BF 54 xx",
+    x = "(value*(transportButtonColour-transportButtonColourDim))+transportButtonColourDim",
+    port = 1
 }}

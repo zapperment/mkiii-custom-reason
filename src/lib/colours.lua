@@ -3,6 +3,7 @@
 --   1   01   dark grey
 --   2   02   grey
 --   3   03   white
+-- Colours 4-59 are grouped by fours, light, normal, mid and dark
 --   4   04   light red
 --   5   05   red
 --   6   06   mid red
@@ -59,6 +60,9 @@
 --  57   39   pink
 --  58   3A   mid pink
 --  59   3B   dark pink
+-- After colour 59, the colours are not grouped and seem 
+-- to be in random order; apparently, they are mostly the
+-- same as the grouped colors, so we just ignore them
 --  60   3C   xxx
 --  61   3D   xxx
 --  62   3E   xxx

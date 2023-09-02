@@ -36,7 +36,7 @@ function remote_init()
 end
 
 function remote_process_midi(event)
-    return processMidi.colourButtons(event)
+    return false
 end
 
 function remote_set_state()
@@ -46,16 +46,8 @@ function remote_deliver_midi(_, port)
     if (port == 2) then
         return debugUtils.dumpLog(events)
     end
-    
-    local events = {}
 
-    if stateUtils.hasChanged("buttonColour") then
-        local buttonColour = stateUtils.update("buttonColour")
-        for i = 0, 7 do
-            local controllerNumber = 41 + i
-            table.insert(events, midiUtils.makeControlChangeEvent(controllerNumber, buttonColour))
-        end
-    end
+    local events = {}
 
     return events
 end

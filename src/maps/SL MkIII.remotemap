@@ -28,6 +28,8 @@ Map	stopButton		Stop
 Map	playButton		Play
 Map	recordButton		Record
 Map	optionsButton		Click On/Off
+Map	overdubButton		New Overdub
+Map	altTakeButton		New Alternative Take
 
 Scope	Propellerheads	Combinator
 
