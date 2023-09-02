@@ -1,15 +1,16 @@
-version = { 3, 0, 0 }
+version={3,0,0}
 
 function remote_supported_control_surfaces()
-    local surfaces = {
-        { manufacturer = "Novation",
-          model = "SL MkIII",
-          source = "SL MkIII.lua",
-          picture = "SL MkIII.png",
-          in_ports = { { description = "SL MkIII InControl" }, { description = "SL MkIII MIDI" } },
-          out_ports = { { description = "SL MkIII InControl" }, { description = "Debug" } },
-          setup_info_text = "Custom codec by Zapperment (debug version)",
-          has_keyboard = true,
+    local surfaces =
+    {
+        { manufacturer=				"Novation",
+          model=						"SL MkIII",
+          source=						"SL MkIII.lua",
+          picture=					"SL MkIII.png",
+          in_ports=					{{description="SL MkIII InControl"}, {description="SL MkIII MIDI"}},
+          out_ports=					{{description="SL MkIII InControl"}, {description="Debug"}},
+          setup_info_text=			"Custom codec by Zapperment (debug version)",
+          has_keyboard=				true,
         }
     }
     return surfaces
