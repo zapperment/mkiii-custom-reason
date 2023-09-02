@@ -36,10 +36,11 @@ function remote_init()
 end
 
 function remote_process_midi(event)
-    return false
+    return processMidi.faders(event)
 end
 
-function remote_set_state()
+function remote_set_state(changedItems)
+    setState.faders(changedItems)
 end
 
 function remote_deliver_midi(_, port)
