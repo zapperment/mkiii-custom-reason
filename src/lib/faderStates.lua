@@ -1,42 +1,10 @@
-﻿return {
-    fader1 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader2 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader3 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader4 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader5 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader6 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader7 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    },
-    fader8 = {
-        state = nil,
-        sl = nil,
-        reason = nil
-    }
+return {
+    fader1 = {},
+    fader2 = {},
+    fader3 = {},
+    fader4 = {},
+    fader5 = {},
+    fader6 = {},
+    fader7 = {},
+    fader8 = {}
 }

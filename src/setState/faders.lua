@@ -1,4 +1,4 @@
-﻿local faderStates = require("lib.faderStates")
+local faderStates = require("lib.faderStates")
 local items = require("lib.mixerItems")
 local constants = require("lib.constants")
 local debugUtils = require("lib.debugUtils")
