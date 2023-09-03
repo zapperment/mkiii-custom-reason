@@ -29,67 +29,67 @@ return {{
     port = 2
 }, {
     name = "trackRightButton",
-    pattern = "bF 67 ?<???x>",
+    pattern = "BF 67 ?<???x>",
     port = 1
 }, {
     name = "trackLeftButton",
-    pattern = "bF 66 ?<???x>",
+    pattern = "BF 66 ?<???x>",
     port = 1
 }, {
     name = "loopButton",
-    pattern = "bF 74 ?<???x>",
+    pattern = "BF 74 ?<???x>",
     port = 1
 }, {
     name = "rewindButton",
-    pattern = "bF 70 ?<???x>",
+    pattern = "BF 70 ?<???x>",
     port = 1
 }, {
     name = "fastForwardButton",
-    pattern = "bF 71 ?<???x>",
+    pattern = "BF 71 ?<???x>",
     port = 1
 }, {
     name = "stopButton",
-    pattern = "bF 72 ?<???x>",
+    pattern = "BF 72 ?<???x>",
     port = 1
 }, {
     name = "playButton",
-    pattern = "bF 73 ?<???x>",
+    pattern = "BF 73 ?<???x>",
     port = 1
 }, {
     name = "recordButton",
-    pattern = "bF 75 ?<???x>",
+    pattern = "BF 75 ?<???x>",
     port = 1
 }, {
     name = "optionsButton",
-    pattern = "bF 5A ?<???x>",
+    pattern = "BF 5A ?<???x>",
     port = 1
 }, {
     name = "clipUpButton",
-    pattern = "bF 55 xx",
+    pattern = "BF 55 xx",
     port = 1
 }, {
     name = "clipDownButton",
-    pattern = "bF 56 xx",
+    pattern = "BF 56 xx",
     port = 1
 }, {
     name = "overdubButton",
-    pattern = "bF 53 xx",
+    pattern = "BF 53 xx",
     port = 1
 }, {
     name = "altTakeButton",
-    pattern = "bF 54 xx",
+    pattern = "BF 54 xx",
     port = 1
 }, {
     name = "gridButton",
-    pattern = "bF 59 xx",
+    pattern = "BF 59 xx",
     port = 1
 }, {
     name = "clearButton",
-    pattern = "bF 5D xx",
+    pattern = "BF 5D xx",
     port = 1
 }, {
     name = "duplicateButton",
-    pattern = "bF 5C xx",
+    pattern = "BF 5C xx",
     port = 1
 }, {
     name = "pad1",
