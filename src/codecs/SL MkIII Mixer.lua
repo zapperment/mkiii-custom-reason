@@ -52,19 +52,21 @@ function remote_deliver_midi(_, port)
     local events = {}
     for i = 1, 8 do
         local fader = "fader" .. i
-        local state = faderStates[fader].state
-        local controller = items[fader].controller
-        local colour
-        if state == faderStates.unknown then
-            colour = colours.black.dec
-        elseif state == faderStates.tooLow then
-            colour = colours.midRed.dec
-        elseif state == faderStates.tooHigh then
-            colour = colours.midYellow.dec
-        elseif state == faderStates.inSync then
-            colour = colours.green.dec
+        if stateUtils.hasChanged(fader) then
+            local state = stateUtils.update(fader)
+            local controller = items[fader].controller
+            local colour
+            if state == faderStates.unknown then
+                colour = colours.black.dec
+            elseif state == faderStates.tooLow then
+                colour = colours.midRed.dec
+            elseif state == faderStates.tooHigh then
+                colour = colours.midYellow.dec
+            elseif state == faderStates.inSync then
+                colour = colours.green.dec
+            end
+            table.insert(events, midiUtils.makeControlChangeEvent(controller, colour))
         end
-        table.insert(events, midiUtils.makeControlChangeEvent(controller, colour))
     end
 
     return events

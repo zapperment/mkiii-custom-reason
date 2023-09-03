@@ -2,6 +2,7 @@ local faderStates = require("lib.faderStates")
 local items = require("lib.mixerItems")
 local constants = require("lib.constants")
 local debugUtils = require("lib.debugUtils")
+local stateUtils = require("lib.stateUtils")
 
 return function(changedItems)
     for _, changedItemIndex in ipairs(changedItems) do
@@ -18,7 +19,7 @@ return function(changedItems)
                                        " on the SL, sync state 'unknown'")
                     state = faderStates.unknown
                 elseif value >= slValue - constants.pickupTolerance and value <= slValue + constants.pickupTolerance then
-                    if faderStates[fader].state ~= faderStates.inSync then
+                    if stateUtils.get(fader) ~= faderStates.inSync then
                         debugUtils.log(
                             "Reason fader now has the same value " .. tostring(value) .. " as SL " .. fader ..
                                 ", now in sync")
@@ -34,7 +35,7 @@ return function(changedItems)
                     state = faderStates.tooHigh
                 end
                 faderStates[fader].reason = value
-                faderStates[fader].state = state
+                stateUtils.set(fader, state)
             end
         end
     end
