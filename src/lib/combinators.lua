@@ -389,6 +389,116 @@ return {
         button3 = "Delay",
         button4 = "Reverb"
     },
+    ["Acid Dog Woof  -SC"] = {
+        knob1 = "LfoSpeed",
+        knob2 = "WvHarmonc",
+        knob3 = "ChrsSpeed",
+        knob4 = "WobVol",
+        button1 = "Richter",
+        button2 = "HarmLFO",
+        button3 = "Chorus",
+        button4 = "HighrSnap"
+    },
+    ["Comakid 808 Kick 1  -CMKD"] = {
+        knob1 = "Attack",
+        knob2 = "Release",
+        knob3 = "Decay",
+        knob4 = "Noise",
+        button1 = "AttckEmph",
+        button2 = "Dist",
+        button3 = "Compressr",
+        button4 = "Maximizer"
+    },
+    ["Comakid 808 Kick 2  -CMKD"] = {
+        knob1 = "Decay",
+        knob2 = "Release",
+        knob3 = "NoiseLvl",
+        knob4 = "Drive",
+        button1 = "Pulverisr",
+        button2 = "Osc2",
+        button3 = "Noise",
+        button4 = "Fuzz"
+    },
+    ["Kick 808  -KS"] = {
+        knob1 = "Room",
+        knob2 = "KickDecay",
+        knob3 = "Cutoff",
+        knob4 = "LowCut",
+        button1 = "Hardstyle",
+        button2 = "Soft",
+        button3 = "Harder",
+        button4 = "ShortDly"
+    },
+    ["Trance Kick  -KS"] = {
+        knob1 = "Tune",
+        knob2 = "Room",
+        knob3 = "Delay",
+        knob4 = "Decay",
+        button1 = "LowCut",
+        button2 = "SoftAttck",
+        button3 = "LongHall",
+        button4 = "Punch"
+    },
+    ["The Clap  -FP"] = {
+        knob1 = "NoiseTone",
+        knob2 = "NoiseLevl",
+        knob3 = "ClapRate",
+        knob4 = "Dec/Rel",
+        button1 = "Drive",
+        button2 = "Limiter",
+        button3 = "MultiClap",
+        button4 = "Reverb"
+    },
+    ["Closed Hihat  -KS"] = {
+        knob1 = "Room",
+        knob2 = "DelayMix",
+        knob3 = "Pan",
+        knob4 = "Decay",
+        button1 = "SoftAttck",
+        button2 = "Character",
+        button3 = "Space",
+        button4 = "Noise"
+    },
+    ["Cinematic Toms  -KS"] = {
+        knob1 = "Brightnss",
+        knob2 = "Resonance",
+        knob3 = "Swooshes",
+        knob4 = "Flutter",
+        button1 = "BassSolo",
+        button2 = "StereoWdt",
+        button3 = "DelayMute",
+        button4 = "LongDecay"
+    },
+    ["Hot Toms  -KS"] = {
+        knob1 = "Brightnss",
+        knob2 = "Room",
+        knob3 = "Decay",
+        knob4 = "Release",
+        button1 = "ShaperDrv",
+        button2 = "Muffled",
+        button3 = "Delay",
+        button4 = "ShortRoll"
+    },
+    ["Simmons Toms  -FP"] = {
+        knob1 = "Tne<>Nois",
+        knob2 = "PitchMod",
+        knob3 = "Decay",
+        knob4 = "Cutoff",
+        button1 = "ToneWavf",
+        button2 = "Click",
+        button3 = "Overdrive",
+        button4 = "Reverb"
+    },
+    ["Tommy  -FP"] = {
+        knob1 = "ToneVolme",
+        knob2 = "TomVolume",
+        knob3 = "Dec/Rel",
+        knob4 = "Cutoff",
+        button1 = "Drive",
+        button2 = "GhostTone",
+        button3 = "Delay",
+        button4 = "Chorus"
+    },
     ["xxxTEMPLATExxx"] = {
         --       123456789
         knob1 = "xxx",
