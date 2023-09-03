@@ -12,17 +12,26 @@ return function(changedItems)
                 local value = changedItem.value
                 local slValue = faderStates[fader].sl
                 local state
-                if value == slValue then
-                    debugUtils.log("Reason fader now has the same value as SL, now in sync")
-                    state = constants.inSync
-                end
-                if value > slValue then
-                    debugUtils.log("Reason fader is higher than SL, setting state 'too low'")
-                    state = constants.tooLow
-                end
-                if value < slValue then
-                    debugUtils.log("Reason fader is lower than SL, setting state 'too high'")
-                    state = constants.tooHigh
+                if slValue == nil then
+                    debugUtils.log("Value " .. tostring(value) ..
+                                       " received from Reason - we don't know the position of " .. fader ..
+                                       " on the SL, sync state 'unknown'")
+                    state = faderStates.unknown
+                elseif value >= slValue - constants.pickupTolerance and value <= slValue + constants.pickupTolerance then
+                    if faderStates[fader].state ~= faderStates.inSync then
+                        debugUtils.log(
+                            "Reason fader now has the same value " .. tostring(value) .. " as SL " .. fader ..
+                                ", now in sync")
+                    end
+                    state = faderStates.inSync
+                elseif value > slValue then
+                    debugUtils.log("Reason fader " .. tostring(value) .. " is higher than SL " .. fader .. " " ..
+                                       tostring(slValue) .. ", setting state 'too low'")
+                    state = faderStates.tooLow
+                elseif value < slValue then
+                    debugUtils.log("Reason fader " .. tostring(value) .. " is lower than SL " .. fader .. " " ..
+                                       tostring(slValue) .. ", setting state 'too high'")
+                    state = faderStates.tooHigh
                 end
                 faderStates[fader].reason = value
                 faderStates[fader].state = state

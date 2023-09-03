@@ -1,29 +1,5 @@
+-- buttons 1-8 are controlled by the other codec (not mixer)
 return {{
-    name = "fader1",
-    pattern = "BF 29 xx"
-}, {
-    name = "fader2",
-    pattern = "BF 2A xx"
-}, {
-    name = "fader3",
-    pattern = "BF 2B xx"
-}, {
-    name = "fader4",
-    pattern = "BF 2C xx"
-}, {
-    name = "fader5",
-    pattern = "BF 2D xx"
-}, {
-    name = "fader6",
-    pattern = "BF 2E xx"
-}, {
-    name = "fader7",
-    pattern = "BF 2F xx"
-}, {
-    name = "fader8",
-    pattern = "BF 30 xx"
-}, -- buttons 1-8 are controlled by the other codec (not mixer)
-{
     name = "button9",
     pattern = "BF 3B ?<???x>"
 }, {

@@ -10,6 +10,7 @@ local hexUtils = require("lib.hexUtils")
 local items = require("lib.mixerItems")
 local midiUtils = require("lib.midiUtils")
 local stateUtils = require("lib.stateUtils")
+local faderStates = require("lib.faderStates")
 
 -- this needs to be global, it's used by auto outputs
 buttonColourMute = colours.red.dec
@@ -49,6 +50,22 @@ function remote_deliver_midi(_, port)
     end
 
     local events = {}
+    for i = 1, 8 do
+        local fader = "fader" .. i
+        local state = faderStates[fader].state
+        local controller = items[fader].controller
+        local colour
+        if state == faderStates.unknown then
+            colour = colours.black.dec
+        elseif state == faderStates.tooLow then
+            colour = colours.midRed.dec
+        elseif state == faderStates.tooHigh then
+            colour = colours.midYellow.dec
+        elseif state == faderStates.inSync then
+            colour = colours.green.dec
+        end
+        table.insert(events, midiUtils.makeControlChangeEvent(controller, colour))
+    end
 
     return events
 end

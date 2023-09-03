@@ -10,9 +10,7 @@ local sysexKnobLayout = sysexHeader .. "01 01 F7"
 local mainColour = colours.orange.dec
 local layerA = "layerA"
 local layerB = "layerB"
-local tooLow = -1
-local inSync = 0
-local tooHigh = 0
+local pickupTolerance = 10
 
 return {
     sysexHeader = sysexHeader,
@@ -21,7 +19,5 @@ return {
     mainColour = mainColour,
     layerA = layerA,
     layerB = layerB,
-    tooLow = tooLow,
-    inSync = inSync,
-    tooHigh = tooHigh
+    pickupTolerance = pickupTolerance
 }

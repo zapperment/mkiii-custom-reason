@@ -13,30 +13,41 @@ return function(event)
             local value = ret.x
             local reasonValue = faderStates[fader].reason
             local state = faderStates[fader].state
-            local inSync = state == constants.inSync
-            if inSync == false then
-                debugUtils.log("Fader is out of sync")
-                if value == reasonValue then
-                    debugUtils.log("SL fader now has same value as Reason, now in sync")
-                    inSync = true
+            if state == faderStates.unknown then
+                if value >= reasonValue - constants.pickupTolerance and value <= reasonValue + constants.pickupTolerance then
+                    debugUtils.log("Inital " .. fader .. " value " .. tostring(value) .. " received, state is 'in sync'")
+                    faderStates[fader].state = faderStates.inSync
+                elseif value < reasonValue then
+                    debugUtils.log("Initial " .. fader .. " value " .. tostring(value) ..
+                                       " received, state is 'too low'")
+                    faderStates[fader].state = faderStates.tooLow
+                elseif value > reasonValue then
+                    debugUtils.log("Initial " .. fader .. " value " .. tostring(value) ..
+                                       " received, state is 'too high'")
+                    faderStates[fader].state = faderStates.tooHigh
                 end
-                if value > reasonValue and state == constants.tooLow then
-                    debugUtils.log("SL fader was too low, now has value higher than Reason, now in sync")
-                    inSync = true
+            elseif state == faderStates.tooLow then
+                if value >= reasonValue then
+                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader .. " received, state is now 'in sync'")
+                    faderStates[fader].state = faderStates.inSync
+                else
+                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader ..
+                                       " received, state is still 'too low'")
                 end
-                if value < reasonValue and state == constants.tooHigh then
-                    debugUtils.log("SL fader was too high, now has value lower than Reason, now in sync")
-                    inSync = true
+            elseif state == faderStates.tooHigh then
+                if value <= reasonValue then
+                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader .. " received, state is now 'in sync'")
+                    faderStates[fader].state = faderStates.inSync
+                else
+                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader ..
+                                       " received, state is still 'too high'")
                 end
-            else
-                debugUtils.log("SL fader already in sync with Reason")
             end
+            faderStates[fader].sl = value
 
-            if inSync then
-                faderStates[fader].state = constants.inSync
-                faderStates[fader].sl = value
+            if faderStates[fader].state == faderStates.inSync then
                 faderStates[fader].reason = value
-                debugUtils.log("Sending fader value " .. tostring(value) .. " to Reason")
+                debugUtils.log("Sending " .. fader .. " value " .. tostring(value) .. " to Reason")
 
                 -- CODEC => REASON
                 remote.handle_input({
