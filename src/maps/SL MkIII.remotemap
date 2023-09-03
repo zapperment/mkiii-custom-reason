@@ -583,6 +583,112 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Umpf
+Define Group	layer	layerA	layerB
+Define Group	targetDrum	drum1	drum2	drum3	drum4	drum5	drum6	drum7	drum8
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	pad1		targetDrum=drum1
+Map	pad2		targetDrum=drum2
+Map	pad3		targetDrum=drum3
+Map	pad4		targetDrum=drum4
+Map	pad5		targetDrum=drum5
+Map	pad6		targetDrum=drum6
+Map	pad7		targetDrum=drum7
+Map	pad8		targetDrum=drum8
+Map	knob1		Chop_Output_Level				layerA
+Map	knob2		Delay_Output_Level				layerA
+Map	knob3		Reverb_Output_Level				layerA
+Map	knob4		Compressor_Output_Level				layerA
+Map	knob5		Clean_Output_Level				layerA
+Map	button3		Reverb_To_Compressor				layerA
+Map	knob1		Drum_1_Volume			drum1	layerB
+Map	knob1		Drum_2_Volume			drum2	layerB
+Map	knob1		Drum_3_Volume			drum3	layerB
+Map	knob1		Drum_4_Volume			drum4	layerB
+Map	knob1		Drum_5_Volume			drum5	layerB
+Map	knob1		Drum_6_Volume			drum6	layerB
+Map	knob1		Drum_7_Volume			drum7	layerB
+Map	knob1		Drum_8_Volume			drum8	layerB
+Map	knob2		Drum_1_Pan			drum1	layerB
+Map	knob2		Drum_2_Pan			drum2	layerB
+Map	knob2		Drum_3_Pan			drum3	layerB
+Map	knob2		Drum_4_Pan			drum4	layerB
+Map	knob2		Drum_5_Pan			drum5	layerB
+Map	knob2		Drum_6_Pan			drum6	layerB
+Map	knob2		Drum_7_Pan			drum7	layerB
+Map	knob2		Drum_8_Pan			drum8	layerB
+Map	knob3		Drum_1_Chop_Amount			drum1	layerB
+Map	knob3		Drum_2_Chop_Amount			drum2	layerB
+Map	knob3		Drum_3_Chop_Amount			drum3	layerB
+Map	knob3		Drum_4_Chop_Amount			drum4	layerB
+Map	knob3		Drum_5_Chop_Amount			drum5	layerB
+Map	knob3		Drum_6_Chop_Amount			drum6	layerB
+Map	knob3		Drum_7_Chop_Amount			drum7	layerB
+Map	knob3		Drum_8_Chop_Amount			drum8	layerB
+Map	knob4		Drum_1_Delay_Amount			drum1	layerB
+Map	knob4		Drum_2_Delay_Amount			drum2	layerB
+Map	knob4		Drum_3_Delay_Amount			drum3	layerB
+Map	knob4		Drum_4_Delay_Amount			drum4	layerB
+Map	knob4		Drum_5_Delay_Amount			drum5	layerB
+Map	knob4		Drum_6_Delay_Amount			drum6	layerB
+Map	knob4		Drum_7_Delay_Amount			drum7	layerB
+Map	knob4		Drum_8_Delay_Amount			drum8	layerB
+Map	knob5		Drum_1_Reverb_Amount			drum1	layerB
+Map	knob5		Drum_2_Reverb_Amount			drum2	layerB
+Map	knob5		Drum_3_Reverb_Amount			drum3	layerB
+Map	knob5		Drum_4_Reverb_Amount			drum4	layerB
+Map	knob5		Drum_5_Reverb_Amount			drum5	layerB
+Map	knob5		Drum_6_Reverb_Amount			drum6	layerB
+Map	knob5		Drum_7_Reverb_Amount			drum7	layerB
+Map	knob5		Drum_8_Reverb_Amount			drum8	layerB
+Map	knob6		Drum_1_Hi_Cut_Freq			drum1	layerB
+Map	knob6		Drum_2_Hi_Cut_Freq			drum2	layerB
+Map	knob6		Drum_3_Hi_Cut_Freq			drum3	layerB
+Map	knob6		Drum_4_Hi_Cut_Freq			drum4	layerB
+Map	knob6		Drum_5_Hi_Cut_Freq			drum5	layerB
+Map	knob6		Drum_6_Hi_Cut_Freq			drum6	layerB
+Map	knob6		Drum_7_Hi_Cut_Freq			drum7	layerB
+Map	knob6		Drum_8_Hi_Cut_Freq			drum8	layerB
+Map	knob7		Drum_1_Lo_Cut_Freq			drum1	layerB
+Map	knob7		Drum_2_Lo_Cut_Freq			drum2	layerB
+Map	knob7		Drum_3_Lo_Cut_Freq			drum3	layerB
+Map	knob7		Drum_4_Lo_Cut_Freq			drum4	layerB
+Map	knob7		Drum_5_Lo_Cut_Freq			drum5	layerB
+Map	knob7		Drum_6_Lo_Cut_Freq			drum6	layerB
+Map	knob7		Drum_7_Lo_Cut_Freq			drum7	layerB
+Map	knob7		Drum_8_Lo_Cut_Freq			drum8	layerB
+Map	button1		Drum_1_Mute			drum1	layerB
+Map	button1		Drum_2_Mute			drum2	layerB
+Map	button1		Drum_3_Mute			drum3	layerB
+Map	button1		Drum_4_Mute			drum4	layerB
+Map	button1		Drum_5_Mute			drum5	layerB
+Map	button1		Drum_6_Mute			drum6	layerB
+Map	button1		Drum_7_Mute			drum7	layerB
+Map	button1		Drum_8_Mute			drum8	layerB
+Map	button2		Drum_1_Solo			drum1	layerB
+Map	button2		Drum_2_Solo			drum2	layerB
+Map	button2		Drum_3_Solo			drum3	layerB
+Map	button2		Drum_4_Solo			drum4	layerB
+Map	button2		Drum_5_Solo			drum5	layerB
+Map	button2		Drum_6_Solo			drum6	layerB
+Map	button2		Drum_7_Solo			drum7	layerB
+Map	button2		Drum_8_Solo			drum8	layerB
+Map	button3		Drum_1_To_Comp			drum1	layerB
+Map	button3		Drum_2_To_Comp			drum2	layerB
+Map	button3		Drum_3_To_Comp			drum3	layerB
+Map	button3		Drum_4_To_Comp			drum4	layerB
+Map	button3		Drum_5_To_Comp			drum5	layerB
+Map	button3		Drum_6_To_Comp			drum6	layerB
+Map	button3		Drum_7_To_Comp			drum7	layerB
+Map	button3		Drum_8_To_Comp			drum8	layerB
+Map	button4		Drum_1_To_Clean			drum1	layerB
+Map	button4		Drum_2_To_Clean			drum2	layerB
+Map	button4		Drum_3_To_Clean			drum3	layerB
+Map	button4		Drum_4_To_Clean			drum4	layerB
+Map	button4		Drum_5_To_Clean			drum5	layerB
+Map	button4		Drum_6_To_Clean			drum6	layerB
+Map	button4		Drum_7_To_Clean			drum7	layerB
+Map	button4		Drum_8_To_Clean			drum8	layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
