@@ -80,6 +80,18 @@ return {{
     pattern = "bF 54 xx",
     port = 1
 }, {
+    name = "gridButton",
+    pattern = "bF 59 xx",
+    port = 1
+}, {
+    name = "clearButton",
+    pattern = "bF 5D xx",
+    port = 1
+}, {
+    name = "duplicateButton",
+    pattern = "bF 5C xx",
+    port = 1
+}, {
     name = "pad1",
     pattern = "9F 70 xx",
     value = "greaterThanZero(x)",

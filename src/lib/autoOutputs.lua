@@ -43,4 +43,19 @@ return {{
     pattern = "BF 54 xx",
     x = "(value*(transportButtonColour-transportButtonColourDim))+transportButtonColourDim",
     port = 1
+}, {
+    name = "gridButton",
+    pattern = "BF 54 xx",
+    x = "(value*(transportButtonColour-transportButtonColourDim))+transportButtonColourDim",
+    port = 1
+}, {
+    name = "clearButton",
+    pattern = "BF 54 xx",
+    x = "(value*(transportButtonColour-transportButtonColourDim))+transportButtonColourDim",
+    port = 1
+}, {
+    name = "duplicateButton",
+    pattern = "BF 54 xx",
+    x = "(value*(transportButtonColour-transportButtonColourDim))+transportButtonColourDim",
+    port = 1
 }}
