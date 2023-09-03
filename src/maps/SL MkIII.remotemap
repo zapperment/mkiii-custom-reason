@@ -31,8 +31,6 @@ Map	optionsButton		Click On/Off
 Map	overdubButton		New Overdub
 Map	altTakeButton		New Alternative Take
 Map	gridButton		Undo
-Map	clearButton		Tempo BPM Down
-Map	duplicateButton		Tempo BPM Up
 
 Scope	Propellerheads	Combinator
 

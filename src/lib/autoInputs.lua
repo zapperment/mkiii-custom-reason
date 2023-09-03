@@ -84,14 +84,6 @@ return {{
     pattern = "BF 59 xx",
     port = 1
 }, {
-    name = "clearButton",
-    pattern = "BF 5D xx",
-    port = 1
-}, {
-    name = "duplicateButton",
-    pattern = "BF 5C xx",
-    port = 1
-}, {
     name = "pad1",
     pattern = "9F 70 xx",
     value = "greaterThanZero(x)",

@@ -118,18 +118,6 @@ return {
         min = 0,
         max = 127
     },
-    clearButton = {
-        input = "button",
-        output = "value",
-        min = 0,
-        max = 127
-    },
-    duplicateButton = {
-        input = "button",
-        output = "value",
-        min = 0,
-        max = 127
-    },
     knob1 = {
         input = "delta",
         output = "value",
