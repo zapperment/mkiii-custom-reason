@@ -425,6 +425,115 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Redrum Drum Computer
+Define Group	targetDrum	drum1	drum2	drum3	drum4	drum5	drum6	drum7	drum8	drum9	drum10	drum11	drum12	drum13	drum14	drum15	drum16
+Map	pad1		targetDrum=drum1
+Map	pad2		targetDrum=drum2
+Map	pad3		targetDrum=drum3
+Map	pad4		targetDrum=drum4
+Map	pad5		targetDrum=drum5
+Map	pad6		targetDrum=drum6
+Map	pad7		targetDrum=drum7
+Map	pad8		targetDrum=drum8
+Map	pad9		targetDrum=drum9
+Map	pad10		targetDrum=drum10
+Map	button1		Drum 1 Mute			drum1
+Map	button1		Drum 2 Mute			drum2
+Map	button1		Drum 3 Mute			drum3
+Map	button1		Drum 4 Mute			drum4
+Map	button1		Drum 5 Mute			drum5
+Map	button1		Drum 6 Mute			drum6
+Map	button1		Drum 7 Mute			drum7
+Map	button1		Drum 8 Mute			drum8
+Map	button1		Drum 9 Mute			drum9
+Map	button1		Drum 10 Mute			drum10
+Map	button2		Drum 1 Solo			drum1
+Map	button2		Drum 2 Solo			drum2
+Map	button2		Drum 3 Solo			drum3
+Map	button2		Drum 4 Solo			drum4
+Map	button2		Drum 5 Solo			drum5
+Map	button2		Drum 6 Solo			drum6
+Map	button2		Drum 7 Solo			drum7
+Map	button2		Drum 8 Solo			drum8
+Map	button2		Drum 9 Solo			drum9
+Map	button2		Drum 10 Solo			drum10
+Map	button5		Drum 1 Decay/Gate Mode			drum1
+Map	button5		Drum 2 Decay/Gate Mode			drum2
+Map	button5		Drum 3 Decay/Gate Mode			drum3
+Map	button5		Drum 4 Decay/Gate Mode			drum4
+Map	button5		Drum 5 Decay/Gate Mode			drum5
+Map	button5		Drum 6 Decay/Gate Mode			drum6
+Map	button5		Drum 7 Decay/Gate Mode			drum7
+Map	button5		Drum 8 Decay/Gate Mode			drum8
+Map	button5		Drum 9 Decay/Gate Mode			drum9
+Map	button5		Drum 10 Decay/Gate Mode			drum10
+Map	knob1		Drum 1 Level			drum1
+Map	knob1		Drum 2 Level			drum2
+Map	knob1		Drum 3 Level			drum3
+Map	knob1		Drum 4 Level			drum4
+Map	knob1		Drum 5 Level			drum5
+Map	knob1		Drum 6 Level			drum6
+Map	knob1		Drum 7 Level			drum7
+Map	knob1		Drum 8 Level			drum8
+Map	knob1		Drum 9 Level			drum9
+Map	knob1		Drum 10 Level			drum10
+Map	knob2		Drum 1 Pan			drum1
+Map	knob2		Drum 2 Pan			drum2
+Map	knob2		Drum 3 Pan			drum3
+Map	knob2		Drum 4 Pan			drum4
+Map	knob2		Drum 5 Pan			drum5
+Map	knob2		Drum 6 Pan			drum6
+Map	knob2		Drum 7 Pan			drum7
+Map	knob2		Drum 8 Pan			drum8
+Map	knob2		Drum 9 Pan			drum9
+Map	knob2		Drum 10 Pan			drum10
+Map	knob3		Drum 1 Send 1 Amount			drum1
+Map	knob3		Drum 2 Send 1 Amount			drum2
+Map	knob3		Drum 3 Send 1 Amount			drum3
+Map	knob3		Drum 4 Send 1 Amount			drum4
+Map	knob3		Drum 5 Send 1 Amount			drum5
+Map	knob3		Drum 6 Send 1 Amount			drum6
+Map	knob3		Drum 7 Send 1 Amount			drum7
+Map	knob3		Drum 8 Send 1 Amount			drum8
+Map	knob3		Drum 9 Send 1 Amount			drum9
+Map	knob3		Drum 10 Send 1 Amount			drum10
+Map	knob4		Drum 1 Send 2 Amount			drum1
+Map	knob4		Drum 2 Send 2 Amount			drum2
+Map	knob4		Drum 3 Send 2 Amount			drum3
+Map	knob4		Drum 4 Send 2 Amount			drum4
+Map	knob4		Drum 5 Send 2 Amount			drum5
+Map	knob4		Drum 6 Send 2 Amount			drum6
+Map	knob4		Drum 7 Send 2 Amount			drum7
+Map	knob4		Drum 8 Send 2 Amount			drum8
+Map	knob4		Drum 9 Send 2 Amount			drum9
+Map	knob4		Drum 10 Send 2 Amount			drum10
+Map	knob5		Drum 1 Length			drum1
+Map	knob5		Drum 2 Length			drum2
+Map	knob5		Drum 3 Length			drum3
+Map	knob5		Drum 4 Length			drum4
+Map	knob5		Drum 5 Length			drum5
+Map	knob5		Drum 6 Length			drum6
+Map	knob5		Drum 7 Length			drum7
+Map	knob5		Drum 8 Length			drum8
+Map	knob5		Drum 9 Length			drum9
+Map	knob5		Drum 10 Length			drum10
+Map	knob6		Drum 1 Pitch			drum1
+Map	knob6		Drum 2 Pitch			drum2
+Map	knob6		Drum 3 Pitch			drum3
+Map	knob6		Drum 4 Pitch			drum4
+Map	knob6		Drum 5 Pitch			drum5
+Map	knob6		Drum 6 Pitch			drum6
+Map	knob6		Drum 7 Pitch			drum7
+Map	knob6		Drum 8 Pitch			drum8
+Map	knob6		Drum 9 Pitch			drum9
+Map	knob6		Drum 10 Pitch			drum10
+Map	knob7		Drum 1 Tone			drum1
+Map	knob7		Drum 2 Tone			drum2
+Map	knob7		Drum 3 Sample Start			drum3
+Map	knob7		Drum 4 Sample Start			drum4
+Map	knob7		Drum 5 Sample Start			drum5
+Map	knob7		Drum 8 Sample Start			drum8
+Map	knob7		Drum 9 Sample Start			drum9
+Map	knob7		Drum 10 Tone			drum10
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
