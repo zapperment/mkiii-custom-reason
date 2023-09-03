@@ -10,10 +10,11 @@ local hexUtils = require("lib.hexUtils")
 local items = require("lib.mixerItems")
 local midiUtils = require("lib.midiUtils")
 local stateUtils = require("lib.stateUtils")
+local faderStates = require("lib.faderStates")
 
 -- this needs to be global, it's used by auto outputs
-buttonColourMute = 120 -- red
-buttonColourSolo = 17 -- green
+buttonColourMute = colours.red.dec
+buttonColourSolo = colours.green.dec
 
 function remote_init()
     local itemsToDefine = {}
@@ -35,11 +36,12 @@ function remote_init()
     debugUtils.log("Novation SL MkIII Mixer remote control surface initialised successfully")
 end
 
-function remote_process_midi()
-    return false
+function remote_process_midi(event)
+    return processMidi.faders(event)
 end
 
-function remote_set_state()
+function remote_set_state(changedItems)
+    setState.faders(changedItems)
 end
 
 function remote_deliver_midi(_, port)
@@ -47,5 +49,26 @@ function remote_deliver_midi(_, port)
         return debugUtils.dumpLog(events)
     end
 
-    return {}
+    local events = {}
+    for i = 1, 8 do
+        local fader = "fader" .. i
+        if stateUtils.hasChanged(fader) then
+            local state = stateUtils.update(fader)
+            local controller = items[fader].controller
+            local colour
+            if state == faderStates.tooLow then
+                colour = colours.midRed.dec
+            elseif state == faderStates.tooHigh then
+                colour = colours.midYellow.dec
+            elseif state == faderStates.inSync then
+                colour = colours.green.dec
+            else
+                -- state is unknown or unassigned
+                colour = colours.black.dec
+            end
+            table.insert(events, midiUtils.makeControlChangeEvent(controller, colour))
+        end
+    end
+
+    return events
 end

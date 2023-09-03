@@ -25,6 +25,24 @@ local function set(path, next)
     item.next = next
 end
 
+local function inc(path)
+    local item = tableUtils.getValueFromPath(states, path)
+    local next = item.current + 1
+    if next > 127 then
+        next = 127
+    end
+    item.next = next
+end
+
+local function dec(path)
+    local item = tableUtils.getValueFromPath(states, path)
+    local next = item.current - 1
+    if next < 0 then
+        next = 0
+    end
+    item.next = next
+end
+
 local function add(path, delta, min, max)
     local item = tableUtils.getValueFromPath(states, path)
     local next = item.current + delta
@@ -54,5 +72,7 @@ return {
     getNext = getNext,
     set = set,
     add = add,
-    flip = flip
+    flip = flip,
+    inc = inc,
+    dec = dec
 }

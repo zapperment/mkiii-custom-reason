@@ -72,6 +72,14 @@ return {{
     pattern = "bF 56 xx",
     port = 1
 }, {
+    name = "overdubButton",
+    pattern = "bF 53 xx",
+    port = 1
+}, {
+    name = "altTakeButton",
+    pattern = "bF 54 xx",
+    port = 1
+}, {
     name = "pad1",
     pattern = "9F 70 xx",
     value = "greaterThanZero(x)",
