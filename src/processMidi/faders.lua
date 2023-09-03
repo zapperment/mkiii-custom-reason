@@ -13,49 +13,28 @@ return function(event)
         if ret then
             local value = ret.x
             local reasonValue = faderStates[fader].reason
-            -- local state = faderStates[fader].state
             local state = stateUtils.get(fader)
             if state == faderStates.unknown then
                 if value >= reasonValue - constants.pickupTolerance and value <= reasonValue + constants.pickupTolerance then
-                    debugUtils.log("Inital " .. fader .. " value " .. tostring(value) .. " received, state is 'in sync'")
-                    -- faderStates[fader].state = faderStates.inSync
                     stateUtils.set(fader, faderStates.inSync)
                 elseif value < reasonValue then
-                    debugUtils.log("Initial " .. fader .. " value " .. tostring(value) ..
-                                       " received, state is 'too low'")
-                    -- faderStates[fader].state = faderStates.tooLow
                     stateUtils.set(fader, faderStates.tooLow)
                 elseif value > reasonValue then
-                    debugUtils.log("Initial " .. fader .. " value " .. tostring(value) ..
-                                       " received, state is 'too high'")
-                    -- faderStates[fader].state = faderStates.tooHigh
                     stateUtils.set(fader, faderStates.tooHigh)
                 end
             elseif state == faderStates.tooLow then
                 if value >= reasonValue then
-                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader .. " received, state is now 'in sync'")
-                    -- faderStates[fader].state = faderStates.inSync
                     stateUtils.set(fader, faderStates.inSync)
-                else
-                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader ..
-                                       " received, state is still 'too low'")
                 end
             elseif state == faderStates.tooHigh then
                 if value <= reasonValue then
-                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader .. " received, state is now 'in sync'")
-                    -- faderStates[fader].state = faderStates.inSync
                     stateUtils.set(fader, faderStates.inSync)
-                else
-                    debugUtils.log("Value " .. tostring(value) .. " of " .. fader ..
-                                       " received, state is still 'too high'")
                 end
             end
             faderStates[fader].sl = value
 
-            -- if faderStates[fader].state == faderStates.inSync then
             if stateUtils.getNext(fader) == faderStates.inSync then
                 faderStates[fader].reason = value
-                debugUtils.log("Sending " .. fader .. " value " .. tostring(value) .. " to Reason")
 
                 -- CODEC => REASON
                 remote.handle_input({
