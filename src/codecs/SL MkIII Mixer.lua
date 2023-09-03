@@ -56,14 +56,15 @@ function remote_deliver_midi(_, port)
             local state = stateUtils.update(fader)
             local controller = items[fader].controller
             local colour
-            if state == faderStates.unknown then
-                colour = colours.black.dec
-            elseif state == faderStates.tooLow then
+            if state == faderStates.tooLow then
                 colour = colours.midRed.dec
             elseif state == faderStates.tooHigh then
                 colour = colours.midYellow.dec
             elseif state == faderStates.inSync then
                 colour = colours.green.dec
+            else
+                -- state is unknown or unassigned
+                colour = colours.black.dec
             end
             table.insert(events, midiUtils.makeControlChangeEvent(controller, colour))
         end
