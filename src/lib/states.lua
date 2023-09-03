@@ -243,35 +243,35 @@ return {
         next = constants.layerA
     },
     fader1 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader2 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader3 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader4 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader5 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader6 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader7 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
     fader8 = {
-        current = faderStates.unknown,
-        next = faderStates.unknown,
+        current = nil,
+        next = nil,
     },
 }
