@@ -139,6 +139,37 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Europa
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Osc1 Shape			layerA
+Map	knob2		Osc1 Level			layerA
+Map	knob3		Osc2 Shape			layerA
+Map	knob4		Osc2 Level			layerA
+Map	knob5		Osc3 Shape			layerA
+Map	knob6		Osc3 Level			layerA
+Map	knob7		Filter Freq			layerA
+Map	knob8		Filter Reso			layerA
+Map	button1		Osc1 On			layerA
+Map	button2		Osc1 To Filter			layerA
+Map	button3		Osc2 On			layerA
+Map	button4		Osc2 To Filter			layerA
+Map	button5		Osc3 On			layerA
+Map	button6		Osc3 To Filter			layerA
+Map	knob1		Mod Effect Amount			layerB
+Map	knob2		Dist Amount			layerB
+Map	knob3		EQ Freq			layerB
+Map	knob4		EQ Gain			layerB
+Map	knob5		Delay Amount			layerB
+Map	knob6		Reverb Decay			layerB
+Map	knob7		Reverb Amount			layerB
+Map	knob8		Comp Ratio			layerB
+Map	button1		Phaser On			layerB
+Map	button2		Dist On			layerB
+Map	button3		Eq On			layerB
+Map	button5		Delay On			layerB
+Map	button6		Reverb On			layerB
+Map	button8		Comp On			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
