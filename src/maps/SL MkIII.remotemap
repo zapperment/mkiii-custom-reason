@@ -408,6 +408,29 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Objekt
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Exciter Mix Level			layerA
+Map	knob2		Modal Mix Level			layerA
+Map	knob3		Obj 1 Mix Level			layerA
+Map	knob4		Obj 2 Mix Level			layerA
+Map	knob5		Modal Pan			layerA
+Map	knob6		Obj 1 Pan			layerA
+Map	knob7		Obj 2 Pan			layerA
+Map	knob1		Exciter Eq Freq			layerB
+Map	knob2		Exciter Eq Reso			layerB
+Map	knob3		Exciter Eq Gain			layerB
+Map	knob4		Obj 1 Width			layerB
+Map	knob5		Obj 2 Width			layerB
+Map	button1		Modal On			layerA
+Map	button2		Obj 1 On			layerA
+Map	button3		Obj 2 On			layerA
+Map	button1		Eq On			layerB
+Map	button2		Dist On			layerB
+Map	button3		Comp On			layerB
+Map	button4		Delay On			layerB
+Map	button5		Reverb On			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -571,7 +594,7 @@ Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
--- Rytmik
+// Rytmik
 Scope	Propellerhead Software	se.propellerheads.DMFC
 Map	deviceName		Device Name
 Map	patchName		Patch Name
