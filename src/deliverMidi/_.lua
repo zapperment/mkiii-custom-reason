@@ -1,3 +1,4 @@
 return {
-    friktion = require("deliverMidi.friktion")
+    friktion = require("deliverMidi.friktion"),
+    updateCountDowns = require("deliverMidi.updateCountDowns")
 }

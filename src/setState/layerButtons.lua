@@ -1,7 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 local constants = require("lib.constants")
-local debugUtils = require("lib.debugUtils")
+--local debugUtils = require("lib.debugUtils")
 
 return function(changedItems)
     for _, changedItemIndex in ipairs(changedItems) do
@@ -9,7 +9,6 @@ return function(changedItems)
         for _, button in ipairs({ "buttonLayerA", "buttonLayerB" }) do
             if changedItemIndex == items[button].index and changedItem.value > 0 then
                 local layer = button == "buttonLayerA" and constants.layerA or constants.layerB
-                debugUtils.log("Handling incoming layer change from Reason to " .. layer .. " (" .. tostring(changedItem.value) .. ")")
                 stateUtils.set("layer", layer)
             end
         end

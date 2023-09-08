@@ -1,6 +1,5 @@
 local stateUtils = require("lib.stateUtils")
-local debugUtils = require("lib.debugUtils")
-local hexUtils = require("lib.hexUtils")
+--local debugUtils = require("lib.debugUtils")
 
 return function(event)
     local up = remote.match_midi("BF 53 7F", event)
@@ -13,10 +12,6 @@ return function(event)
     end
     if down then
         stateUtils.dec("buttonColour")
-    end
-    if stateUtils.hasChanged("buttonColour") then
-        local colour = stateUtils.getNext("buttonColour")
-        debugUtils.log("button colour changed: " .. colour .. " 0x" .. hexUtils.decToHex(colour))
     end
     return true
 end

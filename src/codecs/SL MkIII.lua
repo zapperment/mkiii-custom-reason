@@ -229,7 +229,6 @@ function remote_deliver_midi(_, port)
 
     if stateUtils.hasChanged("layer") then
         layer = stateUtils.getNext("layer")
-        debugUtils.log("Layer has changed to " .. layer)
         layerChanged = true
     else
         layer = stateUtils.get("layer")
@@ -290,10 +289,11 @@ function remote_deliver_midi(_, port)
             activeButtonController = items["buttonLayerB"].controller
             inactiveButtonController = items["buttonLayerA"].controller
         end
-        debugUtils.log("Sending CC messages for layer change")
         table.insert(events, midiUtils.makeControlChangeEvent(activeButtonController, buttonColour))
         table.insert(events, midiUtils.makeControlChangeEvent(inactiveButtonController, 0))
     end
+
+    deliverMidi.updateCountDowns()
 
     deliverMidi.friktion()
 
