@@ -1,6 +1,7 @@
 local stateUtils = require("lib.stateUtils")
 local items = require("lib.items")
 local constants = require("lib.constants")
+local debugUtils=require("lib.debugUtils")
 
 return function(event)
     local processed = false
@@ -9,6 +10,7 @@ return function(event)
         if ret and ret.x > 0 then
             local layer = button == "buttonLayerA" and constants.layerA or constants.layerB
             stateUtils.set("layer", layer)
+            debugUtils.log("Handling incoming MIDI event for layer change from " .. button)
 
             remote.handle_input({
                 item = items[button].index,

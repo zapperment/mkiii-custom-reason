@@ -8,8 +8,27 @@ end
 
 local function update(path)
     local item = tableUtils.getValueFromPath(states, path)
+    if not item then
+        return
+    end
     item.current = item.next
     return item.current
+end
+
+local function updateAll()
+    for i = 1, 8 do
+        update("knob" .. i .. ".label")
+        update("knob" .. i .. ".value")
+        update("knob" .. i .. ".enabled")
+        update("button" .. i .. ".label")
+        update("button" .. i .. ".value")
+        update("button" .. i .. ".enabled")
+    end
+    update("deviceType")
+    update("deviceName")
+    update("patchName")
+    update("buttonColour")
+    update("layer")
 end
 
 local function get(path)
@@ -68,6 +87,7 @@ end
 return {
     hasChanged = hasChanged,
     update = update,
+    updateAll = updateAll,
     get = get,
     getNext = getNext,
     set = set,

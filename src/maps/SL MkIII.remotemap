@@ -38,7 +38,7 @@ Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 
-//	Control Surface Item	Key	Remotable Item	Scale	Mode	Scale	Mode
+//	Control Surface Item	Key	Remotable Item	Scale	Mode	Group
 Map	knob1		Rotary 1			layerA
 Map	knob2		Rotary 2			layerA
 Map	knob3		Rotary 3			layerA
@@ -83,7 +83,7 @@ Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 
-//	Control Surface Item	Key	Remotable Item	Scale	Mode	Scale	Mode
+//	Control Surface Item	Key	Remotable Item	Scale	Mode	Group
 Map	knob1		Filter Freq			layerA
 Map	knob2		Filter Res			layerA
 Map	knob3		Filter Env Amount			layerA
@@ -796,6 +796,9 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Friktion
+Map	deviceType		"friktion"
+Map	friktionVibratoAssign		Vibrato Scale Select
+Map	friktionSustainAssign		Sustain Control Select
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
