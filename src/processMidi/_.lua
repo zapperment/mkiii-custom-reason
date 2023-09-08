@@ -5,5 +5,6 @@ return {
     buttons = require("processMidi.buttons"),
     faders = require("processMidi.faders"),
     layerButtons = require("processMidi.layerButtons"),
-    pads = require("processMidi.pads")
+    pads = require("processMidi.pads"),
+    handleInputQueue = require("processMidi.handleInputQueue")
 }

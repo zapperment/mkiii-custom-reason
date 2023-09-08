@@ -1,5 +1,6 @@
 local processMidi = require("processMidi._")
 local setState = require("setState._")
+local deliverMidi = require("deliverMidi._")
 
 local autoInputs = require("lib.autoInputs")
 local autoOutputs = require("lib.autoOutputs")
@@ -128,8 +129,9 @@ end
 -- function returns false, Remote will try to find a match using the automatic input registry
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
+    processMidi.handleInputQueue(event)
     return processMidi.knobs(event) or processMidi.buttons(event) or processMidi.layerButtons(event) or
-               processMidi.pads(event) 
+               processMidi.pads(event)
 end
 
 -- REASON => CODEC
@@ -138,6 +140,7 @@ end
 -- call.
 function remote_set_state(changedItems)
     setState.layerButtons(changedItems)
+    setState.deviceType(changedItems)
     setState.deviceName(changedItems)
     setState.patchName(changedItems)
     setState.knobs(changedItems)
@@ -171,7 +174,7 @@ function remote_deliver_midi(_, port)
         path = "knob" .. i .. ".enabled"
         if stateUtils.hasChanged(path) then
             knobChanged = true
-            enabled = stateUtils.update(path)
+            enabled = stateUtils.getNext(path)
         else
             enabled = stateUtils.get(path)
         end
@@ -180,7 +183,7 @@ function remote_deliver_midi(_, port)
         path = "knob" .. i .. ".label"
         if stateUtils.hasChanged(path) then
             knobChanged = true
-            label = stateUtils.update(path)
+            label = stateUtils.getNext(path)
         else
             label = stateUtils.get(path)
         end
@@ -189,7 +192,7 @@ function remote_deliver_midi(_, port)
         path = "knob" .. i .. ".value"
         if stateUtils.hasChanged(path) then
             knobChanged = true
-            value = stateUtils.update(path)
+            value = stateUtils.getNext(path)
             table.insert(events, midiUtils.makeControlChangeEvent(items["knob" .. i].controller, value))
         else
             value = stateUtils.get(path)
@@ -199,7 +202,7 @@ function remote_deliver_midi(_, port)
         path = "button" .. i .. ".enabled"
         if stateUtils.hasChanged(path) then
             buttonChanged = true
-            enabled = stateUtils.update(path)
+            enabled = stateUtils.getNext(path)
         else
             enabled = stateUtils.get(path)
         end
@@ -208,7 +211,7 @@ function remote_deliver_midi(_, port)
         path = "button" .. i .. ".label"
         if stateUtils.hasChanged(path) then
             buttonChanged = true
-            label = stateUtils.update(path)
+            label = stateUtils.getNext(path)
         else
             label = stateUtils.get(path)
         end
@@ -217,7 +220,7 @@ function remote_deliver_midi(_, port)
         path = "button" .. i .. ".value"
         if stateUtils.hasChanged(path) then
             buttonChanged = true
-            value = stateUtils.update(path)
+            value = stateUtils.getNext(path)
         else
             value = stateUtils.get(path)
         end
@@ -225,7 +228,7 @@ function remote_deliver_midi(_, port)
     end
 
     if stateUtils.hasChanged("layer") then
-        layer = stateUtils.update("layer")
+        layer = stateUtils.getNext("layer")
         layerChanged = true
     else
         layer = stateUtils.get("layer")
@@ -250,7 +253,7 @@ function remote_deliver_midi(_, port)
         knobChanged = true
         buttonChanged = true
         layerChanged = true
-        buttonColour = stateUtils.update("buttonColour")
+        buttonColour = stateUtils.getNext("buttonColour")
     else
         buttonColour = stateUtils.get("buttonColour")
     end
@@ -271,8 +274,8 @@ function remote_deliver_midi(_, port)
     end
 
     if stateUtils.hasChanged("deviceName") or stateUtils.hasChanged("patchName") then
-        local deviceName = stateUtils.update("deviceName")
-        local patchName = stateUtils.update("patchName")
+        local deviceName = stateUtils.getNext("deviceName")
+        local patchName = stateUtils.getNext("patchName")
         local line2 = deviceName == patchName and "" or patchName
         table.insert(events, midiUtils.makeNotificationEvent(deviceName, line2))
     end
@@ -289,6 +292,12 @@ function remote_deliver_midi(_, port)
         table.insert(events, midiUtils.makeControlChangeEvent(activeButtonController, buttonColour))
         table.insert(events, midiUtils.makeControlChangeEvent(inactiveButtonController, 0))
     end
+
+    deliverMidi.updateCountDowns()
+
+    deliverMidi.friktion()
+
+    stateUtils.updateAll()
 
     return events
 end

@@ -246,6 +246,9 @@ return {
         midiMatcher = "BF 3A xx",
         controller = 58
     },
+    deviceType = {
+        output = "text"
+    },
     deviceName = {
         output = "text"
     },
@@ -357,6 +360,16 @@ return {
     pad16 = {
         input = "button",
         output = "value",
+        min = 0,
+        max = 127
+    },
+    friktionVibratoAssign = {
+        input = "value",
+        min = 0,
+        max = 127
+    },
+    friktionSustainAssign = {
+        input = "value",
         min = 0,
         max = 127
     }

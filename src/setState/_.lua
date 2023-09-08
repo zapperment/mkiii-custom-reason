@@ -1,4 +1,5 @@
 return {
+    deviceType = require("setState.deviceType"),
     deviceName = require("setState.deviceName"),
     patchName = require("setState.patchName"),
     knobs = require("setState.knobs"),

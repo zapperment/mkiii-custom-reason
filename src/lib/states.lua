@@ -226,6 +226,10 @@ return {
             next = false
         }
     },
+    deviceType = {
+        current = " ",
+        next = " "
+    },
     deviceName = {
         current = " ",
         next = " "
