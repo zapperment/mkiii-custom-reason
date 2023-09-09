@@ -1,5 +1,5 @@
-local stateUtils = require("lib.stateUtils")
-local items = require("lib.items")
+local stateUtils = require("src.lib.stateUtils")
+local items = require("src.lib.items")
 
 return function(changedItems)
     for _, changedItemIndex in ipairs(changedItems) do

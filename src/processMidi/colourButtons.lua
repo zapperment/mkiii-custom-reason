@@ -1,5 +1,5 @@
-local stateUtils = require("lib.stateUtils")
---local debugUtils = require("lib.debugUtils")
+local stateUtils = require("src.lib.stateUtils")
+-- local debugUtils = require("src.lib.debugUtils")
 
 return function(event)
     local up = remote.match_midi("BF 53 7F", event)

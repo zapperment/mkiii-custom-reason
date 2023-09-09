@@ -1,5 +1,5 @@
-local constants = require("lib.constants")
-local faderStates = require("lib.faderStates")
+local constants = require("src.lib.constants")
+local faderStates = require("src.lib.faderStates")
 
 return {
     knob1 = {
@@ -248,34 +248,34 @@ return {
     },
     fader1 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader2 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader3 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader4 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader5 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader6 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader7 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
+        next = faderStates.unassigned
     },
     fader8 = {
         current = faderStates.unassigned,
-        next = faderStates.unassigned,
-    },
+        next = faderStates.unassigned
+    }
 }

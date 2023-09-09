@@ -79,14 +79,12 @@ cp -vR "${MAPS_SOURCE_DIR}" "${DIST_DIR}/"
 
 echo_bold "Bundling Lua code"
 
-echo "luabundler bundle \"${CODECS_DIST_DIR}/SL MkIII.lua\" -p \"${SRC_DIR}/?.lua\" -o \"${CODECS_DIST_DIR}/SL MkIII.lua\""
-
-if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "${SRC_DIR}/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"; then
+if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII.lua" -p "?.lua" -o "${CODECS_DIST_DIR}/SL MkIII.lua"; then
     echo_red "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
 fi
 
-if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII Mixer.lua" -p "${SRC_DIR}/?.lua" -o "${CODECS_DIST_DIR}/SL MkIII Mixer.lua"; then
+if ! luabundler bundle "${CODECS_DIST_DIR}/SL MkIII Mixer.lua" -p "?.lua" -o "${CODECS_DIST_DIR}/SL MkIII Mixer.lua"; then
     echo_red "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
 fi

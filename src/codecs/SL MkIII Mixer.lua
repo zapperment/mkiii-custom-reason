@@ -1,16 +1,16 @@
-local processMidi = require("processMidi._")
-local setState = require("setState._")
+local processMidi = require("src.processMidi._")
+local setState = require("src.setState._")
 
-local autoInputs = require("lib.mixerAutoInputs")
-local autoOutputs = require("lib.mixerAutoOutputs")
-local colours = require("lib.colours")
-local constants = require("lib.constants")
-local debugUtils = require("lib.debugUtils")
-local hexUtils = require("lib.hexUtils")
-local items = require("lib.mixerItems")
-local midiUtils = require("lib.midiUtils")
-local stateUtils = require("lib.stateUtils")
-local faderStates = require("lib.faderStates")
+local autoInputs = require("src.lib.mixerAutoInputs")
+local autoOutputs = require("src.lib.mixerAutoOutputs")
+local colours = require("src.lib.colours")
+local constants = require("src.lib.constants")
+local debugUtils = require("src.lib.debugUtils")
+local hexUtils = require("src.lib.hexUtils")
+local items = require("src.lib.mixerItems")
+local midiUtils = require("src.lib.midiUtils")
+local stateUtils = require("src.lib.stateUtils")
+local faderStates = require("src.lib.faderStates")
 
 -- this needs to be global, it's used by auto outputs
 buttonColourMute = colours.red.dec

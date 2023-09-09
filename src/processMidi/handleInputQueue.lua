@@ -1,6 +1,6 @@
-local items = require("lib.items")
-local handleInputQueue = require("lib.handleInputQueue")
---local debugUtils = require("lib.debugUtils")
+local items = require("src.lib.items")
+local handleInputQueue = require("src.lib.handleInputQueue")
+-- local debugUtils = require("src.lib.debugUtils")
 
 return function(event)
     for key, inputQueueItem in pairs(handleInputQueue) do

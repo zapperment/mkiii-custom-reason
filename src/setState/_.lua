@@ -1,9 +1,9 @@
 return {
-    deviceType = require("setState.deviceType"),
-    deviceName = require("setState.deviceName"),
-    patchName = require("setState.patchName"),
-    knobs = require("setState.knobs"),
-    faders = require("setState.faders"),
-    buttons = require("setState.buttons"),
-    layerButtons = require("setState.layerButtons")
+    deviceType = require("src.setState.deviceType"),
+    deviceName = require("src.setState.deviceName"),
+    patchName = require("src.setState.patchName"),
+    knobs = require("src.setState.knobs"),
+    faders = require("src.setState.faders"),
+    buttons = require("src.setState.buttons"),
+    layerButtons = require("src.setState.layerButtons")
 }
