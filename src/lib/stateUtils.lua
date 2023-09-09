@@ -23,6 +23,7 @@ local function updateAll()
         update("button" .. i .. ".label")
         update("button" .. i .. ".value")
         update("button" .. i .. ".enabled")
+        update("fader" .. i)
     end
     update("deviceType")
     update("deviceName")

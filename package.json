@@ -7,7 +7,7 @@
     "install:win:debug": "powershell -ExecutionPolicy Bypass -File ./install.ps1 debug",
     "install:mac": "./install.sh",
     "install:mac:debug": "./install.sh debug",
-    "test": "lua ./src/test/_.test.lua"
+    "test": "lua ./test/_.test.lua -v"
   },
   "devDependencies": {
     "prettier": "^3.0.3"
