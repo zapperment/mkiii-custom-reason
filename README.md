@@ -69,7 +69,7 @@ There are some suites of automated tests. Run them like so:
 yarn test
 ```
 
-## Ackknowledgements
+## Acknowledgements
 
 * Uses [luaunit](https://github.com/bluebird75/luaunit), BSD License, copyright (c) 2005-2018, Philippe Fremy
 * Uses [luabundler](https://github.com/Benjamin-Dobell/luabundler), MIT License, copyright (c) 2020 Benjamin Dobell
