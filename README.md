@@ -20,3 +20,52 @@ On Windows, use PowerShell:
 ```
 ./install.ps1
 ```
+
+## Development
+
+### Prerequisites
+
+For development, make sure
+
+* you have the latest version of Node.js and Yarn installed
+* you have a Lua compiler, version 5.1.1 in your command line console's path
+
+### Debugging
+
+You can install the codecs with a "debug" option:
+
+```
+yarn install:mac:debug
+```
+
+...or...
+
+```
+yarn install:win:debug
+```
+
+This adds an additional MIDI port to the MIDI controller setup in Reason. Assign a virtual port here. Then you can run the "log" script using Yarn, passing the name of the debug MIDI port as option:
+
+```
+yarn log "Bome MIDI Translator 5"
+```
+
+**Note:** Bome is a useful tool when you're using Windows to set up virtual ports. On Mac, it's easier, just use the app "Audio MIDI Setup" that comes with macOS.
+
+When you have the debug port set up and the logger is running, you can add logging statements in the Lua code to print useful information:
+
+```
+local debugUtils = require("src.lib.debugUtils)
+debugUtils.log("hello world")
+```
+
+The log statements are sent from Reason to the debug log script as MIDI system exclusive messages.
+
+### Testing
+
+There are some suites of automated tests. Run them like so:
+
+```
+yarn test
+```
+
