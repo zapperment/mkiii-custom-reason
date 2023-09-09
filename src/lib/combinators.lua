@@ -499,6 +499,74 @@ return {
         button3 = "Delay",
         button4 = "Chorus"
     },
+    ["Organia"] = {
+        knob1 = "LpfAll",
+        knob2 = "Shimmer",
+        knob3 = "LpfSwell",
+        knob4 = "A=432hz"
+    },
+    ["Andromeda"] = {
+        knob1 = "LPF",
+        knob2 = "Chops",
+        knob3 = "Reverb",
+        knob4 = "A=432hz"
+    },
+    ["Angel Island"] = {
+        knob1 = "LPF",
+        knob2 = "Shimmer",
+        knob3 = "Chops",
+        knob4 = "A=432hz"
+    },
+    ["Cosmic Horizon"] = {
+        knob1 = "LPF",
+        knob2 = "Shimmer",
+        knob3 = "StarScrm",
+        knob4 = "A=432hz"
+    },
+    ["Crystal Cave"] = {
+        knob1 = "Chops",
+        knob2 = "LoHarmncs",
+        knob3 = "Crystals",
+        knob4 = "A=432hz"
+    },
+    ["Halcyon"] = {
+        knob1 = "FmTone",
+        knob2 = "Shimmer",
+        knob3 = "Chops",
+        knob4 = "A=432hz"
+    },
+    ["Solar Mass"] = {
+        knob1 = "SkipnMetl",
+        knob2 = "LoHarmncs",
+        knob3 = "InharmPks",
+        knob4 = "A=432hz"
+    },
+    ["Solfeggio Pulse [Run]"] = {
+        knob1 = "396LfoSpd",
+        knob2 = "417LfoSpd",
+        knob3 = "528LfoSpd",
+        knob4 = "639LfoSpd",
+        knob5 = "741LfoSpd",
+        knob6 = "852LfoSpd",
+        button1 = "396",
+        button2 = "417",
+        button3 = "528",
+        button4 = "639",
+        button5 = "741",
+        button6 = "852",
+    },
+    ["String Theory"] = {
+        knob1 = "LfoSwell",
+        knob2 = "Shimmer",
+        knob3 = "LPF",
+        knob4 = "A=432hz"
+    },
+    ["Valkarie"] = {
+        knob1 = "LPF",
+        knob2 = "LoHarmncs",
+        knob3 = "Chops",
+        knob4 = "A=432hz"
+    },
     ["xxxTEMPLATExxx"] = {
         --       123456789
         knob1 = "xxx",
