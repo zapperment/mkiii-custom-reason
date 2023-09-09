@@ -1,4 +1,4 @@
-local midiUtils = require("lib.midiUtils")
+local midiUtils = require("src.lib.midiUtils")
 
 local logMessages = {}
 local maxLogMessages = 100

@@ -1,5 +1,5 @@
-local items = require("lib.items")
-local stateUtils = require("lib.stateUtils")
+local items = require("src.lib.items")
+local stateUtils = require("src.lib.stateUtils")
 
 return function(event)
     if event.port == 2 then

@@ -1,4 +1,4 @@
-local stateUtils = require("lib.stateUtils")
+local stateUtils = require("src.lib.stateUtils")
 
 -- DELETE ME: fader 1 controls button colour – just for experimentation
 return function(event)

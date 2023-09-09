@@ -1,6 +1,6 @@
-local constants = require("lib.constants")
-local stringUtils = require("lib.stringUtils")
-local hexUtils = require("lib.hexUtils")
+local constants = require("src.lib.constants")
+local stringUtils = require("src.lib.stringUtils")
+local hexUtils = require("src.lib.hexUtils")
 
 -- Makes a MIDI event object that displays a specified message in the lower half of the LC displays below the knobs
 -- on the SL MkIII. You can specify row number 1 or 2; 1 is default.
@@ -77,7 +77,7 @@ local function makeDisplayEvent(statuses, texts, row)
     for i, knobIsActive in ipairs(statuses) do
         if knobIsActive then
             event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " " .. hexUtils.textToHex(texts[i]) ..
-                    " 00 "
+                        " 00 "
         else
             event = event .. hexUtils.decToHex(i - 1) .. " 01 " .. rowHex .. " 00 "
         end
@@ -92,7 +92,7 @@ end
 -- colour: string with hex value of a colour
 local function makeCreateKnobEvent(knobNumber, colour)
     return remote.make_midi(
-            constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
+        constants.sysexHeader .. " 02 " .. hexUtils.decToHex(knobNumber - 1) .. " 02 01 " .. colour .. " F7")
 end
 
 local function makeControlChangeEvent(controllerNumber, value)

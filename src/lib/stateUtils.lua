@@ -1,5 +1,5 @@
-local states = require("lib.states")
-local tableUtils = require("lib.tableUtils")
+local states = require("src.lib.states")
+local tableUtils = require("src.lib.tableUtils")
 
 local function hasChanged(path)
     local item = tableUtils.getValueFromPath(states, path)

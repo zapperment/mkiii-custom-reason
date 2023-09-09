@@ -1,6 +1,6 @@
-local stateUtils = require("lib.stateUtils")
-local debugUtils = require("lib.debugUtils")
-local items = require("lib.items")
+local stateUtils = require("src.lib.stateUtils")
+local debugUtils = require("src.lib.debugUtils")
+local items = require("src.lib.items")
 
 return function(event)
     local processed = false

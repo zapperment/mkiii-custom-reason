@@ -1,16 +1,16 @@
-local processMidi = require("processMidi._")
-local setState = require("setState._")
-local deliverMidi = require("deliverMidi._")
+local processMidi = require("src.processMidi._")
+local setState = require("src.setState._")
+local deliverMidi = require("src.deliverMidi._")
 
-local autoInputs = require("lib.autoInputs")
-local autoOutputs = require("lib.autoOutputs")
-local colours = require("lib.colours")
-local constants = require("lib.constants")
-local debugUtils = require("lib.debugUtils")
-local hexUtils = require("lib.hexUtils")
-local items = require("lib.items")
-local midiUtils = require("lib.midiUtils")
-local stateUtils = require("lib.stateUtils")
+local autoInputs = require("src.lib.autoInputs")
+local autoOutputs = require("src.lib.autoOutputs")
+local colours = require("src.lib.colours")
+local constants = require("src.lib.constants")
+local debugUtils = require("src.lib.debugUtils")
+local hexUtils = require("src.lib.hexUtils")
+local items = require("src.lib.items")
+local midiUtils = require("src.lib.midiUtils")
+local stateUtils = require("src.lib.stateUtils")
 
 -- these variables and functions need to be global because they are used by the auto inputs
 

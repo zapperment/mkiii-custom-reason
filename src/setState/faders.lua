@@ -1,8 +1,8 @@
-local faderStates = require("lib.faderStates")
-local items = require("lib.mixerItems")
-local constants = require("lib.constants")
-local debugUtils = require("lib.debugUtils")
-local stateUtils = require("lib.stateUtils")
+local faderStates = require("src.lib.faderStates")
+local items = require("src.lib.mixerItems")
+local constants = require("src.lib.constants")
+local debugUtils = require("src.lib.debugUtils")
+local stateUtils = require("src.lib.stateUtils")
 
 return function(changedItems)
     for _, changedItemIndex in ipairs(changedItems) do

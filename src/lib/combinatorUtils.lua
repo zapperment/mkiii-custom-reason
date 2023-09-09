@@ -1,6 +1,6 @@
-local combinators = require("lib.combinators")
-local stateUtils = require("lib.stateUtils")
-local constants = require("lib.constants")
+local combinators = require("src.lib.combinators")
+local stateUtils = require("src.lib.stateUtils")
+local constants = require("src.lib.constants")
 
 local function hasLayers(combinatorConfig)
     return combinatorConfig.layerA or combinatorConfig.layerB

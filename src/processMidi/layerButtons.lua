@@ -1,11 +1,11 @@
-local stateUtils = require("lib.stateUtils")
-local items = require("lib.items")
-local constants = require("lib.constants")
---local debugUtils = require("lib.debugUtils")
+local stateUtils = require("src.lib.stateUtils")
+local items = require("src.lib.items")
+local constants = require("src.lib.constants")
+-- local debugUtils = require("src.lib.debugUtils")
 
 return function(event)
     local processed = false
-    for _, button in ipairs({ "buttonLayerA", "buttonLayerB" }) do
+    for _, button in ipairs({"buttonLayerA", "buttonLayerB"}) do
         local ret = remote.match_midi(items[button].midiMatcher, event)
         if ret and ret.x > 0 then
             local layer = button == "buttonLayerA" and constants.layerA or constants.layerB

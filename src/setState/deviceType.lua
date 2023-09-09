@@ -1,6 +1,6 @@
-local stateUtils = require("lib.stateUtils")
-local items = require("lib.items")
-local debugUtils = require("lib.debugUtils")
+local stateUtils = require("src.lib.stateUtils")
+local items = require("src.lib.items")
+local debugUtils = require("src.lib.debugUtils")
 
 return function(changedItems)
     for _, changedItemIndex in ipairs(changedItems) do

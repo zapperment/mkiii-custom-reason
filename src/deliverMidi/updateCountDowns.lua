@@ -1,4 +1,4 @@
-local handleInputQueue = require("lib.handleInputQueue")
+local handleInputQueue = require("src.lib.handleInputQueue")
 
 return function()
     for _, inputQueueItem in pairs(handleInputQueue) do
