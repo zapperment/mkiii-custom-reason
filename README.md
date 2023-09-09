@@ -1,6 +1,6 @@
 # mkiii-custom-reason
 
-Custom Reason control surface for the Novation SL MkIII master keyboards.
+Custom Reason control surface codecs for the Novation SL MkIII master keyboards.
 
 ## Prerequisites
 
