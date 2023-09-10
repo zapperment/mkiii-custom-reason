@@ -1133,6 +1133,32 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	The Echo
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	sustainPedal		Trig
+Map	knob1		Delay Time			layerA
+Map	knob2		Right Ch Time Offset			layerA
+Map	knob3		Ping-Pong Pan			layerA
+Map	knob4		Feedback			layerA
+Map	knob5		Right Ch Feedback Offset			layerA
+Map	knob6		Drive Amount			layerA
+Map	knob7		Ducking			layerA
+Map	knob8		Dry/Wet Balance			layerA
+Map	button1		Keep Pitch			layerA
+Map	button2		Sync			layerA
+Map	button3		Ping-Pong Mode			layerA
+Map	knob1		Diffuse Spread			layerB
+Map	knob2		Diffuse Amount			layerB
+Map	knob3		Filter Frequency			layerB
+Map	knob4		Filter Resonance			layerB
+Map	knob5		Envelope			layerB
+Map	knob6		Wobble			layerB
+Map	knob7		LFO Rate			layerB
+Map	knob8		LFO Amount			layerB
+Map	button1		Diffuse On			layerB
+Map	button3		Filter On			layerB
+Map	expressionPedal		Roll Enabled
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
