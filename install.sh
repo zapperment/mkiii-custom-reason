@@ -1,4 +1,4 @@
-﻿#!/bin/zsh
+#!/bin/zsh
 
 DEBUG_MODE=false
 
