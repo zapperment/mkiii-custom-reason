@@ -12,6 +12,8 @@ local items = require("src.lib.items")
 local midiUtils = require("src.lib.midiUtils")
 local stateUtils = require("src.lib.stateUtils")
 
+local log = debugUtils.log
+
 -- these variables and functions need to be global because they are used by the auto inputs
 
 transportButtonColour = colours.white.dec
@@ -118,7 +120,7 @@ function remote_init()
     remote.define_items(itemsToDefine)
     remote.define_auto_inputs(autoInputs)
     remote.define_auto_outputs(autoOutputs)
-    debugUtils.log("Novation SL MkIII remote control surface initialised successfully")
+    log("Novation SL MkIII remote control surface initialised successfully")
 end
 
 -- KEYBOARD => CODEC
