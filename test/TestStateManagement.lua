@@ -9,22 +9,35 @@ function TestStateManagement:setUp()
 end
 
 function TestStateManagement:testChangingTheStateWithSetAndUpdating()
-    local current, next, hasChanged, updated
+    local current, next, hasChanged, updated, errorMessage
     stateUtils.set("knob1.value", 127)
     current = stateUtils.get("knob1.value")
     next = stateUtils.getNext("knob1.value")
     hasChanged = stateUtils.hasChanged("knob1.value")
-    lu.assertEquals(current, 0)
-    lu.assertEquals(next, 127)
-    lu.assertEquals(hasChanged, true)
+    errorMessage = "after setting the state to 127, the current state should still be 0, but it is " .. current
+    lu.assertEquals(current, 0, errorMessage)
+    errorMessage = "after setting the state to 127, the next state should now be 127, but it is " .. next
+    lu.assertEquals(next, 127, errorMessage)
+    errorMessage = "after setting the state, 'hasChanged' should be true, but it is " .. hasChanged
+    lu.assertEquals(hasChanged, true, errorMessage)
     updated = stateUtils.update("knob1.value")
     current = stateUtils.get("knob1.value")
     next = stateUtils.getNext("knob1.value")
     hasChanged = stateUtils.hasChanged("knob1.value")
-    lu.assertEquals(updated, 127)
-    lu.assertEquals(current, 127)
-    lu.assertEquals(next, 127)
-    lu.assertEquals(hasChanged, false)
+    errorMessage =
+        "after setting the state to 127, calling 'update' should return the new current state 127, but it returned " ..
+            updated
+    lu.assertEquals(updated, 127, errorMessage)
+    errorMessage =
+        "after setting the state to 127 and calling 'update', the current state should now be 127, but it is " ..
+            current
+    lu.assertEquals(current, 127, errorMessage)
+    errorMessage =
+        "after setting the state to 127 and calling 'update', the next state should still be 127, but it is " .. next
+    lu.assertEquals(next, 127, errorMessage)
+    errorMessage = "after setting the state and calling 'update', 'hasChanged' should be false, but it is " ..
+                       hasChanged
+    lu.assertEquals(hasChanged, false, errorMessage)
 end
 
 function TestStateManagement:testChangingTheStateWithInc()
