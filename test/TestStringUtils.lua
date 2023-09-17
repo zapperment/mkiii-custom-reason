@@ -98,6 +98,6 @@ function TestStringUtils:testSerialise12()
         }
     })
     local errorMessage = "Serialisation of nested key-value table in class method failed"
-    lu.assertEquals(result, "{[\"foo\"]={[\"bar\"]=\"baz\"}}", errorMessage)
+    lu.assertEquals(result, "{[\"fooXXX\"]={[\"bar\"]=\"baz\"}}", errorMessage)
 end
 
