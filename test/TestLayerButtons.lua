@@ -28,4 +28,7 @@ function TestLayerButtons:testSettingInitialLayerState()
     errorMessage = "After starting up the host, unexpected MIDI data was created for delivery to remote surface; " ..
                        "expected control change 0x53 with zero value to turn off layer button B"
     lu.assertEquals(events[2], "BF 52 00", errorMessage)
+    errorMessage = "After startung up the host and delivering initial MIDI messages, " ..
+                       "expected layer to not have changed state anymore"
+    lu.assertEquals(stateUtils.hasChanged("layer"), false, errorMessage)
 end
