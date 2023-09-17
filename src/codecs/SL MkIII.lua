@@ -310,7 +310,7 @@ function remote_prepare_for_use()
             midiUtils.makeCreateKnobEvent(4, colours.black.hex), midiUtils.makeCreateKnobEvent(5, colours.black.hex),
             midiUtils.makeCreateKnobEvent(6, colours.black.hex), midiUtils.makeCreateKnobEvent(7, colours.black.hex),
             midiUtils.makeCreateKnobEvent(8, colours.black.hex),
-            midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, constants.mainColour),
+            midiUtils.makeControlChangeEvent(items["buttonLayerA"].controller, colours.black.hex),
             midiUtils.makeControlChangeEvent(items["buttonLayerB"].controller, colours.black.hex)}
 end
 

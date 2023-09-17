@@ -4,7 +4,8 @@ local MockFunction = {}
 function MockFunction:new()
     local instance = {
         calls = {},
-        fakes = {}
+        fakes = {},
+        implementation = nil
     }
     setmetatable(instance, self)
     self.__index = self
@@ -14,6 +15,10 @@ end
 function MockFunction:fake(input, output)
     local key = stringUtils.serialise(input)
     self.fakes[key] = output
+end
+
+function MockFunction:impl(func)
+    self.implementation = func
 end
 
 -- invoke the mock function; the arguments provided are
@@ -26,6 +31,9 @@ function MockFunction:call(...)
     if self.fakes[key] then
         return self.fakes[key]
     end
+    if self.implementation then
+        return self.implementation(...)
+    end
 end
 
 function MockFunction:clear()
@@ -35,6 +43,7 @@ end
 function MockFunction:reset()
     self:clear()
     self.fakes = {}
+    self.implementation = nil
 end
 
 return MockFunction

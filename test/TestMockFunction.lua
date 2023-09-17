@@ -69,3 +69,38 @@ function TestMockFunction:testReset2()
         "After setting a fake, then resetting, then calling the mock function, got an unexpected result"
     lu.assertEquals(result, nil, errorMessage)
 end
+
+function TestMockFunction:testImpl1()
+    local mockFunction = MockFunction:new()
+    mockFunction:impl(function(name)
+        return "hello " .. name
+    end)
+    local result = mockFunction:call("darkness")
+    local errorMessage =
+        "After setting an implementation for the mock function, got an unexpected result from calling it"
+    lu.assertEquals(result, "hello darkness", errorMessage)
+end
+
+function TestMockFunction:testImpl2()
+    local mockFunction = MockFunction:new()
+    mockFunction:impl(function(name)
+        return "hello " .. name
+    end)
+    mockFunction:fake({"stranger"}, "goodbye stranger")
+    local result = mockFunction:call("stranger")
+    local errorMessage =
+        "After setting an implementation for the mock function and a fake return value specifically for the input 'stranger', got an unexpected result from calling it with 'stranger'"
+    lu.assertEquals(result, "goodbye stranger", errorMessage)
+end
+
+function TestMockFunction:testImpl3()
+    local mockFunction = MockFunction:new()
+    mockFunction:impl(function(name)
+        return "hello " .. name
+    end)
+    mockFunction:fake({"stranger"}, "goodbye stranger")
+    local result = mockFunction:call("dolly")
+    local errorMessage =
+        "After setting an implementation for the mock function and a fake return value specifically for the input 'stranger', got an unexpected result from calling it with something other than 'stranger'"
+    lu.assertEquals(result, "hello dolly", errorMessage)
+end

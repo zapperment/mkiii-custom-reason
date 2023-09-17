@@ -30,3 +30,9 @@ function remote.clearMocks()
         remote.mock(functionName):clear()
     end
 end
+
+-- adding a mock implementation to remote.make_midi that just 
+-- returns the input string with the MIDI message hex code
+remote.mock("make_midi"):impl(function(midi)
+    return midi
+end)

@@ -7,30 +7,30 @@ return {
         return stateManager:hasChanged(path)
     end,
     update = function(path)
-        return StateManager:update(path)
+        return stateManager:update(path)
     end,
     updateAll = function()
-        StateManager:updateAll()
+        stateManager:updateAll()
     end,
     get = function(path)
-        return StateManager:get(path)
+        return stateManager:get(path)
     end,
     getNext = function(path)
-        return StateManager:getNext(path)
+        return stateManager:getNext(path)
     end,
     set = function(path, next)
-        StateManager:set(path, next)
+        stateManager:set(path, next)
     end,
     add = function(path, delta, min, max)
-        StateManager:add(path, delta, min, max)
+        stateManager:add(path, delta, min, max)
     end,
     flip = function(path)
-        return StateManager:flip(path)
+        return stateManager:flip(path)
     end,
     inc = function(path)
-        StateManager:inc(path)
+        stateManager:inc(path)
     end,
     dec = function(path)
-        StateManager:dec(path)
+        stateManager:dec(path)
     end
 }

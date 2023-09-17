@@ -16,7 +16,7 @@ function resetState()
     stateUtils.set("deviceName", " ")
     stateUtils.set("patchName", " ")
     stateUtils.set("buttonColour", constants.mainColour)
-    stateUtils.set("layer", constants.layerA)
+    stateUtils.set("layer", " ")
     stateUtils.updateAll()
 end
 
