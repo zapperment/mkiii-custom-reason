@@ -553,7 +553,7 @@ return {
         button3 = "528",
         button4 = "639",
         button5 = "741",
-        button6 = "852",
+        button6 = "852"
     },
     ["String Theory"] = {
         knob1 = "LfoSwell",
@@ -566,6 +566,35 @@ return {
         knob2 = "LoHarmncs",
         knob3 = "Chops",
         knob4 = "A=432hz"
+    },
+    ["*[UCLUB]"] = {
+        layerA = {
+            knob1 = "Ch1Vol",
+            knob2 = "Ch2Vol",
+            knob3 = "Ch3Vol",
+            knob4 = "Ch4Vol",
+            knob5 = "Ch5Vol",
+            knob6 = "Ch6Vol",
+            knob7 = "Ch7Vol",
+            knob8 = "Ch8Vol",
+            button1 = "Ch1On",
+            button2 = "Ch2On",
+            button3 = "Ch3On",
+            button4 = "Ch4On",
+            button5 = "Ch5On",
+            button6 = "Ch6On",
+            button7 = "Ch7On",
+            button8 = "Ch8On"
+        },
+        layerB = {
+            knob1 = "Pattern",
+            knob2 = "Chop",
+            knob3 = "Delay",
+            knob4 = "Reverb",
+            knob5 = "Compressor",
+            knob6 = "Clean",
+            button1 = "RevToComp"
+        }
     },
     ["xxxTEMPLATExxx"] = {
         --       123456789
