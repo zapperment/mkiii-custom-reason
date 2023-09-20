@@ -591,7 +591,7 @@ return {
             knob2 = "Chop",
             knob3 = "Delay",
             knob4 = "Reverb",
-            knob5 = "Compressor",
+            knob5 = "Compressr",
             knob6 = "Clean",
             button1 = "RevToComp"
         }
