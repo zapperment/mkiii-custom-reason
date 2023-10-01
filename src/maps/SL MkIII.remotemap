@@ -811,6 +811,49 @@ Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
+Scope	Synapse Audio	com.synapseAudioSoftware.Obsession
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		[A] OSC 1 Frequency			layerA
+Map	knob2		[A] OSC Pulse Width			layerA
+Map	knob3		[A] OSC 2 Frequency			layerA
+Map	knob4		[A] Filter Frequency			layerA
+Map	knob5		[A] Filter Resonance			layerA
+Map	knob6		[A] Filter Envelope Amount			layerA
+Map	knob7		[A] Filter Envelope Decay			layerA
+Map	knob8		[A] Filter Envelope Sustain			layerA
+Map	button1		[A] OSC 1 Saw			layerA
+Map	button2		[A] OSC 1 Pulse			layerA
+Map	button3		[A] OSC PW O2 Sync			layerA
+Map	button4		[A] OSC PW F-Env			layerA
+Map	button5		[A] OSC 2 Saw			layerA
+Map	button6		[A] OSC 2 Pulse			layerA
+Map	button7		[A] Filter OSC 1			layerA
+Map	button8		[A] Filter OSC 2			layerA
+Map	knob1		[B] OSC 1 Frequency			layerB
+Map	knob2		[B] OSC Pulse Width			layerB
+Map	knob3		[B] OSC 2 Frequency			layerB
+Map	knob4		[B] Filter Frequency			layerB
+Map	knob5		[B] Filter Resonance			layerB
+Map	knob6		[B] Filter Envelope Amount			layerB
+Map	knob7		[B] Filter Envelope Decay			layerB
+Map	knob8		[B] Filter Envelope Sustain			layerB
+Map	button1		[B] OSC 1 Saw			layerB
+Map	button2		[B] OSC 1 Pulse			layerB
+Map	button3		[B] OSC PW O2 Sync			layerB
+Map	button4		[B] OSC PW F-Env			layerB
+Map	button5		[B] OSC 2 Saw			layerB
+Map	button6		[B] OSC 2 Pulse			layerB
+Map	button7		[B] Filter OSC 1			layerB
+Map	button8		[B] Filter OSC 2			layerB
+Map	expressionPedal		Parts A/B Mix
+Map	footSwitch		Effects
+Map	deviceName		Device Name
+Map	patchName		Patch Name
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
 Scope	Propellerhead Software	se.propellerheads.PX7
 Map	knob1		Brightness
 Map	knob2		Attack
