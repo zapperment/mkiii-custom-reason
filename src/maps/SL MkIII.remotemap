@@ -177,6 +177,31 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Grain
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Position			layerA
+Map	knob2		End Pos			layerA
+Map	knob3		Jitter			layerA
+Map	knob4		Speed			layerA
+Map	knob5		Scroll			layerA
+Map	knob6		Zoom			layerA
+Map	knob7		Filter Freq			layerA
+Map	knob8		Filter Reso			layerA
+Map	knob1		Delay Amount			layerB
+Map	button1		Delay On			layerB
+Map	knob2		Dist Amount			layerB
+Map	button2		Dist On			layerB
+Map	knob3		Comp Threshold			layerB
+Map	button3		Comp On			layerB
+Map	knob4		Comp Ratio			layerB
+Map	knob5		Mod Effect Amount			layerB
+Map	button5		Phaser On			layerB
+Map	knob6		EQ Freq			layerB
+Map	button6		Eq On			layerB
+Map	knob7		EQ Gain			layerB
+Map	knob8		Reverb Amount			layerB
+Map	button8		Reverb On			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
