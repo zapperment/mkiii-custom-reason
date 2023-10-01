@@ -780,6 +780,32 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio	com.synapseAudioSoftware.Antidote
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Filter Cutoff			layerA
+Map	knob2		Filter Resonance			layerA
+Map	knob3		Filter Envelope Amount			layerA
+Map	knob4		Filter Envelope Attack			layerA
+Map	knob5		Filter Envelope Decay			layerA
+Map	knob6		Filter Envelope Sustain			layerA
+Map	knob7		Filter Envelope Release			layerA
+Map	knob8		Lfo 1 Target Amount			layerA
+Map	button1		EQ/Bass			layerA
+Map	button2		Distortion			layerA
+Map	button3		Phaser			layerA
+Map	button4		Chorus			layerA
+Map	button5		Delay			layerA
+Map	button6		Reverb			layerA
+Map	button7		Compressor			layerA
+Map	knob1		Amp Envelope Attack			layerB
+Map	knob2		Amp Envelope Decay			layerB
+Map	knob3		Amp Envelope Sustain			layerB
+Map	knob4		Amp Envelope Release			layerB
+Map	knob5		Mod Envelope Attack			layerB
+Map	knob6		Mod Envelope Decay			layerB
+Map	knob7		Mod Envelope Sustain			layerB
+Map	knob8		Mod Envelope Release			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
