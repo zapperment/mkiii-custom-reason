@@ -177,6 +177,31 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Grain
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Position			layerA
+Map	knob2		End Pos			layerA
+Map	knob3		Jitter			layerA
+Map	knob4		Speed			layerA
+Map	knob5		Scroll			layerA
+Map	knob6		Zoom			layerA
+Map	knob7		Filter Freq			layerA
+Map	knob8		Filter Reso			layerA
+Map	knob1		Delay Amount			layerB
+Map	button1		Delay On			layerB
+Map	knob2		Dist Amount			layerB
+Map	button2		Dist On			layerB
+Map	knob3		Comp Threshold			layerB
+Map	button3		Comp On			layerB
+Map	knob4		Comp Ratio			layerB
+Map	knob5		Mod Effect Amount			layerB
+Map	button5		Phaser On			layerB
+Map	knob6		EQ Freq			layerB
+Map	button6		Eq On			layerB
+Map	knob7		EQ Gain			layerB
+Map	knob8		Reverb Amount			layerB
+Map	button8		Reverb On			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -443,6 +468,35 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ProcessedPianos
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Mic_A_DryLevel			layerA
+Map	knob2		Mic_A_FXLevel			layerA
+Map	knob3		Mic_B_DryLevel			layerA
+Map	knob4		Mic_B_FXLevel			layerA
+Map	knob5		Mic_C_DryLevel			layerA
+Map	knob6		Mic_C_FXLevel			layerA
+Map	knob7		Clean_Level			layerA
+Map	knob8		InsertFX_Level			layerA
+Map	button1		Mic_A_On			layerA
+Map	button3		Mic_B_On			layerA
+Map	button5		Mic_C_On			layerA
+Map	knob1		LoFi_DryWet			layerB
+Map	button1		LoFi_Enabled			layerB
+Map	knob2		FreqShifter_DryWet			layerB
+Map	button2		FreqShifter_Enabled			layerB
+Map	knob3		Chorus_Depth			layerB
+Map	button3		Chorus_Enabled			layerB
+Map	knob4		Filter_Frequency			layerB
+Map	button4		Filter_Enabled			layerB
+Map	knob5		Echo_Level			layerB
+Map	button5		Echo_On			layerB
+Map	knob6		Reverb_Level			layerB
+Map	button6		Reverb_On			layerB
+Map	button7		EQ_On			layerB
+Map	knob8		Compressor_DryWet			layerB
+Map	button8		Compressor_On			layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -726,6 +780,75 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio	com.synapseAudioSoftware.Antidote
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		Filter Cutoff			layerA
+Map	knob2		Filter Resonance			layerA
+Map	knob3		Filter Envelope Amount			layerA
+Map	knob4		Filter Envelope Attack			layerA
+Map	knob5		Filter Envelope Decay			layerA
+Map	knob6		Filter Envelope Sustain			layerA
+Map	knob7		Filter Envelope Release			layerA
+Map	knob8		Lfo 1 Target Amount			layerA
+Map	button1		EQ/Bass			layerA
+Map	button2		Distortion			layerA
+Map	button3		Phaser			layerA
+Map	button4		Chorus			layerA
+Map	button5		Delay			layerA
+Map	button6		Reverb			layerA
+Map	button7		Compressor			layerA
+Map	knob1		Amp Envelope Attack			layerB
+Map	knob2		Amp Envelope Decay			layerB
+Map	knob3		Amp Envelope Sustain			layerB
+Map	knob4		Amp Envelope Release			layerB
+Map	knob5		Mod Envelope Attack			layerB
+Map	knob6		Mod Envelope Decay			layerB
+Map	knob7		Mod Envelope Sustain			layerB
+Map	knob8		Mod Envelope Release			layerB
+Map	deviceName		Device Name
+Map	patchName		Patch Name
+Map	clipUpButton		Select Previous Patch
+Map	clipDownButton		Select Next Patch
+
+Scope	Synapse Audio	com.synapseAudioSoftware.Obsession
+Define Group	layer	layerA	layerB
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	knob1		[A] OSC 1 Frequency			layerA
+Map	knob2		[A] OSC Pulse Width			layerA
+Map	knob3		[A] OSC 2 Frequency			layerA
+Map	knob4		[A] Filter Frequency			layerA
+Map	knob5		[A] Filter Resonance			layerA
+Map	knob6		[A] Filter Envelope Amount			layerA
+Map	knob7		[A] Filter Envelope Decay			layerA
+Map	knob8		[A] Filter Envelope Sustain			layerA
+Map	button1		[A] OSC 1 Saw			layerA
+Map	button2		[A] OSC 1 Pulse			layerA
+Map	button3		[A] OSC PW O2 Sync			layerA
+Map	button4		[A] OSC PW F-Env			layerA
+Map	button5		[A] OSC 2 Saw			layerA
+Map	button6		[A] OSC 2 Pulse			layerA
+Map	button7		[A] Filter OSC 1			layerA
+Map	button8		[A] Filter OSC 2			layerA
+Map	knob1		[B] OSC 1 Frequency			layerB
+Map	knob2		[B] OSC Pulse Width			layerB
+Map	knob3		[B] OSC 2 Frequency			layerB
+Map	knob4		[B] Filter Frequency			layerB
+Map	knob5		[B] Filter Resonance			layerB
+Map	knob6		[B] Filter Envelope Amount			layerB
+Map	knob7		[B] Filter Envelope Decay			layerB
+Map	knob8		[B] Filter Envelope Sustain			layerB
+Map	button1		[B] OSC 1 Saw			layerB
+Map	button2		[B] OSC 1 Pulse			layerB
+Map	button3		[B] OSC PW O2 Sync			layerB
+Map	button4		[B] OSC PW F-Env			layerB
+Map	button5		[B] OSC 2 Saw			layerB
+Map	button6		[B] OSC 2 Pulse			layerB
+Map	button7		[B] Filter OSC 1			layerB
+Map	button8		[B] Filter OSC 2			layerB
+Map	expressionPedal		Parts A/B Mix
+Map	footSwitch		Effects
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
