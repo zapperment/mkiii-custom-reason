@@ -7,5 +7,6 @@ return {
     layerButtons = require("src.processMidi.layerButtons"),
     pads = require("src.processMidi.pads"),
     handleInputQueue = require("src.processMidi.handleInputQueue"),
-    shiftButton = require("src.processMidi.shiftButton")
+    shiftButton = require("src.processMidi.shiftButton"),
+    dumpUmpf = require("src.processMidi.dumpUmpf")
 }

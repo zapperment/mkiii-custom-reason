@@ -28,6 +28,7 @@ faderColourTooHigh = colours.darkYellow.dec
 faderColourInSync = colours.green.dec
 
 isShifted = false
+umpfData = nil
 
 function greaterThanZero(x)
     if x ~= 0 then
@@ -135,7 +136,7 @@ end
 function remote_process_midi(event)
     processMidi.handleInputQueue(event)
     return processMidi.shiftButton(event) or processMidi.knobs(event) or processMidi.buttons(event) or
-               processMidi.layerButtons(event) or processMidi.pads(event)
+               processMidi.layerButtons(event) or processMidi.pads(event) or processMidi.dumpUmpf(event)
 end
 
 -- REASON => CODEC
