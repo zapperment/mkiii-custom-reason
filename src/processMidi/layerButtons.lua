@@ -1,7 +1,6 @@
 local stateUtils = require("src.lib.stateUtils")
 local items = require("src.lib.items")
 local constants = require("src.lib.constants")
--- local log = require("src.lib.debugUtils").log
 
 return function(event)
     local processed = false

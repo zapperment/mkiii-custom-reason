@@ -8,5 +8,5 @@ return {
     pads = require("src.processMidi.pads"),
     handleInputQueue = require("src.processMidi.handleInputQueue"),
     shiftButton = require("src.processMidi.shiftButton"),
-    dumpUmpf = require("src.processMidi.dumpUmpf")
+    umpfToCombiMode = require("src.processMidi.umpfToCombiMode")
 }
