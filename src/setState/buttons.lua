@@ -12,16 +12,19 @@ local function handleUmpfToCombiMode(button, value)
 
     local deviceType = stateUtils.getNext("deviceType")
 
-    if deviceType ~= "umpfclub" then
+    if deviceType ~= "umpfclub" and deviceType ~= "umpfretro" then
         return
     end
 
     local prevUmpfDataStr = stringUtils.serialise(umpfData)
     local layer = stateUtils.getNext("layer")
 
-    if layer == constants.layerA and button == "button3" then
-        umpfData.Rev2Comp = value > 0
+    if deviceType == "umpfclub" then
+        if layer == constants.layerA and button == "button3" then
+            umpfData.Rev2Comp = value > 0
+        end
     end
+
 
     if layer == constants.layerB and button == "button1" then
         umpfData["Ch" .. tostring(currentPad) .. "On"] = not (value > 0)

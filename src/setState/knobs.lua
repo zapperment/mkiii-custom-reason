@@ -12,7 +12,7 @@ local function handleUmpfToCombiMode(knob, value)
 
     local deviceType = stateUtils.getNext("deviceType")
 
-    if deviceType ~= "umpfclub" then
+    if deviceType ~= "umpfclub" and deviceType ~= "umpfretro" then
         return
     end
 
@@ -20,16 +20,18 @@ local function handleUmpfToCombiMode(knob, value)
     local layer = stateUtils.getNext("layer")
 
     if layer == constants.layerA then
-        if knob == "knob1" then
-            umpfData.Chop = value
-        elseif knob == "knob2" then
-            umpfData.Delay = value
-        elseif knob == "knob3" then
-            umpfData.Reverb = value
-        elseif knob == "knob4" then
-            umpfData.Compressr = value
-        elseif knob == "knob5" then
-            umpfData.Clean = value
+        if deviceType == "umpfclub" then
+            if knob == "knob1" then
+                umpfData.Chop = value
+            elseif knob == "knob2" then
+                umpfData.Delay = value
+            elseif knob == "knob3" then
+                umpfData.Reverb = value
+            elseif knob == "knob4" then
+                umpfData.Compressr = value
+            elseif knob == "knob5" then
+                umpfData.Clean = value
+            end
         end
     end
 
