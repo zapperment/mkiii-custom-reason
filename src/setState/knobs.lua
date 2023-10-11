@@ -32,6 +32,16 @@ local function handleUmpfToCombiMode(knob, value)
             elseif knob == "knob5" then
                 umpfData.Clean = value
             end
+        else
+            if knob == "knob1" then
+                umpfData.Echo = value
+            elseif knob == "knob2" then
+                umpfData.Gate = value
+            elseif knob == "knob3" then
+                umpfData.Reverb = value
+            elseif knob == "knob4" then
+                umpfData.Tape = value
+            end
         end
     end
 

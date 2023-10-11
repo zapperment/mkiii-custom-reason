@@ -73,10 +73,10 @@ local function sendUmpfToCombi(event)
         end
     else
         local values = {}
-        values.knob2 = umpfData.Chop
-        values.knob3 = umpfData.Delay
+        values.knob2 = umpfData.Chop ~= nil and umpfData.Chop or umpfData.Echo
+        values.knob3 = umpfData.Delay ~= nil and umpfData.Delay or umpfData.Gate
         values.knob4 = umpfData.Reverb
-        values.knob5 = umpfData.Compressr
+        values.knob5 = umpfData.Compressr ~= nil and umpfData.Compressr or umpfData.Tape
         values.knob6 = umpfData.Clean
 
         for i = 2, 6 do
