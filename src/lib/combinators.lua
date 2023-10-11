@@ -567,6 +567,33 @@ return {
         knob3 = "Chops",
         knob4 = "A=432hz"
     },
+    ["*[URETRO]"] = {
+        layerA = {
+            knob1 = "Ch1Vol",
+            knob2 = "Ch2Vol",
+            knob3 = "Ch3Vol",
+            knob4 = "Ch4Vol",
+            knob5 = "Ch5Vol",
+            knob6 = "Ch6Vol",
+            knob7 = "Ch7Vol",
+            knob8 = "Ch8Vol",
+            button1 = "Ch1On",
+            button2 = "Ch2On",
+            button3 = "Ch3On",
+            button4 = "Ch4On",
+            button5 = "Ch5On",
+            button6 = "Ch6On",
+            button7 = "Ch7On",
+            button8 = "Ch8On"
+        },
+        layerB = {
+            knob1 = "Pattern",
+            knob2 = "Echo",
+            knob3 = "Gate",
+            knob4 = "Reverb",
+            knob5 = "Tape"
+        }
+    },
     ["*[UCLUB]"] = {
         layerA = {
             knob1 = "Ch1Vol",
