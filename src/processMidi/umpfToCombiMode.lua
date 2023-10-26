@@ -128,6 +128,11 @@ end
 
 return function(event)
     local ret
+    if not ENV_UMPF_TO_COMBI_MODE then
+        -- Umpf-to-Combi mode can only be used when the Codec was installed
+        -- with the "umpf" flag
+        return false
+    end
     if not isShifted then
         -- if the shift button on the SL MkIII is not pressed, the
         -- layer buttons are used for setting the layer

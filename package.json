@@ -5,8 +5,10 @@
     "log": "node src/logReceiver/index.js",
     "install:win": "powershell -ExecutionPolicy Bypass -File ./install.ps1",
     "install:win:debug": "powershell -ExecutionPolicy Bypass -File ./install.ps1 debug",
+    "install:win:umpf": "powershell -ExecutionPolicy Bypass -File ./install.ps1 umpf",
     "install:mac": "./install.sh",
     "install:mac:debug": "./install.sh debug",
+    "install:mac:umpf": "./install.sh umpf",
     "test": "lua ./test/_.test.lua -v"
   },
   "devDependencies": {

@@ -15,6 +15,13 @@ if ($args[0] -eq "debug") {
     $DEBUG_MODE = $true
 }
 
+$UMPF_MODE = $false
+
+if ($args[0] -eq "umpf") {
+    Write-Host "Umpf mode: deploying codec with extra functionality for copying Umpf settings to Combinators (includes debugging)"
+    $UMPF_MODE = $true
+}
+
 $REMOTE_DIR = "C:\ProgramData\Propellerhead Software\Remote"
 
 $VENDOR = "Novation"
@@ -70,11 +77,15 @@ Copy-Item -Path $MAPS_SOURCE_DIR -Destination "${DIST_DIR}\" -Recurse
 
 Write-Host "Bundling Lua code"
 
-luabundler bundle "${CODECS_DIST_DIR}\SL MkIII.lua" -p "?.lua" -o "${CODECS_DIST_DIR}\SL MkIII.lua"
+$filePath = "${CODECS_DIST_DIR}\SL MkIII.lua"
+
+luabundler bundle $filePath -p "?.lua" -o $filePath
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Error bundling the Lua script. Did you install luabundler? Please refer to the readme file for instructions."
     exit 1
 }
+
+("ENV_UMPF_TO_COMBI_MODE = $UMPF_MODE", (Get-Content -Path $filePath)) | Set-Content -Path $filePath
 
 luabundler bundle "${CODECS_DIST_DIR}\SL MkIII Mixer.lua" -p "?.lua" -o "${CODECS_DIST_DIR}\SL MkIII Mixer.lua"
 if ($LASTEXITCODE -ne 0) {
@@ -82,7 +93,7 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-if ($DEBUG_MODE -eq $true) {
+if ($DEBUG_MODE -or $UMPF_MODE) {
     Write-Host "Using debug versions of .luacodec files, replacing production versions"
     Move-Item -Path "${CODECS_DIST_DIR}\SL MkIII.debug.luacodec" -Destination "${CODECS_DIST_DIR}\SL MkIII.luacodec" -Force
     Move-Item -Path "${CODECS_DIST_DIR}\SL MkIII Mixer.debug.luacodec" -Destination "${CODECS_DIST_DIR}\SL MkIII Mixer.luacodec" -Force
