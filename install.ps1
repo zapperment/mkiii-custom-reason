@@ -85,7 +85,8 @@ if ($LASTEXITCODE -ne 0) {
     exit 1
 }
 
-("ENV_UMPF_TO_COMBI_MODE = $UMPF_MODE", (Get-Content -Path $filePath)) | Set-Content -Path $filePath
+$lowercaseMode = $UMPF_MODE.ToString().ToLower()
+("ENV_UMPF_TO_COMBI_MODE = $lowercaseMode", (Get-Content -Path $filePath)) | Set-Content -Path $filePath
 
 luabundler bundle "${CODECS_DIST_DIR}\SL MkIII Mixer.lua" -p "?.lua" -o "${CODECS_DIST_DIR}\SL MkIII Mixer.lua"
 if ($LASTEXITCODE -ne 0) {
