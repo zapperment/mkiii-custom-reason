@@ -37,6 +37,7 @@ Scope	Propellerheads	Combinator
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"combinator"
 
 //	Control Surface Item	Key	Remotable Item	Scale	Mode	Group
 Map	knob1		Rotary 1			layerA
@@ -82,6 +83,7 @@ Scope	Propellerheads	SubTractor Analog Synthesizer
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"subtractor"
 
 //	Control Surface Item	Key	Remotable Item	Scale	Mode	Group
 Map	knob1		Filter Freq			layerA
@@ -113,6 +115,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Dr.REX Loop Player
 Define Group	layer	layerA	layerB
+Map	deviceType		"drrex"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	knob1		LFO1 Wave			layerA
@@ -141,6 +144,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Europa
 Define Group	layer	layerA	layerB
+Map	deviceType		"europa"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	knob1		Osc1 Shape			layerA
@@ -178,6 +182,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Grain
 Define Group	layer	layerA	layerB
+Map	deviceType		"grain"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	knob1		Position			layerA
@@ -208,12 +213,14 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Humana
+Map	deviceType		"humana"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Klang
+Map	deviceType		"klang"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -221,6 +228,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Kong Drum Designer
 Define Group	targetDrum	drum1	drum2	drum3	drum4	drum5	drum6	drum7	drum8	drum9	drum10	drum11	drum12	drum13	drum14	drum15	drum16
+Map	deviceType		"kong"
 Map	pad1		targetDrum=drum1
 Map	pad2		targetDrum=drum2
 Map	pad3		targetDrum=drum3
@@ -403,30 +411,35 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Malstrom Graintable Synthesizer
+Map	deviceType		"malstrom"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Mimic
+Map	deviceType		"mimic"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Monotone
+Map	deviceType		"monotone"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	NN-XT Advanced Sampler
+Map	deviceType		"nnxt"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	NN19 Digital Sampler
+Map	deviceType		"nn19"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -436,6 +449,7 @@ Scope	Propellerhead Software	se.propellerheads.Objekt
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"object"
 Map	knob1		Exciter Mix Level			layerA
 Map	knob2		Modal Mix Level			layerA
 Map	knob3		Obj 1 Mix Level			layerA
@@ -462,6 +476,7 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Pangea
+Map	deviceType		"pangea"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -469,6 +484,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ProcessedPianos
 Define Group	layer	layerA	layerB
+Map	deviceType		"processedpianos"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	knob1		Mic_A_DryLevel			layerA
@@ -503,6 +519,7 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.RadicalKeys
+Map	deviceType		"radicalkeys"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -512,6 +529,7 @@ Scope	Propellerhead Software	se.propellerheads.radicalpiano
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"radicalpiano"
 Map	knob1		Character			layerA
 Map	knob2		Microphone and Instrument Blend			layerA
 Map	knob3		Microphone 1 Type			layerA
@@ -545,6 +563,7 @@ Map	pad7		targetDrum=drum7
 Map	pad8		targetDrum=drum8
 Map	pad9		targetDrum=drum9
 Map	pad10		targetDrum=drum10
+Map	deviceType		"redrum"
 Map	button1		Drum 1 Mute			drum1
 Map	button1		Drum 2 Mute			drum2
 Map	button1		Drum 3 Mute			drum3
@@ -650,12 +669,14 @@ Map	clipDownButton		Select Next Patch
 
 // Rytmik
 Scope	Propellerhead Software	se.propellerheads.DMFC
+Map	deviceType		"rytmik"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Thor Polysonic Synthesizer
+Map	deviceType		"thor"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -664,6 +685,7 @@ Map	clipDownButton		Select Next Patch
 Scope	Propellerhead Software	se.propellerheads.Umpf
 Define Group	layer	layerA	layerB
 Define Group	targetDrum	drum1	drum2	drum3	drum4	drum5	drum6	drum7	drum8
+Map	deviceType		"umpfclub"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	pad1		targetDrum=drum1
@@ -774,6 +796,128 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.UmpfRetroBeats
+Define Group	layer	layerA	layerB
+Define Group	targetDrum	drum1	drum2	drum3	drum4	drum5	drum6	drum7	drum8
+Map	deviceType		"umpfretro"
+Map	buttonLayerA		layer=layerA
+Map	buttonLayerB		layer=layerB
+Map	pad1		targetDrum=drum1
+Map	pad2		targetDrum=drum2
+Map	pad3		targetDrum=drum3
+Map	pad4		targetDrum=drum4
+Map	pad5		targetDrum=drum5
+Map	pad6		targetDrum=drum6
+Map	pad7		targetDrum=drum7
+Map	pad8		targetDrum=drum8
+Map	knob1		Delay_Output_Level				layerA
+Map	knob2		Gated_Reverb_Output_Level				layerA
+Map	knob3		Reverb_Output_Level				layerA
+Map	knob4		Tape_Master_Mix				layerA
+Map	knob5		Master_Volume				layerA
+Map	knob1		Drum_1_Volume			drum1	layerB
+Map	knob1		Drum_2_Volume			drum2	layerB
+Map	knob1		Drum_3_Volume			drum3	layerB
+Map	knob1		Drum_4_Volume			drum4	layerB
+Map	knob1		Drum_5_Volume			drum5	layerB
+Map	knob1		Drum_6_Volume			drum6	layerB
+Map	knob1		Drum_7_Volume			drum7	layerB
+Map	knob1		Drum_8_Volume			drum8	layerB
+Map	knob2		Drum_1_Pan			drum1	layerB
+Map	knob2		Drum_2_Pan			drum2	layerB
+Map	knob2		Drum_3_Pan			drum3	layerB
+Map	knob2		Drum_4_Pan			drum4	layerB
+Map	knob2		Drum_5_Pan			drum5	layerB
+Map	knob2		Drum_6_Pan			drum6	layerB
+Map	knob2		Drum_7_Pan			drum7	layerB
+Map	knob2		Drum_8_Pan			drum8	layerB
+Map	knob3		Drum_1_Delay_Amount			drum1	layerB
+Map	knob3		Drum_2_Delay_Amount			drum2	layerB
+Map	knob3		Drum_3_Delay_Amount			drum3	layerB
+Map	knob3		Drum_4_Delay_Amount			drum4	layerB
+Map	knob3		Drum_5_Delay_Amount			drum5	layerB
+Map	knob3		Drum_6_Delay_Amount			drum6	layerB
+Map	knob3		Drum_7_Delay_Amount			drum7	layerB
+Map	knob3		Drum_8_Delay_Amount			drum8	layerB
+Map	knob4		Drum_1_Gated_Reverb_Amount			drum1	layerB
+Map	knob4		Drum_2_Gated_Reverb_Amount			drum2	layerB
+Map	knob4		Drum_3_Gated_Reverb_Amount			drum3	layerB
+Map	knob4		Drum_4_Gated_Reverb_Amount			drum4	layerB
+Map	knob4		Drum_5_Gated_Reverb_Amount			drum5	layerB
+Map	knob4		Drum_6_Gated_Reverb_Amount			drum6	layerB
+Map	knob4		Drum_7_Gated_Reverb_Amount			drum7	layerB
+Map	knob4		Drum_8_Gated_Reverb_Amount			drum8	layerB
+Map	knob5		Drum_1_Reverb_Amount			drum1	layerB
+Map	knob5		Drum_2_Reverb_Amount			drum2	layerB
+Map	knob5		Drum_3_Reverb_Amount			drum3	layerB
+Map	knob5		Drum_4_Reverb_Amount			drum4	layerB
+Map	knob5		Drum_5_Reverb_Amount			drum5	layerB
+Map	knob5		Drum_6_Reverb_Amount			drum6	layerB
+Map	knob5		Drum_7_Reverb_Amount			drum7	layerB
+Map	knob5		Drum_8_Reverb_Amount			drum8	layerB
+Map	knob6		Drum_1_Hi_Cut_Freq			drum1	layerB
+Map	knob6		Drum_2_Hi_Cut_Freq			drum2	layerB
+Map	knob6		Drum_3_Hi_Cut_Freq			drum3	layerB
+Map	knob6		Drum_4_Hi_Cut_Freq			drum4	layerB
+Map	knob6		Drum_5_Hi_Cut_Freq			drum5	layerB
+Map	knob6		Drum_6_Hi_Cut_Freq			drum6	layerB
+Map	knob6		Drum_7_Hi_Cut_Freq			drum7	layerB
+Map	knob6		Drum_8_Hi_Cut_Freq			drum8	layerB
+Map	knob7		Drum_1_Lo_Cut_Freq			drum1	layerB
+Map	knob7		Drum_2_Lo_Cut_Freq			drum2	layerB
+Map	knob7		Drum_3_Lo_Cut_Freq			drum3	layerB
+Map	knob7		Drum_4_Lo_Cut_Freq			drum4	layerB
+Map	knob7		Drum_5_Lo_Cut_Freq			drum5	layerB
+Map	knob7		Drum_6_Lo_Cut_Freq			drum6	layerB
+Map	knob7		Drum_7_Lo_Cut_Freq			drum7	layerB
+Map	knob7		Drum_8_Lo_Cut_Freq			drum8	layerB
+Map	button1		Drum_1_Mute			drum1	layerB
+Map	button1		Drum_2_Mute			drum2	layerB
+Map	button1		Drum_3_Mute			drum3	layerB
+Map	button1		Drum_4_Mute			drum4	layerB
+Map	button1		Drum_5_Mute			drum5	layerB
+Map	button1		Drum_6_Mute			drum6	layerB
+Map	button1		Drum_7_Mute			drum7	layerB
+Map	button1		Drum_8_Mute			drum8	layerB
+Map	button2		Drum_1_Solo			drum1	layerB
+Map	button2		Drum_2_Solo			drum2	layerB
+Map	button2		Drum_3_Solo			drum3	layerB
+Map	button2		Drum_4_Solo			drum4	layerB
+Map	button2		Drum_5_Solo			drum5	layerB
+Map	button2		Drum_6_Solo			drum6	layerB
+Map	button2		Drum_7_Solo			drum7	layerB
+Map	button2		Drum_8_Solo			drum8	layerB
+Map	button3		Drum_1_Filter_On			drum1	layerB
+Map	button3		Drum_2_Filter_On			drum2	layerB
+Map	button3		Drum_3_Filter_On			drum3	layerB
+Map	button3		Drum_4_Filter_On			drum4	layerB
+Map	button3		Drum_5_Filter_On			drum5	layerB
+Map	button3		Drum_6_Filter_On			drum6	layerB
+Map	button3		Drum_7_Filter_On			drum7	layerB
+Map	button3		Drum_8_Filter_On			drum8	layerB
+Map	button4		Drum_1_Insert_FX_1_On			drum1	layerB
+Map	button4		Drum_2_Insert_FX_1_On			drum2	layerB
+Map	button4		Drum_3_Insert_FX_1_On			drum3	layerB
+Map	button4		Drum_4_Insert_FX_1_On			drum4	layerB
+Map	button4		Drum_5_Insert_FX_1_On			drum5	layerB
+Map	button4		Drum_6_Insert_FX_1_On			drum6	layerB
+Map	button4		Drum_7_Insert_FX_1_On			drum7	layerB
+Map	button4		Drum_8_Insert_FX_1_On			drum8	layerB
+Map	button5		Drum_1_Insert_FX_2_On			drum1	layerB
+Map	button5		Drum_2_Insert_FX_2_On			drum2	layerB
+Map	button5		Drum_3_Insert_FX_2_On			drum3	layerB
+Map	button5		Drum_4_Insert_FX_2_On			drum4	layerB
+Map	button5		Drum_5_Insert_FX_2_On			drum5	layerB
+Map	button5		Drum_6_Insert_FX_2_On			drum6	layerB
+Map	button5		Drum_7_Insert_FX_2_On			drum7	layerB
+Map	button5		Drum_8_Insert_FX_2_On			drum8	layerB
+Map	button6		Drum_1_Insert_FX_3_On			drum1	layerB
+Map	button6		Drum_2_Insert_FX_3_On			drum2	layerB
+Map	button6		Drum_3_Insert_FX_3_On			drum3	layerB
+Map	button6		Drum_4_Insert_FX_3_On			drum4	layerB
+Map	button6		Drum_5_Insert_FX_3_On			drum5	layerB
+Map	button6		Drum_6_Insert_FX_3_On			drum6	layerB
+Map	button6		Drum_7_Insert_FX_3_On			drum7	layerB
+Map	button6		Drum_8_Insert_FX_3_On			drum8	layerB
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -783,6 +927,7 @@ Scope	Synapse Audio	com.synapseAudioSoftware.Antidote
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"syn.antidote"
 Map	knob1		Filter Cutoff			layerA
 Map	knob2		Filter Resonance			layerA
 Map	knob3		Filter Envelope Amount			layerA
@@ -815,6 +960,7 @@ Scope	Synapse Audio	com.synapseAudioSoftware.Obsession
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"syn.obsession"
 Map	knob1		[A] OSC 1 Frequency			layerA
 Map	knob2		[A] OSC Pulse Width			layerA
 Map	knob3		[A] OSC 2 Frequency			layerA
@@ -855,6 +1001,7 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.PX7
+Map	deviceType		"px7"
 Map	knob1		Brightness
 Map	knob2		Attack
 Map	knob3		Decay
@@ -867,6 +1014,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Algoritm
 Define Group	layer	layerA	layerB
+Map	deviceType		"algoritm"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	knob1		FM Amount Offset			layerA
@@ -895,6 +1043,7 @@ Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Complex
 Define Group	layer	layerA	layerB
+Map	deviceType		"complex"
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
 Map	knob1		Osc 1 Shape			layerA
@@ -939,36 +1088,42 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Iridium
+Map	deviceType		"iridium"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.layers
+Map	deviceType		"layers"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.layers_wave_edition
+Map	deviceType		"layerswave"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Nautilus2
+Map	deviceType		"nautilus2"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Skrock Music	se.skrockmusic.Nautilus
+Map	deviceType		"nautilus"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Parsec
+Map	deviceType		"parsec"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -976,24 +1131,28 @@ Map	clipDownButton		Select Next Patch
 
 // Reason Drum Kits
 Scope	Propellerhead Software	se.propellerheads.RDK
+Map	deviceType		"reasondrumkits"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ElectricBass
+Map	deviceType		"electricbass"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ScenicHybrid
+Map	deviceType		"scenic"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio	com.synapseAudioSoftware.Legend
+Map	deviceType		"syn.legend"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -1001,255 +1160,320 @@ Map	clipDownButton		Select Next Patch
 
 // Thermal
 Scope	Skrock Music	se.skrockmusic.Radiator
+Map	deviceType		"radiator"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.3BandEQ
+Map	deviceType		"kh.3band"
 Map	deviceName		Device Name
 
 Scope	Propellerheads	Alligator
+Map	deviceType		"alligator"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Audiomatic
+Map	deviceType		"audiomatic"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Bitcrush
+Map	deviceType		"kh.bitcrush"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.ChannelDynamics
+Map	deviceType		"channeldynamics"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.ChannelEQ
+Map	deviceType		"channeleq"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Chorus
+Map	deviceType		"kh.chorus"
 Map	deviceName		Device Name
 
 Scope	MagmaSonic	drno.magmasonic.ClassicFilter
+Map	deviceType		"magma.classicfilter"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Compressor
+Map	deviceType		"kh.compressor"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.CombFilter
+Map	deviceType		"kh.combfilter"
 Map	deviceName		Device Name
 
 Scope	SKP Sound Design	com.skepticalproductions.D1RT
+Map	deviceType		"skeptical.d1rt"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Delay
+Map	deviceType		"kh.delay"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Distortion
+Map	deviceType		"kh.distortion"
 Map	deviceName		Device Name
 
 Scope	Kuassa	com.kuassa.EfektorGQ3607
+Map	deviceType		"kuassa.gq3607"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Kuassa	com.kuassa.EfektorSilencer
+Map	deviceType		"kuassa.silencer"
 Map	deviceName		Device Name
 
 Scope	LAB ONE Recordings	co.uk.labonerecordings.EQUILA
+Map	deviceType		"labone.equila"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Filter
+Map	deviceType		"kh.filter"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.FormantFilter
+Map	deviceType		"kh.formantfilter"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.FrequencyShifter
+Map	deviceType		"kh.frequencyshifter"
 Map	deviceName		Device Name
 
 Scope	GVXT	uk.co.gvxt.GClip
+Map	deviceType		"gvxt.gclip"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Gain
+Map	deviceType		"kh.gain"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Gate
+Map	deviceType		"kh.gate"
 Map	deviceName		Device Name
 
 Scope	Red Rock Sound	ru.redrocksound.hlfre
+Map	deviceType		"redrock.hlfre"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Haas
+Map	deviceType		"kh.haas"
 Map	deviceName		Device Name
 
 Scope	Jiggery Pokery	com.jiggerypokery.Itsy
+Map	deviceType		"jig.itsy"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.LadderFilter
+Map	deviceType		"kh.ladderfilter"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Limiter
+Map	deviceType		"kh.limiter"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.MasterCompressor
+Map	deviceType		"mastercompressor"
 Map	deviceName		Device Name
 
 Scope	ThatMusicCompany	com.thatmusiccompany.MrOverDrive
+Map	deviceType		"that.mroverdrive"
 Map	deviceName		Device Name
 
 Scope	Propellerheads	Neptune Pitch Adjuster
+Map	deviceType		"neptune"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Inphonik	fr.mathieudemange.PCM2612
+Map	deviceType		"inph.pcm2612"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.PhaseDistortion
+Map	deviceType		"kh.phasedistortion"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Phaser
+Map	deviceType		"kh.phaser"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.PitchShifter
+Map	deviceType		"kh.pitchshifter"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.Polar
+Map	deviceType		"polar"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Pulveriser
+Map	deviceType		"pulveriser"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	sonicbits.io	io.sonicbits.Pump
+Map	deviceType		"sonic.pump"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Quartet
+Map	deviceType		"quartet"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Red Rock Sound	ru.redrocksound.RE302
+Map	deviceType		"redrock.re302"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	RV7000 Advanced Reverb
+Map	deviceType		"rv7000"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.Resonator
+Map	deviceType		"kh.resonator"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Reverb
+Map	deviceType		"kh.reverb"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Reverser
+Map	deviceType		"kh.reverser"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.RingMod
+Map	deviceType		"kh.ringmod"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.Rotor
+Map	deviceType		"rotor"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerheads	Scream 4 Distortion
+Map	deviceType		"scream4"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ReasonAmp
+Map	deviceType		"reasonamp"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ReasonBassAmp
+Map	deviceType		"reasonbassamp"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Softube	com.softube.re.SaturationKnob
+Map	deviceType		"st.saturationknob"
 Map	deviceName		Device Name
 
 Scope	kiloHearts	com.kilohearts.Stereo
+Map	deviceType		"kh.stereo"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.Sweeper
+Map	deviceType		"sweeper"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseFilter
+Map	deviceType		"syn.filter"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapsePhaser
+Map	deviceType		"syn.phaser"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseChorus
+Map	deviceType		"syn.chorus"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseReverb1
+Map	deviceType		"syn.reverb1"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.FatSpace
+Map	deviceType		"syn.fatspace"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseGQ7
+Map	deviceType		"syn.gq7"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseNinety
+Map	deviceType		"syn.ninety"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRE160
+Map	deviceType		"syn.re160"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseRingMod
+Map	deviceType		"syn.ringmod"
 Map	deviceName		Device Name
 
 Scope	Synapse Audio Software	com.synapseAudioSoftware.SynapseVintEQ
+Map	deviceType		"syn.vinteq"
 Map	deviceName		Device Name
 
 Scope	Propellerhead Software	se.propellerheads.Synchronous
+Map	deviceType		"synchronous"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	ThatMusicCompany	com.thatmusiccompany.T2Phaser
+Map	deviceType		"that.t2phaser"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.TapeStop
+Map	deviceType		"kh.tapestop"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
@@ -1259,6 +1483,7 @@ Scope	Propellerheads	The Echo
 Define Group	layer	layerA	layerB
 Map	buttonLayerA		layer=layerA
 Map	buttonLayerB		layer=layerB
+Map	deviceType		"theecho"
 Map	sustainPedal		Trig
 Map	knob1		Delay Time			layerA
 Map	knob2		Right Ch Time Offset			layerA
@@ -1288,264 +1513,308 @@ Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.TranceGate
+Map	deviceType		"kh.trancegate"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	kiloHearts	com.kilohearts.TransientShaper
+Map	deviceType		"kh.transientshaper"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	pongasoft	com.pongasoft.VAC6
+Map	deviceType		"pong.vac6"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Jiggery Pokery	com.jiggerypokery.Villanelle
+Map	deviceType		"jig.villanelle"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	omino	com.omino.Wbl6414
+Map	deviceType		"om.wbl6414"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Tonicmint	com.tonicmint.ABTranspose
+Map	deviceType		"tm.abtranspose"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Aggregate
+Map	deviceType		"lp.aggregate"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Static Cling	com.staticcling.AutoLatch
+Map	deviceType		"sc.autolatch"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Bassline
+Map	deviceType		"bassline"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.BeatMap
+Map	deviceType		"beatmap"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.CVP
+Map	deviceType		"lp.cvp"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ChordSequencer
+Map	deviceType		"chordsequencer"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.Chordbank
+Map	deviceType		"es.chordbank"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Static Cling	com.staticcling.Delta
+Map	deviceType		"sc.delta"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Andrew Russell	net.andrewrussell.Denote
+Map	deviceType		"ar.denote"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.DrumSeq
+Map	deviceType		"drumseq"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Arpeggio
+Map	deviceType		"arpeggio"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Robotic Bean	com.roboticbean.EuclidPlayer
+Map	deviceType		"rb.euclid"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Evolution
+Map	deviceType		"lp.evolution"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Retouch Control	com.retouchcontrol.grid64P2
+Map	deviceType		"rtc.grid64p2"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.Inspiral
+Map	deviceType		"es.inspiral"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Kompulsion
+Map	deviceType		"lp.kompulsion"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Retouch Control	com.retouchcontrol.Life
+Map	deviceType		"rtc.life"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LoveOne	se.loveone.MIDICompressor
+Map	deviceType		"l1.midicompressor"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LoveOne	se.loveone.MIDICVConverter
+Map	deviceType		"l1.midicvconverter"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Speo	com.speomusic.Map64
+Map	deviceType		"speo.map64"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.MeloDramatik
+Map	deviceType		"es.melodramatik"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.MelodicInverter
+Map	deviceType		"es.melodicinverter"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteAlter
+Map	deviceType		"es.notealter"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.NoteEcho
+Map	deviceType		"noteecho"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteFilter
+Map	deviceType		"es.notefilter"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteHumanizer
+Map	deviceType		"es.notehumanizer"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Enlightenspeed Ltd	uk.enlightenspeed.NoteLatch
+Map	deviceType		"es.notelatch"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.Mutator
+Map	deviceType		"mutator"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.PolyStepSequencer
+Map	deviceType		"polystep"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.QuadNoteGenerator
+Map	deviceType		"quadnotegenerator"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.RND_2
+Map	deviceType		"lp.rnd2"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	LeNoteLiveSoftware	it.lenotelive.ReceiveNotes
+Map	deviceType		"lnl.receivenotes"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Propellerhead Software	se.propellerheads.ScalesAndChords
+Map	deviceType		"scalesandchords"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Selig Audio	com.seligaudio.NoteView
+Map	deviceType		"sa.noteview"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Robotic Bean	com.roboticbean.Sequences
+Map	deviceType		"rb.sequences"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.UTL
+Map	deviceType		"lp.utl"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.mDSQ
+Map	deviceType		"lp.mdsq"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch
 Map	clipDownButton		Select Next Patch
 
 Scope	Lectric Panda LLC	com.lectricpanda.Janitor
+Map	deviceType		"lp.janitor"
 Map	deviceName		Device Name
 Map	patchName		Patch Name
 Map	clipUpButton		Select Previous Patch

@@ -1,10 +1,14 @@
 local stateUtils = require("src.lib.stateUtils")
 local items = require("src.lib.items")
 local constants = require("src.lib.constants")
--- local debugUtils = require("src.lib.debugUtils")
 
 return function(event)
     local processed = false
+    if isShifted then
+        -- if the shift button on the SL MkIII is currently pressed, the
+        -- layer buttons are used for something other than setting the layer
+        return processed
+    end
     for _, button in ipairs({"buttonLayerA", "buttonLayerB"}) do
         local ret = remote.match_midi(items[button].midiMatcher, event)
         if ret and ret.x > 0 then

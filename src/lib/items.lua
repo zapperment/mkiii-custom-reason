@@ -267,6 +267,11 @@ return {
         midiMatcher = "BF 52 xx",
         controller = 82
     },
+    shiftButton = {
+        input = "button",
+        output = "value",
+        midiMatcher = "BF 5B xx"
+    },
     pad1 = {
         input = "button",
         output = "value",

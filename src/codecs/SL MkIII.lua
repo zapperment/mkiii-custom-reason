@@ -27,6 +27,11 @@ faderColourTooLow = colours.darkRed.dec
 faderColourTooHigh = colours.darkYellow.dec
 faderColourInSync = colours.green.dec
 
+isShifted = false
+isUmpfToCombiMode = false
+umpfData = {}
+currentPad = 1
+
 function greaterThanZero(x)
     if x ~= 0 then
         return 1
@@ -132,8 +137,8 @@ end
 -- defined with remote.define_auto_inputs().
 function remote_process_midi(event)
     processMidi.handleInputQueue(event)
-    return processMidi.knobs(event) or processMidi.buttons(event) or processMidi.layerButtons(event) or
-               processMidi.pads(event)
+    return processMidi.shiftButton(event) or processMidi.knobs(event) or processMidi.buttons(event) or
+               processMidi.umpfToCombiMode(event) or processMidi.layerButtons(event) or processMidi.pads(event)
 end
 
 -- REASON => CODEC

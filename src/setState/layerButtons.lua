@@ -1,7 +1,7 @@
 local stateUtils = require("src.lib.stateUtils")
 local items = require("src.lib.items")
 local constants = require("src.lib.constants")
--- local debugUtils = require("src.lib.debugUtils")
+--local log = require("src.lib.debugUtils").log
 
 return function(changedItems)
     for _, changedItemIndex in ipairs(changedItems) do
