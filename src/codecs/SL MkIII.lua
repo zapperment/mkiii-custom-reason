@@ -159,7 +159,7 @@ end
 -- surface state. The return value should be an array of MIDI events.
 function remote_deliver_midi(_, port)
     if (port == 2) then
-        return debugUtils.dumpLog(events)
+        return debugUtils.dumpLog()
     end
 
     local events = {}
